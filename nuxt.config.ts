@@ -17,6 +17,10 @@ export default defineNuxtConfig({
     }
   },
   
+  experimental: {
+    payloadExtraction: false,
+  },
+
   modules: ['@nuxtjs/tailwindcss'],
   tailwindcss: {
     cssPath: '~/app/assets/css/tailwind.css',
