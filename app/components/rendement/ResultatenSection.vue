@@ -52,7 +52,7 @@
             class="w-full h-full object-cover"
           >
         </div>
-        <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100 flex items-center justify-center p-4">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100 flex items-center justify-center">
           <img
             src="/rendement/ems-diagram.png"
             alt="EMS-aansturing: batterij, zon, verbruik en net"
