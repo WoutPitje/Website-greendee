@@ -1,8 +1,8 @@
 <template>
   <section class="relative h-[50vh] sm:h-[60vh] flex items-end">
     <img
-      src="/netcongestie/contact-2.jpg"
-      alt="Zonnepanelen op dak"
+      src="/hero-3.png"
+      alt="Zonnepanelen op bedrijfsdaken"
       class="absolute inset-0 w-full h-full object-cover"
     >
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />

@@ -1,7 +1,7 @@
 <template>
   <section class="relative h-[50vh] sm:h-[60vh] flex items-end">
     <img
-      src="/gebiedsontwikkeling-hero.png"
+      src="/gebiedsontwikkeling-hero.jpg"
       alt="Windmolens en zonnepanelen"
       class="absolute inset-0 w-full h-full object-cover"
     >

@@ -42,6 +42,31 @@
       <div class="mx-auto mt-12 max-w-xl rounded-2xl bg-greendee-green/5 border border-greendee-green/20 p-8 text-center">
         <p class="text-lg font-semibold text-gray-900">Wij kijken niet alleen technisch, maar ook financieel met u mee.</p>
       </div>
+
+      <!-- Resultaten foto's -->
+      <div class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
+          <img
+            src="/rendement/cellpower-deur.jpg"
+            alt="Monteur bij CELL POWER batterij"
+            class="w-full h-full object-cover"
+          >
+        </div>
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100 flex items-center justify-center p-4">
+          <img
+            src="/rendement/ems-diagram.png"
+            alt="EMS-aansturing: batterij, zon, verbruik en net"
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
+          <img
+            src="/rendement/windmolens.jpg"
+            alt="GreenDee bij windmolens"
+            class="w-full h-full object-cover"
+          >
+        </div>
+      </div>
     </div>
   </section>
 </template>

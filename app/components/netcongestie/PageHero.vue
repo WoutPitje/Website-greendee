@@ -1,8 +1,8 @@
 <template>
   <section class="relative h-[50vh] sm:h-[60vh] flex items-end">
     <img
-      src="/netcongestie/contact-2.jpg"
-      alt="Zonnepanelen op dak bij zonsondergang"
+      src="/hero-2.png"
+      alt="Elektriciteitsnetwerk transformatorstation"
       class="absolute inset-0 w-full h-full object-cover"
     >
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -12,7 +12,7 @@
         Netcongestie
       </h1>
       <p class="mt-4 text-lg leading-8 text-gray-200 max-w-2xl">
-        Kijken naar de data van het verleden, simuleren van de data toekomst. Zo komen wij tot een data gedreven oplossing.
+        Kijken naar de data van het verleden, simuleren met de data toekomst. Zo komen wij tot een data gedreven oplossing.
       </p>
     </div>
   </section>

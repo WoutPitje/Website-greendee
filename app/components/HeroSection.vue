@@ -2,11 +2,11 @@
   <section class="bg-gray-900">
     <div class="grid grid-cols-1 lg:grid-cols-2 h-[85vh] sm:h-[90vh]">
       <!-- Left: Large image -->
-      <div class="relative overflow-hidden">
+      <NuxtLink to="/gebiedsontwikkeling" class="relative overflow-hidden block cursor-pointer group">
         <img
-          src="/hero-1.png"
+          src="/hero-1.jpg"
           alt="Windmolens en zonnepanelen op een veld"
-          class="absolute inset-0 w-full h-full object-cover"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         >
         <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         <div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8">
@@ -16,16 +16,16 @@
             </p>
           </div>
         </div>
-      </div>
+      </NuxtLink>
 
       <!-- Right: Two stacked images -->
       <div class="flex flex-col">
         <!-- Top right image -->
-        <div class="relative overflow-hidden flex-1 min-h-0">
+        <NuxtLink to="/netcongestie" class="relative overflow-hidden flex-1 min-h-0 block cursor-pointer group">
           <img
             src="/hero-2.png"
             alt="Elektriciteitsnetwerk transformatorstation"
-            class="absolute inset-0 w-full h-full object-cover"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           >
           <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
@@ -35,14 +35,14 @@
               </p>
             </div>
           </div>
-        </div>
+        </NuxtLink>
 
         <!-- Bottom right image -->
-        <div class="relative overflow-hidden flex-1 min-h-0">
+        <NuxtLink to="/rendement" class="relative overflow-hidden flex-1 min-h-0 block cursor-pointer group">
           <img
             src="/hero-3.png"
             alt="Zonnepanelen op bedrijfsdaken"
-            class="absolute inset-0 w-full h-full object-cover"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           >
           <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
@@ -52,7 +52,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </section>

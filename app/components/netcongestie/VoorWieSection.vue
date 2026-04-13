@@ -23,12 +23,12 @@
 
       <!-- Photo mosaic -->
       <div class="mx-auto mt-20 max-w-5xl">
-        <div class="columns-2 gap-4 sm:columns-3">
-          <div v-for="(img, i) in images" :key="i" class="mb-4 break-inside-avoid overflow-hidden rounded-2xl">
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <div v-for="(img, i) in images" :key="i" class="aspect-[4/3] overflow-hidden rounded-2xl">
             <img
               :src="img"
               alt=""
-              class="w-full object-cover transition-transform duration-300 hover:scale-105"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             >
           </div>
         </div>
