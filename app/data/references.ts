@@ -3,7 +3,7 @@ export interface Reference {
   title: string
   location: string
   capacity: string
-  category: 'Energiehandel' | 'Netcongestie'
+  category: 'Energiehandel' | 'Netcongestie' | 'Energie-optimalisatie'
   description: string
   image: string
   featured?: boolean
@@ -120,5 +120,51 @@ export const references: Reference[] = [
     description: 'Widdonckschool stond voor een grote uitdaging door netcongestie. De uitbreiding van het schoolgebouw en de samenvoeging van speciaal en voortgezet speciaal onderwijs zorgden voor een sterke toename van het energieverbruik. Vooral praktijklessen zoals koken en techniek vroegen veel vermogen, waardoor overschrijding van het gecontracteerde aansluitvermogen dreigde. Om het onderwijs betrouwbaar en ongestoord te laten doorgaan, is gekozen voor energieopslag als oplossing. Met de plaatsing van een Cellpower batterij van 233 kWh kan de school vermogenspiekken opvangen en blijft het elektriciteitsverbruik binnen de bestaande netcapaciteit. Hierdoor is een stabiele energievoorziening gegarandeerd, ook tijdens intensief gebruik van praktijklokalen. GreenDee heeft dit project volledig begeleid: van analyse en advies tot en met de uitvoering van het batterijsysteem. In samenwerking met de gemeente is zo een toekomstbestendige oplossing gerealiseerd die netcongestie opvangt en bijdraagt aan de continuïteit van het onderwijs. Dit project laat zien hoe energieopslag ook binnen het onderwijs een praktische en duurzame oplossing biedt voor een overvol stroomnet.',
     image: '/referenties/Widdonckschool-Heibloem.jpg',
     featured: true
+  },
+  {
+    id: 'kwekerij-boekel',
+    title: 'Kwekerij Boekel',
+    location: 'Sint Maarten',
+    capacity: '102 kWh',
+    category: 'Energie-optimalisatie',
+    description: 'Met een 3x80A netaansluiting is het voor Kwekerij Boekel belangrijk om slim om te gaan met energie voor een stabiele en toekomstbestendige bedrijfsvoering. Om meer waarde te halen uit de eigen zonnepanelen investeerde Kwekerij Boekel in een Cellpower batterij van 50 kW / 102 kWh. Deze batterij maakt het mogelijk om energie op te slaan en flexibel in te zetten op momenten waarop energie het duurst is. Hierdoor wordt het eigen energieverbruik geoptimaliseerd. Het volledige traject, van onafhankelijk advies tot en met realisatie, is begeleid door GreenDee. Door de bedrijfsprocessen en het energieprofiel van de kwekerij te analyseren, is een oplossing gekozen die aansluit bij de huidige situatie én ruimte biedt voor toekomstige groei. Dit project laat zien dat energieopslag ook binnen de glastuinbouwsector direct toepasbaar is en een concrete bijdrage levert aan zowel rendement als duurzaamheid.',
+    image: '/referenties/Kwekerij Boekel-Sint Maarten.jpg'
+  },
+  {
+    id: 'amsterdam-warehouse-company',
+    title: 'Amsterdam Warehouse Company',
+    location: 'Amsterdam',
+    capacity: '1000 kWh',
+    category: 'Netcongestie',
+    description: 'Amsterdam Warehouse Company (AWC) in Amsterdam heeft op haar nieuwbouwlocatie een belangrijke stap gezet richting een toekomstbestendige en duurzame energievoorziening. Binnen een logistieke omgeving waar continuïteit en piekbelasting een grote rol spelen, is grip op energie cruciaal. Om deze reden investeerde AWC in een eigen energie-infrastructuur, bestaande uit circa 1.000 zonnepanelen in combinatie met ongeveer 1 MWh batterijopslag. Met deze opzet wordt lokaal opgewekte energie maximaal benut en kan het bedrijf een groot deel van het energieverbruik zelfstandig invullen. De batterij speelt daarnaast een sleutelrol in het opvangen van stroompieken. Door slim te sturen op verbruik en opslag wordt de impact van netcongestie beperkt en blijft de operatie betrouwbaar, ook op momenten van hoge belasting. Dit zorgt niet alleen voor meer flexibiliteit, maar ook voor structureel lagere energiekosten en minder afhankelijkheid van het elektriciteitsnet. Het volledige traject, van analyse en ontwerp tot realisatie, is begeleid door GreenDee.',
+    image: '/referenties/Amsterdam Warehouse Company-Amsterdam.jpg',
+    featured: true
+  },
+  {
+    id: 'maatschap-de-koemkolk',
+    title: 'Maatschap de Koemkolk',
+    location: 'Oosterwolde',
+    capacity: '418 kWh',
+    category: 'Energiehandel',
+    description: 'Maatschap De Koemkolk in Oosterwolde is een agrarisch bedrijf dat actief inspeelt op de snel veranderende energiemarkt. Door de afnemende opbrengsten van zonnestroom werd het steeds belangrijker om opgewekte energie slimmer te benutten en de waarde ervan te behouden. Daarom is gekozen voor energieopslag in combinatie met energiehandel. Met twee Cellpower batterijsystemen van elk 104 kW / 209 kWh (totaal 418 kWh) kan opgewekte zonnestroom worden opgeslagen en flexibel worden ingezet op momenten waarop de marktprijzen gunstig zijn. Hiermee wordt duurzame energie niet alleen efficiënter gebruikt, maar ook economisch geoptimaliseerd. Het volledige traject, van advies tot en met realisatie, is begeleid door GreenDee. Door het energieprofiel en de bedrijfsvoering van Maatschap De Koemkolk te vertalen naar een passende oplossing, kan het bedrijf actief inspelen op prijsschommelingen en meer rendement halen uit de bestaande zonnestroominstallatie.',
+    image: '/referenties/Maatschap de Koemkolk-Oosterwolde.jpg'
+  },
+  {
+    id: 'akkerbouw-loonwerk-glas',
+    title: 'Akkerbouw en Loonwerk Glas',
+    location: 'Nieuwe Niedorp',
+    capacity: '418 kWh',
+    category: 'Energiehandel',
+    description: 'Loon- en akkerbouwbedrijf Glas in Nieuwe Niedorp speelt actief in op de dynamiek van de huidige energiemarkt. Door teruglopende opbrengsten van zonnestroom werd het noodzakelijk om opgewekte energie slimmer te benutten en de waarde ervan te behouden. Daarom is gekozen voor een combinatie van energieopslag en energiehandel. Met twee Cellpower batterijsystemen van elk 104 kW / 209 kWh (totaal 418 kWh) kan opgewekte zonnestroom worden opgeslagen en flexibel worden ingezet op momenten waarop de energieprijzen gunstig zijn. Dit zorgt ervoor dat duurzame energie niet alleen efficiënter wordt gebruikt, maar ook financieel geoptimaliseerd wordt. Het volledige traject, van advies tot en met realisatie, is begeleid door GreenDee. Door het energieprofiel en de bedrijfsvoering van Loon- en akkerbouwbedrijf Glas te vertalen naar een passende oplossing, kan het bedrijf actief inspelen op prijsschommelingen en het rendement op de bestaande zonnestroominstallatie maximaliseren.',
+    image: '/referenties/Akkerbouw en Loonwerk Glas-Nieuwe Niedorp.jpg'
+  },
+  {
+    id: 'gp-muileboom',
+    title: 'G.P. Muileboom B.V.',
+    location: 'Waarland',
+    capacity: '430 kWh',
+    category: 'Energiehandel',
+    description: 'Koolboer G.P. Muileboom in Waarland anticipeert doelgericht op de ontwikkelingen binnen de energiemarkt. Door de dalende opbrengsten van zonnestroom is het steeds relevanter geworden om opgewekte energie op het juiste moment te benutten en zo de waarde ervan te borgen. Om dit mogelijk te maken, is gekozen voor een oplossing met een EMS en energieopslag in combinatie met energiehandel. Met twee Huawei batterijsystemen van elk 100 kW / 215 kWh (totaal 430 kWh) wordt zonnestroom tijdelijk opgeslagen en strategisch ingezet op momenten dat de marktprijzen gunstig zijn. Hiermee wordt niet alleen het eigen energieverbruik geoptimaliseerd, maar ook extra rendement gerealiseerd. GreenDee heeft het volledige traject verzorgd, van analyse en advies tot en met de implementatie. Door het energieprofiel en de operationele processen van Koolboer G.P. Muileboom te vertalen naar een maatwerkoplossing, beschikt het bedrijf over de flexibiliteit om actief in te spelen op prijsschommelingen en meer waarde te halen uit de bestaande zonnestroominstallatie.',
+    image: '/referenties/G.P. Muileboom B.V.-Waarland.jpg'
   }
 ]

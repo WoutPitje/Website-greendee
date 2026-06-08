@@ -162,8 +162,9 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-base font-semibold leading-7 text-gray-900">Locatie</h3>
-                <p class="mt-1 text-sm text-gray-600">IJzendoorn, Gelderland</p>
+                <h3 class="text-base font-semibold leading-7 text-gray-900">Locaties</h3>
+                <p class="mt-1 text-sm text-gray-600">Saneringsweg 3, 4053 JK IJzendoorn (GLD)</p>
+                <p class="mt-1 text-sm text-gray-600">Bergerweg 200, 1817 MN Alkmaar (NH)</p>
               </div>
             </div>
           </div>

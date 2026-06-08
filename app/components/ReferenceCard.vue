@@ -21,7 +21,9 @@
             'inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold shadow-md',
             reference.category === 'Energiehandel'
               ? 'bg-greendee-green text-white'
-              : 'bg-greendee-yellow text-gray-900'
+              : reference.category === 'Netcongestie'
+                ? 'bg-greendee-yellow text-gray-900'
+                : 'bg-blue-600 text-white'
           ]"
         >
           {{ reference.category }}

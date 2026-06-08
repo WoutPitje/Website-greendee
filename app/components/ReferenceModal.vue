@@ -10,17 +10,19 @@
     >
       <div
         v-if="isOpen"
-        class="fixed inset-0 z-50 overflow-y-auto"
-        @click="handleBackdropClick"
+        class="fixed inset-0 z-[60] overflow-y-auto"
         role="dialog"
         aria-modal="true"
         :aria-labelledby="reference ? `modal-title-${reference.id}` : undefined"
       >
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity" />
+        <div class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity" @click="$emit('close')" />
 
         <!-- Modal Container -->
-        <div class="flex min-h-full items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div
+          class="relative flex min-h-full items-start justify-center p-4 pt-24 sm:p-6 sm:pt-28 lg:p-8 lg:pt-32"
+          @click.self="$emit('close')"
+        >
           <Transition
             enter-active-class="transition ease-out duration-300"
             enter-from-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -31,7 +33,6 @@
           >
             <div
               v-if="isOpen && reference"
-              ref="modalContent"
               class="relative w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white shadow-2xl transition-all"
               @click.stop
             >
@@ -67,7 +68,9 @@
                         'inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold',
                         reference.category === 'Energiehandel'
                           ? 'bg-greendee-green text-white'
-                          : 'bg-greendee-yellow text-gray-900'
+                          : reference.category === 'Netcongestie'
+                            ? 'bg-greendee-yellow text-gray-900'
+                            : 'bg-blue-600 text-white'
                       ]"
                     >
                       {{ reference.category }}
@@ -126,7 +129,7 @@
 </template>
 
 <script setup>
-import { watch, ref, onMounted, onUnmounted } from 'vue'
+import { watch, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({
   isOpen: {
@@ -140,15 +143,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['close'])
-
-const modalContent = ref(null)
-
-// Handle backdrop click
-const handleBackdropClick = (event) => {
-  if (event.target === event.currentTarget) {
-    emit('close')
-  }
-}
 
 // Handle ESC key
 const handleEscape = (event) => {

@@ -40,6 +40,7 @@ export default defineNuxtConfig({
         lang: 'nl'
       },
       meta: [
+        { name: 'color-scheme', content: 'light' },
         { name: 'description', content: 'GreenDee helpt bedrijven bij netcongestie en energietransitie. Van slimme energieopslag tot projectmanagement. Direct contact: 06-34466611.' },
         { name: 'keywords', content: 'netcongestie, energietransitie, duurzame energie, energieopslag, peakshaving, projectmanagement energie, Lars van Dee, GreenDee, NetcongestieOpgelost' },
         { name: 'author', content: 'Lars van Dee - GreenDee' },
