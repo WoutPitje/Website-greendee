@@ -1,0 +1,10 @@
+# Per-project Docker image for this React + Vite project.
+# Extends Locable's base sandbox, which already ships the Node/npm toolchain, so
+# nothing extra is installed by default.
+#
+# To install EXTRA system packages/runtimes, add them in a RUN below (between
+# USER root and USER claude). Keep the first two lines as-is. Do NOT set
+# ENTRYPOINT/CMD/WORKDIR, modify the `claude` user, or COPY application code
+# (the project is bind-mounted at /app at runtime).
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
