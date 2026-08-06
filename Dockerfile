@@ -14,6 +14,10 @@ FROM node:22-alpine AS runtime
 
 WORKDIR /app
 
+# Coolify's container healthcheck shells out to curl/wget, neither of which
+# ships in node:alpine.
+RUN apk add --no-cache curl
+
 ENV NODE_ENV=production
 ENV NITRO_HOST=0.0.0.0
 ENV NITRO_PORT=3000
