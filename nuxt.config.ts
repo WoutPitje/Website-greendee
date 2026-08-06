@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     resendApiKey: '',
     // Comma-separated; every address gets the submission.
-    contactTo: 'offerte@greendee.nl,wout@pitdigital.nl',
+    contactTo: 'offerte@greendee.nl',
     // Must be on the domain verified in Resend (mail.greendee.nl), not the
     // apex — the apex is Microsoft 365 and its SPF ends in -all.
     contactFrom: 'GreenDee website <website@mail.greendee.nl>'
