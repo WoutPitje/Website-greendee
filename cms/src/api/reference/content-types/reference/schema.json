@@ -53,6 +53,11 @@
       "required": false,
       "allowedTypes": ["images"]
     },
+    "imageIsLogo": {
+      "type": "boolean",
+      "default": false,
+      "description": "Aanvinken bij een logo. De afbeelding wordt dan volledig getoond op een witte achtergrond in plaats van passend gesneden, zodat er niets wegvalt."
+    },
     "featured": {
       "type": "boolean",
       "default": false

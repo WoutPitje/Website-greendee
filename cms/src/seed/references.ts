@@ -45,6 +45,7 @@ interface SeedReference {
   description: string
   featured?: boolean
   image?: string
+  imageIsLogo?: boolean
 }
 
 async function uploadImage(strapi: Core.Strapi, filename?: string) {
@@ -119,6 +120,7 @@ async function runBatch(strapi: Core.Strapi, batch: SeedBatch) {
           status: entry.status ?? 'Gerealiseerd',
           description: entry.description,
           featured: Boolean(entry.featured),
+          imageIsLogo: Boolean(entry.imageIsLogo),
           ...(image ? { image: image.id } : {}),
         },
         status: 'published',
@@ -164,9 +166,88 @@ async function backfillStatus(strapi: Core.Strapi) {
   await store.set({ value: true })
 }
 
+// `imageIsLogo` was added after a batch had already been imported, so flag the
+// entries the seed data marks as logos. Runs once; after that it is the
+// editor's field to change.
+async function markLogos(strapi: Core.Strapi) {
+  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'logos-marked' })
+  if (await store.get()) return
+
+  const slugs = new Set<string>()
+  for (const batch of BATCHES) {
+    const seedFile = path.join(SEED_DIR, batch.file)
+    if (!fs.existsSync(seedFile)) continue
+    const entries: SeedReference[] = JSON.parse(fs.readFileSync(seedFile, 'utf8'))
+    entries.filter(e => e.imageIsLogo).forEach(e => slugs.add(e.slug))
+  }
+
+  const docs = strapi.documents('api::reference.reference')
+  let updated = 0
+
+  for (const slug of slugs) {
+    const [entry] = await docs.findMany({ filters: { slug }, limit: 1 })
+    if (!entry || entry.imageIsLogo) continue
+    await docs.update({
+      documentId: entry.documentId,
+      data: { imageIsLogo: true },
+      status: 'published',
+    })
+    updated++
+  }
+
+  if (updated) strapi.log.info(`[seed] marked ${updated} references as logo`)
+  await store.set({ value: true })
+}
+
+// Re-uploads a seed image for entries whose picture was corrected after import
+// (De Methorst was upside down). Bump the store key when another correction
+// needs to go out; the old file stays in the media library.
+const IMAGE_REFRESH = {
+  storeKey: 'image-refresh-1',
+  slugs: ['de-methorst'],
+}
+
+async function refreshImages(strapi: Core.Strapi) {
+  const store = strapi.store({ type: 'plugin', name: 'greendee', key: IMAGE_REFRESH.storeKey })
+  if (await store.get()) return
+
+  const byslug = new Map<string, SeedReference>()
+  for (const batch of BATCHES) {
+    const seedFile = path.join(SEED_DIR, batch.file)
+    if (!fs.existsSync(seedFile)) continue
+    const entries: SeedReference[] = JSON.parse(fs.readFileSync(seedFile, 'utf8'))
+    entries.forEach(e => byslug.set(e.slug, e))
+  }
+
+  const docs = strapi.documents('api::reference.reference')
+
+  for (const slug of IMAGE_REFRESH.slugs) {
+    const seed = byslug.get(slug)
+    const [entry] = await docs.findMany({ filters: { slug }, limit: 1 })
+    if (!seed || !entry) {
+      strapi.log.warn(`[seed] cannot refresh image for "${slug}"`)
+      continue
+    }
+
+    const image = await uploadImage(strapi, seed.image)
+    if (!image) continue
+
+    await docs.update({
+      documentId: entry.documentId,
+      data: { image: image.id },
+      status: 'published',
+    })
+    strapi.log.info(`[seed] refreshed image for "${slug}"`)
+  }
+
+  await store.set({ value: true })
+}
+
 export async function seedReferences(strapi: Core.Strapi) {
   for (const batch of BATCHES) {
     await runBatch(strapi, batch)
   }
   await backfillStatus(strapi)
+  await markLogos(strapi)
+  await refreshImages(strapi)
 }

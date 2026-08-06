@@ -8,11 +8,15 @@
     @keydown.space.prevent="$emit('click')"
   >
     <!-- Image Container -->
-    <div class="relative h-64 w-full overflow-hidden bg-gray-100">
+    <div :class="['relative h-64 w-full overflow-hidden', reference.imageIsLogo ? 'bg-white' : 'bg-gray-100']">
       <img
         :src="reference.image"
         :alt="`${reference.title} - ${reference.location}`"
-        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        :class="[
+          'h-full w-full transition-transform duration-300 group-hover:scale-105',
+          // A logo cropped to fill would lose its edges, so show it whole.
+          reference.imageIsLogo ? 'object-contain p-8' : 'object-cover'
+        ]"
       >
       <!-- Category Badge Overlay -->
       <div class="absolute top-4 right-4 flex flex-col items-end gap-2">

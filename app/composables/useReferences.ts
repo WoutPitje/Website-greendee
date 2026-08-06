@@ -13,6 +13,7 @@ export interface Reference {
   status: string
   description: string
   image: string
+  imageIsLogo: boolean
   featured: boolean
 }
 
@@ -27,6 +28,7 @@ interface StrapiReference {
   status?: string
   description?: string
   featured?: boolean
+  imageIsLogo?: boolean
   image?: { url?: string } | null
 }
 
@@ -45,6 +47,7 @@ function toReference(entry: StrapiReference): Reference {
     description: entry.description ?? '',
     // Strapi returns /uploads/…; serve it through our own proxy.
     image: url.startsWith('/') ? `/cms${url}` : url,
+    imageIsLogo: Boolean(entry.imageIsLogo),
     featured: Boolean(entry.featured),
   }
 }

@@ -49,13 +49,13 @@
               </button>
 
               <!-- Image -->
-              <div class="relative h-64 w-full overflow-hidden bg-gray-100 sm:h-80 lg:h-96">
+              <div :class="['relative h-64 w-full overflow-hidden sm:h-80 lg:h-96', reference.imageIsLogo ? 'bg-white' : 'bg-gray-100']">
                 <img
                   :src="reference.image"
                   :alt="`${reference.title} - ${reference.location}`"
-                  class="h-full w-full object-cover"
+                  :class="['h-full w-full', reference.imageIsLogo ? 'object-contain p-10' : 'object-cover']"
                 >
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div v-if="!reference.imageIsLogo" class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
 
               <!-- Content -->
