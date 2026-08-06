@@ -224,8 +224,6 @@ defineProps({
   },
 })
 
-const STATIC_FORMS_KEY = 'sf_91eb2b5828a335ddc552fd23'
-
 const form = reactive({
   name: '',
   email: '',
@@ -244,31 +242,25 @@ const handleSubmit = async () => {
   loading.value = true
 
   try {
-    const res = await fetch('https://api.staticforms.dev/submit', {
+    await $fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        apiKey: STATIC_FORMS_KEY,
-        subject: `Contactaanvraag van ${form.name}`,
+      body: {
         name: form.name,
         email: form.email,
         phone: form.phone,
         bedrijfsnaam: form.bedrijfsnaam,
         message: form.message,
         honeypot: form.honeypot,
-        replyTo: form.email,
-      }),
+      },
     })
 
-    const data = await res.json()
-
-    if (data.success) {
-      submitted.value = true
-    } else {
-      error.value = 'Er is iets misgegaan. Probeer het opnieuw of neem telefonisch contact op.'
-    }
-  } catch {
-    error.value = 'Er is iets misgegaan. Probeer het opnieuw of neem telefonisch contact op.'
+    submitted.value = true
+  } catch (err) {
+    // Show the server's reason (validation, rate limit) when it sent one.
+    error.value =
+      err?.statusMessage ||
+      err?.data?.statusMessage ||
+      'Er is iets misgegaan. Probeer het opnieuw of neem telefonisch contact op.'
   } finally {
     loading.value = false
   }

@@ -14,6 +14,15 @@ export default defineNuxtConfig({
     preset: 'node-server'
   },
 
+  // Server-only; override in Coolify with NUXT_RESEND_API_KEY etc.
+  runtimeConfig: {
+    resendApiKey: '',
+    contactTo: 'lars@greendee.nl',
+    // Must be on the domain verified in Resend (mail.greendee.nl), not the
+    // apex — the apex is Microsoft 365 and its SPF ends in -all.
+    contactFrom: 'GreenDee website <website@mail.greendee.nl>'
+  },
+
   modules: ['@nuxtjs/tailwindcss'],
   tailwindcss: {
     cssPath: '~/app/assets/css/tailwind.css',
