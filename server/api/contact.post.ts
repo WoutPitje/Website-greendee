@@ -86,6 +86,19 @@ export default defineEventHandler(async (event) => {
     })
   }
 
+  const recipients = String(config.contactTo)
+    .split(',')
+    .map((address) => address.trim())
+    .filter(Boolean)
+
+  if (!recipients.length) {
+    console.error('[contact] NUXT_CONTACT_TO is empty')
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Het formulier is tijdelijk niet beschikbaar.',
+    })
+  }
+
   const text = [
     `Naam: ${name}`,
     `E-mail: ${email}`,
@@ -102,7 +115,7 @@ export default defineEventHandler(async (event) => {
       headers: { Authorization: `Bearer ${config.resendApiKey}` },
       body: {
         from: config.contactFrom,
-        to: [config.contactTo],
+        to: recipients,
         reply_to: email,
         subject: `Contactaanvraag van ${name}`,
         text,

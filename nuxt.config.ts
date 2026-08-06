@@ -17,7 +17,8 @@ export default defineNuxtConfig({
   // Server-only; override in Coolify with NUXT_RESEND_API_KEY etc.
   runtimeConfig: {
     resendApiKey: '',
-    contactTo: 'lars@greendee.nl',
+    // Comma-separated; every address gets the submission.
+    contactTo: 'offerte@greendee.nl,wout@pitdigital.nl',
     // Must be on the domain verified in Resend (mail.greendee.nl), not the
     // apex — the apex is Microsoft 365 and its SPF ends in -all.
     contactFrom: 'GreenDee website <website@mail.greendee.nl>'
