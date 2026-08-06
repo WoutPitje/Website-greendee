@@ -66,22 +66,32 @@
                     <span
                       :class="[
                         'inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold',
-                        reference.category === 'Energiehandel'
-                          ? 'bg-greendee-green text-white'
-                          : reference.category === 'Netcongestie'
-                            ? 'bg-greendee-yellow text-gray-900'
-                            : 'bg-blue-600 text-white'
+                        referenceCategoryClass(reference.category)
                       ]"
                     >
                       {{ reference.category }}
                     </span>
-                    <div class="inline-flex items-center gap-1.5 rounded-lg bg-gray-50 px-3 py-1.5">
+                    <span
+                      v-if="reference.status === 'In ontwikkeling'"
+                      class="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-700"
+                    >
+                      <svg class="h-2.5 w-2.5 text-greendee-yellow" fill="currentColor" viewBox="0 0 8 8">
+                        <circle cx="4" cy="4" r="4" />
+                      </svg>
+                      In ontwikkeling
+                    </span>
+                    <div v-if="reference.capacity" class="inline-flex items-center gap-1.5 rounded-lg bg-gray-50 px-3 py-1.5">
                       <svg class="h-4 w-4 text-greendee-green" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                       </svg>
                       <span class="text-sm font-semibold text-gray-900">{{ reference.capacity }}</span>
                     </div>
                   </div>
+
+                  <!-- Extra systems (PV, charging) when the project has them -->
+                  <p v-if="reference.specs" class="mb-3 text-sm text-gray-600">
+                    {{ reference.specs }}
+                  </p>
 
                   <h2
                     :id="`modal-title-${reference.id}`"

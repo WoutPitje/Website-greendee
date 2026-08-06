@@ -6,13 +6,13 @@
         {{ featured ? 'Uitgelichte Projecten' : 'Referenties' }}
       </h2>
       <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-        {{ featured ? 'Bewezen oplossingen in de praktijk' : 'Alle gerealiseerde projecten' }}
+        {{ featured ? 'Bewezen oplossingen in de praktijk' : 'Onze projecten' }}
       </p>
       <p class="mt-6 text-lg leading-8 text-gray-600">
         {{
           featured
             ? 'Een selectie van onze succesvol afgeronde energieprojecten'
-            : 'Van netcongestie tot energiehandel: ontdek hoe we bedrijven en organisaties helpen met praktische energieoplossingen'
+            : 'Van netcongestie tot elektrificatie: ontdek hoe we bedrijven en organisaties helpen met praktische energieoplossingen. Projecten die nog lopen zijn gemarkeerd als in ontwikkeling.'
         }}
       </p>
     </div>
@@ -20,48 +20,15 @@
     <!-- Filter Buttons (only on full references page) -->
     <div v-if="!featured" class="mt-12 flex flex-wrap justify-center gap-3">
       <button
-        @click="updateFilter(null)"
+        v-for="option in filterOptions"
+        :key="option.label"
+        @click="updateFilter(option.value)"
         :class="[
           'rounded-full px-6 py-2.5 text-sm font-semibold transition-all',
-          categoryFilter === null
-            ? 'bg-greendee-green text-white shadow-md'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          referenceFilterClass(option.value, categoryFilter === option.value)
         ]"
       >
-        Alle projecten
-      </button>
-      <button
-        @click="updateFilter('Energiehandel')"
-        :class="[
-          'rounded-full px-6 py-2.5 text-sm font-semibold transition-all',
-          categoryFilter === 'Energiehandel'
-            ? 'bg-greendee-green text-white shadow-md'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-        ]"
-      >
-        Energiehandel
-      </button>
-      <button
-        @click="updateFilter('Netcongestie')"
-        :class="[
-          'rounded-full px-6 py-2.5 text-sm font-semibold transition-all',
-          categoryFilter === 'Netcongestie'
-            ? 'bg-greendee-yellow text-gray-900 shadow-md'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-        ]"
-      >
-        Netcongestie
-      </button>
-      <button
-        @click="updateFilter('Energie-optimalisatie')"
-        :class="[
-          'rounded-full px-6 py-2.5 text-sm font-semibold transition-all',
-          categoryFilter === 'Energie-optimalisatie'
-            ? 'bg-blue-600 text-white shadow-md'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-        ]"
-      >
-        Energie-optimalisatie
+        {{ option.label }}
       </button>
     </div>
 
@@ -119,6 +86,16 @@ const emit = defineEmits(['update:categoryFilter'])
 const { data: allReferences } = useReferences()
 const isModalOpen = ref(false)
 const selectedReference = ref(null)
+
+// Only offer a filter for categories that actually have projects, so an empty
+// category never shows up as a button that yields nothing.
+const filterOptions = computed(() => {
+  const present = new Set((allReferences.value ?? []).map(r => r.category))
+  return [
+    { label: 'Alle projecten', value: null },
+    ...REFERENCE_CATEGORIES.filter(c => present.has(c)).map(c => ({ label: c, value: c })),
+  ]
+})
 
 // Update filter
 const updateFilter = (category) => {

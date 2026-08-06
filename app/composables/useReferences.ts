@@ -8,7 +8,9 @@ export interface Reference {
   title: string
   location: string
   capacity: string
+  specs: string
   category: string
+  status: string
   description: string
   image: string
   featured: boolean
@@ -20,7 +22,9 @@ interface StrapiReference {
   title?: string
   location?: string
   capacity?: string
+  specs?: string
   category?: string
+  status?: string
   description?: string
   featured?: boolean
   image?: { url?: string } | null
@@ -34,7 +38,10 @@ function toReference(entry: StrapiReference): Reference {
     title: entry.title ?? '',
     location: entry.location ?? '',
     capacity: entry.capacity ?? '',
+    specs: entry.specs ?? '',
     category: entry.category ?? '',
+    // Entries from before the status field existed count as delivered work.
+    status: entry.status ?? 'Gerealiseerd',
     description: entry.description ?? '',
     // Strapi returns /uploads/…; serve it through our own proxy.
     image: url.startsWith('/') ? `/cms${url}` : url,

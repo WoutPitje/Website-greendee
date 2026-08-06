@@ -15,18 +15,23 @@
         class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
       >
       <!-- Category Badge Overlay -->
-      <div class="absolute top-4 right-4">
+      <div class="absolute top-4 right-4 flex flex-col items-end gap-2">
         <span
           :class="[
             'inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold shadow-md',
-            reference.category === 'Energiehandel'
-              ? 'bg-greendee-green text-white'
-              : reference.category === 'Netcongestie'
-                ? 'bg-greendee-yellow text-gray-900'
-                : 'bg-blue-600 text-white'
+            categoryClass
           ]"
         >
           {{ reference.category }}
+        </span>
+        <span
+          v-if="reference.status === 'In ontwikkeling'"
+          class="inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-gray-700 shadow-md"
+        >
+          <svg class="h-3 w-3 text-greendee-yellow" fill="currentColor" viewBox="0 0 8 8">
+            <circle cx="4" cy="4" r="4" />
+          </svg>
+          In ontwikkeling
         </span>
       </div>
     </div>
@@ -72,7 +77,7 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   reference: {
     type: Object,
     required: true
@@ -80,4 +85,6 @@ defineProps({
 })
 
 defineEmits(['click'])
+
+const categoryClass = computed(() => referenceCategoryClass(props.reference.category))
 </script>

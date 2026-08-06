@@ -30,8 +30,18 @@
     },
     "category": {
       "type": "enumeration",
-      "enum": ["Energiehandel", "Netcongestie", "Energie-optimalisatie"],
+      "enum": ["Energiehandel", "Netcongestie", "Energie-optimalisatie", "Elektrificatie"],
       "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["Gerealiseerd", "In ontwikkeling"],
+      "default": "Gerealiseerd",
+      "required": true
+    },
+    "specs": {
+      "type": "string",
+      "description": "Extra systeemspecificaties naast de batterij, bijvoorbeeld PV en laadinfrastructuur"
     },
     "description": {
       "type": "text",
