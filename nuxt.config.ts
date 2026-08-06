@@ -8,17 +8,10 @@ export default defineNuxtConfig({
     url: 'https://greendee.nl'
   },
   
-  // Enable static site generation
+  // SSR Node server (Docker/Coolify). Keeps pages dynamic for the
+  // upcoming Strapi integration instead of baking them at build time.
   nitro: {
-    preset: 'static',
-    prerender: {
-      crawlLinks: true,
-      routes: ['/']
-    }
-  },
-  
-  experimental: {
-    payloadExtraction: false,
+    preset: 'node-server'
   },
 
   modules: ['@nuxtjs/tailwindcss'],
