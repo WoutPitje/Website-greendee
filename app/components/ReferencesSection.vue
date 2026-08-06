@@ -102,7 +102,6 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { references } from '~/data/references'
 
 const props = defineProps({
   featured: {
@@ -117,7 +116,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:categoryFilter'])
 
-const allReferences = references
+const { data: allReferences } = useReferences()
 const isModalOpen = ref(false)
 const selectedReference = ref(null)
 
@@ -128,7 +127,7 @@ const updateFilter = (category) => {
 
 // Filter references based on featured prop and category filter
 const displayedReferences = computed(() => {
-  let filtered = allReferences
+  let filtered = allReferences.value ?? []
 
   // Filter by featured status
   if (props.featured) {

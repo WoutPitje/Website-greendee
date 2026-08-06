@@ -16,6 +16,11 @@ export default defineNuxtConfig({
 
   // Server-only; override in Coolify with NUXT_RESEND_API_KEY etc.
   runtimeConfig: {
+    // Strapi is reached server-side only and proxied under /cms, so the
+    // browser never talks to it directly. That keeps everything same-origin
+    // HTTPS — the CMS itself is plain HTTP, which a browser on
+    // https://greendee.nl would otherwise block as mixed content.
+    strapiUrl: 'http://e3nstrx4phd4krc1cel2nz3n.187.124.8.80.sslip.io',
     resendApiKey: '',
     // Comma-separated; every address gets the submission.
     contactTo: 'offerte@greendee.nl',
