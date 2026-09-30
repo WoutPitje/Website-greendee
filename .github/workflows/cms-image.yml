@@ -61,6 +61,8 @@ jobs:
             echo "Coolify secret/variables niet gezet - image is gepusht, deploy handmatig starten."
             exit 0
           fi
-          curl --fail-with-body -sS \
+          # Coolify's deploy endpoint is POST sinds v4.1.x; een GET geeft
+          # alleen "This endpoint has changed to a POST request." terug.
+          curl --fail-with-body -sS -X POST \
             -H "Authorization: Bearer $COOLIFY_TOKEN" \
             "$COOLIFY_URL/api/v1/deploy?uuid=$COOLIFY_CMS_UUID&force=true"
