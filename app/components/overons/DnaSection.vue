@@ -1,5 +1,6 @@
 <template>
-  <section class="flex flex-col items-start gap-6 bg-[#f3f3f3] px-5 pb-[72px] pt-16 lg:px-36 lg:pt-[88px]">
+  <section class="flex flex-col items-center bg-[#f3f3f3] px-5 pb-[72px] pt-16 lg:px-0 lg:pt-[88px]">
+    <div class="flex w-full max-w-container flex-col items-start gap-6">
     <div class="flex w-full flex-col items-start gap-8 lg:gap-[54px]">
       <div class="flex w-full flex-col items-start gap-8 lg:gap-[34px]">
         <h2 class="flex flex-col items-start text-[26px] font-extrabold leading-[44px] tracking-[-0.8px] text-greendee-ink lg:text-h2 lg:leading-[70px]">
@@ -43,6 +44,7 @@
         <p class="text-[14px] font-bold leading-5 tracking-[1.4px] text-greendee-green">{{ pillar.label }}</p>
         <p class="w-full text-[16px] font-medium leading-[26px] text-gray-600">{{ pillar.body }}</p>
       </div>
+    </div>
     </div>
   </section>
 </template>

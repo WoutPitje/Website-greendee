@@ -19,9 +19,10 @@
 
     <AppHeader />
 
-    <!-- The padding lives here rather than on the section, so it cannot push
-         the sticky header down with it. -->
-    <div class="relative flex h-full flex-col items-start justify-center px-5 lg:pl-36 lg:pr-0">
+    <!-- De padding zit hier en niet op de section, anders duwt die de sticky
+         header mee omlaag. Dezelfde gecentreerde container als de header en de
+         overige blokken, zodat alles op elke schermbreedte gelijk uitlijnt. -->
+    <div class="relative mx-auto flex h-full w-full max-w-container flex-col items-start justify-center px-5 lg:px-0">
     <div class="flex w-full flex-col items-start justify-center gap-5 py-[30px] lg:w-[620px]">
       <p class="text-[15px] font-bold leading-6 tracking-[-0.3px] text-[#a7d88d] lg:text-body lg:tracking-[-0.36px]">
         {{ eyebrow }}

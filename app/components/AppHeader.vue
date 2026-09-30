@@ -99,7 +99,13 @@
       </button>
     </div>
 
-    <!-- The open state is not in the design; it reuses the desktop dropdown's styling. -->
+  </div>
+
+  <!-- Het open menu staat los van de hero: die heeft overflow-hidden en een
+       vaste hoogte, waardoor de onderkant van het menu werd afgeknipt. Vandaar
+       een teleport naar body met vaste positionering.
+       Deze open staat zit niet in het ontwerp en volgt de desktopdropdown. -->
+  <Teleport to="body">
     <Transition
       enter-active-class="transition duration-200 ease-out"
       enter-from-class="opacity-0 -translate-y-2"
@@ -109,7 +115,7 @@
       <nav
         v-if="mobileOpen"
         id="mobiel-menu"
-        class="mt-2 flex flex-col gap-1 rounded-dropdown border border-white/10 bg-greendee-green-deep/[0.94] p-2.5 backdrop-blur-[100px]"
+        class="fixed inset-x-5 top-[76px] z-[55] flex max-h-[calc(100dvh-96px)] flex-col gap-1 overflow-y-auto rounded-dropdown border border-white/10 bg-greendee-green-deep/[0.94] p-2.5 backdrop-blur-[100px] lg:hidden"
         aria-label="Hoofdnavigatie"
       >
         <p class="px-3.5 pb-1 pt-3 text-xs font-bold uppercase tracking-wider text-white/40">Diensten</p>
@@ -135,12 +141,12 @@
           {{ link.title }}
         </NuxtLink>
 
-        <NuxtLink to="/contact" class="mt-2 flex h-[42px] items-center justify-center rounded-full bg-greendee-yellow text-nav font-bold text-greendee-ink">
+        <NuxtLink to="/contact" class="mt-2 flex h-[42px] shrink-0 items-center justify-center rounded-full bg-greendee-yellow text-nav font-bold text-greendee-ink">
           Neem contact op
         </NuxtLink>
       </nav>
     </Transition>
-  </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -174,5 +180,16 @@ const dienstenActief = computed(() => diensten.some(item => isActive(item.href))
 watch(() => route.fullPath, () => {
   dropdownOpen.value = false
   mobileOpen.value = false
+})
+
+// Zet de pagina erachter vast zolang het menu open is.
+watch(mobileOpen, (open) => {
+  if (import.meta.server) return
+  document.body.style.overflow = open ? 'hidden' : ''
+})
+
+onBeforeUnmount(() => {
+  if (import.meta.server) return
+  document.body.style.overflow = ''
 })
 </script>

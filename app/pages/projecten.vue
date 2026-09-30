@@ -1,11 +1,13 @@
 <template>
   <div>
+    <!-- Tijdelijke foto: de hero uit het ontwerp (drie mensen aan tafel)
+         zat niet bij de aangeleverde beelden. -->
     <InnerPageHero
       eyebrow="Projecten"
       title="Bewezen oplossingen in de praktijk."
       intro="Van agrarische bedrijven tot bedrijventerreinen. GreenDee realiseert batterijopslag, zonnestroom en laadinfrastructuur door heel Nederland. GreenDee streeft ernaar dat elk project wordt gerealiseerd."
       image="/v2/hero-projecten"
-      image-alt="Overleg over een project"
+      image-alt="Batterijopslag op een gerealiseerd project"
       cta-label=""
     />
 
