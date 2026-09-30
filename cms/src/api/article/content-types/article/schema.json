@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Nieuwsartikel",
+    "description": "Artikelen voor de nieuws- en kennisbankpagina"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "publishedDate": {
+      "type": "date",
+      "required": true,
+      "description": "De datum die op de site wordt getoond."
+    },
+    "author": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "text",
+      "required": true,
+      "description": "Korte samenvatting voor de kaart in het overzicht."
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "body": {
+      "type": "richtext",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Techniek",
+        "Subsidies",
+        "Wetgeving",
+        "Netcongestie",
+        "Nieuws"
+      ],
+      "required": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Het uitgelichte artikel bovenaan de nieuwspagina."
+    }
+  }
+}

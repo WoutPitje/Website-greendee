@@ -8,6 +8,16 @@ export default defineNuxtConfig({
     url: 'https://greendee.nl'
   },
   
+  // The v2 rebuild renamed every service page. These keep existing links and
+  // search results working; 301 so search engines transfer the old ranking.
+  routeRules: {
+    '/netcongestie': { redirect: { to: '/energiesimulaties', statusCode: 301 } },
+    '/rendement': { redirect: { to: '/business-cases', statusCode: 301 } },
+    '/gebiedsontwikkeling': { redirect: { to: '/offertetrajecten', statusCode: 301 } },
+    '/referenties': { redirect: { to: '/projecten', statusCode: 301 } },
+    '/vacature': { redirect: { to: '/vacatures', statusCode: 301 } },
+  },
+
   // SSR Node server (Docker/Coolify). Keeps pages dynamic for the
   // upcoming Strapi integration instead of baking them at build time.
   nitro: {
@@ -20,18 +30,25 @@ export default defineNuxtConfig({
     // browser never talks to it directly. That keeps everything same-origin
     // HTTPS — the CMS itself is plain HTTP, which a browser on
     // https://greendee.nl would otherwise block as mixed content.
-    strapiUrl: 'http://e3nstrx4phd4krc1cel2nz3n.187.124.8.80.sslip.io',
+    strapiUrl: 'http://fehg3brj8o2skmifxdhupc8c.93.127.162.103.sslip.io',
     resendApiKey: '',
     // Comma-separated; every address gets the submission.
     contactTo: 'offerte@greendee.nl',
     // Must be on the domain verified in Resend (mail.greendee.nl), not the
     // apex — the apex is Microsoft 365 and its SPF ends in -all.
-    contactFrom: 'GreenDee website <website@mail.greendee.nl>'
+    contactFrom: 'GreenDee website <website@mail.greendee.nl>',
+
+    public: {
+      // Booking link for the contact page. Set NUXT_PUBLIC_CALENDLY_URL in
+      // Coolify once the account exists; until then the page shows the mail
+      // form instead of an empty embed.
+      calendlyUrl: ''
+    }
   },
 
   modules: ['@nuxtjs/tailwindcss'],
   tailwindcss: {
-    cssPath: '~/app/assets/css/tailwind.css',
+    cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config',
     exposeConfig: true,
     viewer: true,

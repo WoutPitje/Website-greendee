@@ -1,0 +1,133 @@
+<template>
+  <div>
+    <!-- Het artikeldetail staat niet in het v2-ontwerp; deze opmaak volgt de
+         typografie en kleuren van de rest van de site. -->
+    <article v-if="article">
+      <header class="relative flex h-[420px] items-end overflow-hidden lg:h-[520px]">
+        <div class="absolute inset-0 bg-greendee-ink">
+          <img v-if="article.image" :src="article.image" alt="" class="size-full object-cover opacity-70">
+        </div>
+        <div
+          aria-hidden="true"
+          class="absolute inset-0"
+          style="background-image: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.75) 100%)"
+        />
+
+        <AppHeader />
+
+        <div class="relative mx-auto flex w-full max-w-container flex-col items-start gap-4 px-5 pb-12 lg:px-0">
+          <div class="flex items-center gap-2.5">
+            <span class="rounded-full bg-greendee-yellow px-3 py-1.5 text-[12px] font-bold leading-4 text-[#412402]">
+              {{ article.category }}
+            </span>
+            <span class="text-[13px] font-medium text-white/80">{{ article.readingMinutes }} min lezen</span>
+            <time v-if="article.publishedDate" class="text-[13px] font-medium text-white/80" :datetime="article.publishedDate">
+              {{ formatDate(article.publishedDate) }}
+            </time>
+          </div>
+          <h1 class="w-full text-[30px] font-extrabold leading-[38px] text-white text-shadow-hero-mobile lg:w-[820px] lg:text-[42px] lg:leading-[52px]">
+            {{ article.title }}
+          </h1>
+        </div>
+      </header>
+
+      <div class="mx-auto flex max-w-[760px] flex-col gap-6 px-5 py-16 lg:px-0 lg:py-24">
+        <p class="text-[18px] font-medium leading-8 text-greendee-ink">{{ article.summary }}</p>
+        <div class="prose-greendee" v-html="body" />
+        <NuxtLink to="/nieuws" class="mt-4 text-[15px] font-bold text-greendee-green">
+          ← Terug naar alle artikelen
+        </NuxtLink>
+      </div>
+    </article>
+  </div>
+</template>
+
+<script setup lang="ts">
+const route = useRoute()
+const slug = route.params.slug as string
+
+interface StrapiArticleDetail {
+  title?: string
+  summary?: string
+  category?: string
+  body?: string
+  publishedDate?: string
+  heroImage?: { url?: string } | null
+}
+
+const { data: article } = await useAsyncData(`article-${slug}`, async () => {
+  const res = await $fetch<{ data?: StrapiArticleDetail[] }>('/cms/api/articles', {
+    query: { populate: 'heroImage', 'filters[slug][$eq]': slug },
+  })
+
+  const entry = res?.data?.[0]
+  if (!entry) return null
+
+  const url = entry.heroImage?.url ?? ''
+  const words = (entry.body ?? '').trim().split(/\s+/).filter(Boolean).length
+
+  return {
+    title: entry.title ?? '',
+    summary: entry.summary ?? '',
+    category: entry.category ?? '',
+    body: entry.body ?? '',
+    publishedDate: entry.publishedDate ?? '',
+    image: url.startsWith('/') ? `/cms${url}` : url,
+    readingMinutes: Math.max(1, Math.round(words / 200)),
+  }
+})
+
+if (!article.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Artikel niet gevonden', fatal: true })
+}
+
+// Strapi's richtext field is markdown; only the handful of constructs the editor
+// produces are turned into HTML, and every angle bracket is escaped first so a
+// pasted fragment cannot inject markup.
+const body = computed(() => {
+  const escaped = (article.value?.body ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+
+  return escaped
+    .split(/\n{2,}/)
+    .map((block) => {
+      const trimmed = block.trim()
+      if (!trimmed) return ''
+      if (trimmed.startsWith('### ')) return `<h3>${trimmed.slice(4)}</h3>`
+      if (trimmed.startsWith('## ')) return `<h2>${trimmed.slice(3)}</h2>`
+      if (trimmed.startsWith('# ')) return `<h2>${trimmed.slice(2)}</h2>`
+      if (/^[-*] /.test(trimmed)) {
+        const items = trimmed.split('\n').map(line => `<li>${line.replace(/^[-*] /, '')}</li>`).join('')
+        return `<ul>${items}</ul>`
+      }
+      return `<p>${trimmed.replaceAll('\n', '<br>')}</p>`
+    })
+    .join('')
+})
+
+function formatDate(value: string) {
+  return new Date(value).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })
+}
+
+useHead(() => ({
+  title: article.value ? `${article.value.title} | GreenDee` : 'Artikel | GreenDee',
+  meta: [{ name: 'description', content: article.value?.summary ?? '' }],
+}))
+</script>
+
+<style scoped>
+.prose-greendee :deep(h2) {
+  @apply mt-8 text-[24px] font-bold leading-8 text-greendee-ink;
+}
+.prose-greendee :deep(h3) {
+  @apply mt-6 text-[19px] font-bold leading-7 text-greendee-ink;
+}
+.prose-greendee :deep(p) {
+  @apply mt-4 text-[17px] font-medium leading-8 text-gray-600;
+}
+.prose-greendee :deep(ul) {
+  @apply mt-4 list-disc space-y-2 pl-6 text-[17px] font-medium leading-8 text-gray-600;
+}
+</style>

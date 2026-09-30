@@ -7,6 +7,10 @@ import { seedReferences } from './seed/references';
 const PUBLIC_ACTIONS = [
   'api::reference.reference.find',
   'api::reference.reference.findOne',
+  'api::testimonial.testimonial.find',
+  'api::testimonial.testimonial.findOne',
+  'api::article.article.find',
+  'api::article.article.findOne',
 ];
 
 async function grantPublicReadAccess(strapi: Core.Strapi) {

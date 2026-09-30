@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonial",
+    "description": "Klantervaringen die op de website worden getoond"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "authorName": {
+      "type": "string",
+      "required": true
+    },
+    "authorCompany": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Optioneel. Zonder foto wordt een neutrale cirkel getoond, zoals in het ontwerp."
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "description": "Lager nummer staat eerder. De homepage toont de eerste drie."
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Aanvinken om deze ervaring op de homepage te tonen."
+    }
+  }
+}
