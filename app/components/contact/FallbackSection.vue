@@ -89,8 +89,9 @@ async function submit() {
 
 const details = [
   { label: 'Telefoon', value: '06-34466611', href: 'tel:+31634466611' },
-  // Net als in de footer: het gedeelde postvak, niet Lars' persoonlijke adres.
-  { label: 'E-mail', value: 'offerte@greendee.nl', href: 'mailto:offerte@greendee.nl' },
+  // Hier staat Lars' eigen adres, want dit is direct contact. Het formulier
+  // hiernaast gaat wel naar offerte@ (server-side, zie runtimeConfig.contactTo).
+  { label: 'E-mail', value: 'lars@greendee.nl', href: 'mailto:lars@greendee.nl' },
   { label: 'IJzendoorn', value: 'Saneringsweg 3, 4053 JK' },
   { label: 'Alkmaar', value: 'Bergerweg 200, 1817 MN' },
   {
