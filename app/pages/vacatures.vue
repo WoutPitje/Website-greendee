@@ -4,7 +4,7 @@
       eyebrow="Werken bij GreenDee"
       title="Werk mee aan de energietransitie."
       intro="Bij GreenDee helpt u MKB-bedrijven en agrariërs met duurzame energieoplossingen. Bekijk onze vacatures of stuur een open sollicitatie."
-      image="/v2/hero-offertetrajecten"
+      image="/v2/hero-vacatures"
       image-alt="Het team van GreenDee in gesprek"
       cta-label=""
     />
