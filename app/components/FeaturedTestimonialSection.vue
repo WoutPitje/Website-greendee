@@ -12,7 +12,19 @@
 
     <figure class="flex w-full flex-col items-center justify-center gap-6 overflow-hidden rounded-3xl bg-white px-6 py-10 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.08)] lg:w-[760px] lg:px-16 lg:py-12">
       <img src="/v2/quote-mark-lg.svg" alt="" class="h-8 w-10" aria-hidden="true">
-      <p class="text-[18px] font-bold text-greendee-yellow" aria-label="Vijf van de vijf sterren">★★★★★</p>
+      <!-- Halve ster via een geel laagje dat over de grijze sterren wordt
+           afgesneden; dat geeft elke score zonder losse icoonbestanden. -->
+      <p
+        class="relative inline-block text-[18px] font-bold leading-none text-gray-300"
+        :aria-label="`${sterrenLabel} van de vijf sterren`"
+      >
+        <span aria-hidden="true">★★★★★</span>
+        <span
+          aria-hidden="true"
+          class="absolute inset-y-0 left-0 overflow-hidden whitespace-nowrap text-greendee-yellow"
+          :style="{ width: `${(score / 5) * 100}%` }"
+        >★★★★★</span>
+      </p>
 
       <blockquote class="w-full text-center text-[19px] font-semibold leading-[28px] text-greendee-ink lg:text-[22px] lg:leading-8">
         {{ testimonial.quote }}
@@ -27,13 +39,18 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   eyebrow?: string
   title?: string
+  /** Gemiddelde beoordeling op een schaal van 5. */
+  score?: number
 }>(), {
   eyebrow: 'Wat klanten zeggen',
-  title: 'Beoordeeld met een 9.9',
+  title: 'Beoordeeld met 4,5 van de 5 sterren',
+  score: 4.5,
 })
+
+const sterrenLabel = computed(() => String(props.score).replace('.', ','))
 
 // One quote, taken from the same Strapi collection as the homepage band.
 const { data: testimonials } = await useTestimonials(1)
