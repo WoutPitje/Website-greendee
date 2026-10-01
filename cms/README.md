@@ -80,9 +80,16 @@ curl -X POST https://cms.greendee.nl/mcp \
 
 Verbinden kost een **admintoken** — niet een Content-API-token en niet het
 Coolify-token. Aanmaken kan alleen in het adminpaneel, want de REST-route
-erachter vraagt om een ingelogde admin: Settings → Admin tokens → Create new
-admin token. Het token erft de rechten van de admin waaraan het hangt, dus geef
-het een rol die niet meer mag dan nodig is.
+erachter vraagt om een ingelogde admin:
+
+    https://cms.greendee.nl/admin/settings/admin-tokens
+
+Let op waar die pagina staat: API Tokens vallen onder *Global settings*, maar
+Admin Tokens staan in de kolom **Administration panel**, onder Roles en Users.
+Het menu-item is alleen zichtbaar met de permissie `admin-tokens.read`; mis je
+het, ga dan rechtstreeks naar de URL. Bij *Owner* kies je de adminaccount
+waarvan het token de rechten erft, dus kies er een die niet meer mag dan nodig
+is. De sleutel is daarna eenmalig zichtbaar.
 
 Daarna, met het token (en niet in de repo — `claude mcp add` zet het in je eigen
 configuratie):
