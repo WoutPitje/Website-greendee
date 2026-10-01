@@ -36,7 +36,7 @@
       <NuxtLink
         v-if="ctaLabel"
         :to="ctaTo"
-        class="flex items-center justify-center rounded-full bg-greendee-yellow px-6 py-3.5 text-[16px] font-bold leading-[22px] text-greendee-ink lg:px-5 lg:py-4 lg:text-body"
+        class="flex items-center justify-center rounded-full bg-greendee-yellow px-6 py-3.5 text-[16px] font-bold leading-[22px] text-greendee-ink lg:px-5 lg:py-4 lg:text-body transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
       >
         {{ ctaLabel }}
       </NuxtLink>

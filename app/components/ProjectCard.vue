@@ -28,7 +28,10 @@
         <p class="line-clamp-3 w-full text-[13px] font-medium text-white/90">
           {{ reference.description }}
         </p>
-        <span class="text-[14px] font-bold text-white">Bekijk project →</span>
+        <span class="flex items-center gap-1.5 text-[14px] font-bold text-white">
+          Bekijk project
+          <span aria-hidden="true" class="transition-transform duration-150 group-hover:translate-x-1">→</span>
+        </span>
       </div>
     </div>
 

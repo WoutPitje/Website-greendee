@@ -17,7 +17,7 @@
 
     <NuxtLink
       :to="ctaTo"
-      class="flex items-center justify-center rounded-full bg-greendee-yellow px-6 py-3.5 font-bold leading-[22px] text-greendee-ink"
+      class="flex items-center justify-center rounded-full bg-greendee-yellow px-6 py-3.5 font-bold leading-[22px] text-greendee-ink transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
       :class="ctaSize === 'lg' ? 'text-[16px] lg:px-5 lg:py-4 lg:text-body' : 'text-[16px] lg:px-5 lg:py-3'"
     >
       {{ ctaLabel }}

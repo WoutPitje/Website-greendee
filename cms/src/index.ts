@@ -1,5 +1,6 @@
 import type { Core } from '@strapi/strapi';
 import { seedReferences } from './seed/references';
+import { seedArticles } from './seed/articles';
 
 // The website reads references anonymously, so grant the public role read
 // access here instead of clicking it in the admin. A fresh deploy against an
@@ -43,5 +44,6 @@ export default {
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     await grantPublicReadAccess(strapi);
     await seedReferences(strapi);
+    await seedArticles(strapi);
   },
 };

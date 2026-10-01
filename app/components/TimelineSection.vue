@@ -7,18 +7,19 @@
       </h2>
     </div>
 
-    <div class="relative w-full max-w-container">
-      <!-- Progress rail behind the numbers; the filled part marks how far the
-           reader has scrolled through the steps. -->
+    <div ref="rail" class="relative w-full max-w-container">
+      <!-- De groene lijn volgt de scrollpositie: hij vult mee terwijl de
+           stappenbalk door het beeld beweegt. De cijfers kleuren mee zodra de
+           lijn er voorbij is. -->
       <div aria-hidden="true" class="absolute left-0 top-[22px] hidden h-0.5 w-full bg-[#cfd8cd] lg:block">
-        <div class="h-full bg-greendee-green" :style="{ width: `${filled}%` }" />
+        <div class="h-full bg-greendee-green" :style="{ width: `${voortgang * 100}%` }" />
       </div>
 
       <ol class="flex flex-col gap-8 lg:flex-row lg:gap-6">
         <li v-for="(step, index) in steps" :key="step.title" class="relative flex flex-1 flex-col items-start gap-2.5">
           <span
-            class="bg-[#f3f3f3] pr-3.5 text-[38px] font-extrabold leading-[46px] tracking-[-1.2px]"
-            :class="index < activeCount ? 'text-greendee-green' : 'text-[#b9c7b5]'"
+            class="bg-[#f3f3f3] pr-3.5 text-[38px] font-extrabold leading-[46px] tracking-[-1.2px] transition-colors duration-200"
+            :class="bereikt(index) ? 'text-greendee-green' : 'text-[#b9c7b5]'"
           >
             {{ index + 1 }}
           </span>
@@ -37,8 +38,54 @@ const props = defineProps<{
   steps: { title: string, body: string }[]
 }>()
 
-// The design shows the first two steps as completed. Rather than hardcode that,
-// the rail fills as the section scrolls through the viewport.
-const activeCount = ref(2)
-const filled = computed(() => (activeCount.value / props.steps.length) * 100)
+const rail = ref<HTMLElement | null>(null)
+const voortgang = ref(0)
+
+// Een cijfer kleurt groen zodra de lijn zijn positie heeft bereikt. Het eerste
+// staat op 0, dus dat is meteen groen als de balk in beeld komt.
+function bereikt(index: number) {
+  const stappen = Math.max(1, props.steps.length - 1)
+  return voortgang.value >= index / stappen - 0.001
+}
+
+let bezig = false
+
+function meten() {
+  const el = rail.value
+  if (!el) return
+
+  const r = el.getBoundingClientRect()
+  const hoogte = window.innerHeight
+
+  // Vullen begint als de balk op driekwart van het scherm staat en is klaar
+  // wanneer hij een derde van boven is. Dat valt samen met normaal doorlezen.
+  const start = hoogte * 0.75
+  const eind = hoogte * 0.35
+  const ruw = (start - r.top) / (start - eind)
+
+  voortgang.value = Math.min(1, Math.max(0, ruw))
+}
+
+function opScroll() {
+  if (bezig) return
+  bezig = true
+  requestAnimationFrame(() => { meten(); bezig = false })
+}
+
+onMounted(() => {
+  // Beweging uitgezet: meteen volledig, zonder mee te scrollen.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    voortgang.value = 1
+    return
+  }
+
+  meten()
+  window.addEventListener('scroll', opScroll, { passive: true })
+  window.addEventListener('resize', opScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', opScroll)
+  window.removeEventListener('resize', opScroll)
+})
 </script>

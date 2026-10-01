@@ -8,3 +8,29 @@
     color-scheme: light;
   }
 }
+@layer components {
+  /* Beginstand voor de scroll-reveal uit plugins/reveal.client.ts. Zonder JS,
+     of met beweging uitgezet, blijft alles gewoon zichtbaar. */
+  [data-onthul='wacht'] {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  [data-onthul] {
+    transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-onthul='klaar'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-onthul] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

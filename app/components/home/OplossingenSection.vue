@@ -46,7 +46,7 @@
             </p>
             <span class="flex items-center gap-2.5 text-[12px] font-medium leading-[26px] tracking-[-0.24px] text-white">
               Leer meer
-              <ArrowRight />
+              <ArrowRight class="transition-transform duration-150 group-hover:translate-x-1" />
             </span>
           </div>
         </div>

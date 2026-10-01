@@ -141,7 +141,7 @@
           {{ link.title }}
         </NuxtLink>
 
-        <NuxtLink to="/contact" class="mt-2 flex h-[42px] shrink-0 items-center justify-center rounded-full bg-greendee-yellow text-nav font-bold text-greendee-ink">
+        <NuxtLink to="/contact" class="mt-2 flex h-[42px] shrink-0 items-center justify-center rounded-full bg-greendee-yellow text-nav font-bold text-greendee-ink transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
           Neem contact op
         </NuxtLink>
       </nav>

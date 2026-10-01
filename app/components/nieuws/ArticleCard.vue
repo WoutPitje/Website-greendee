@@ -9,7 +9,7 @@
 
     <div class="flex flex-1 flex-col items-start justify-between p-6">
       <div class="flex items-center gap-2.5">
-        <span class="rounded-full bg-greendee-yellow px-3 py-1.5 text-[12px] font-bold leading-4 text-[#412402]">
+        <span class="rounded-full bg-greendee-yellow px-3 py-1.5 text-[12px] font-bold leading-4 text-[#412402] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
           {{ article.category }}
         </span>
         <span class="text-[13px] font-medium leading-[18px] text-gray-500">

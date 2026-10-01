@@ -19,7 +19,7 @@
 
         <NuxtLink
           to="/over-ons"
-          class="flex items-center justify-center rounded-full bg-greendee-yellow px-6 py-3.5 text-[16px] font-bold leading-[22px] text-greendee-ink lg:px-5 lg:py-3"
+          class="flex items-center justify-center rounded-full bg-greendee-yellow px-6 py-3.5 text-[16px] font-bold leading-[22px] text-greendee-ink lg:px-5 lg:py-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
         >
           Meer weten?
         </NuxtLink>

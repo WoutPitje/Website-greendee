@@ -102,6 +102,17 @@ const body = computed(() => {
         const items = trimmed.split('\n').map(line => `<li>${line.replace(/^[-*] /, '')}</li>`).join('')
         return `<ul>${items}</ul>`
       }
+      // Pipe-tabel: kopregel, scheidingsregel, daarna de rijen.
+      if (/^\|/.test(trimmed) && trimmed.includes('\n')) {
+        const regels = trimmed.split('\n').filter(r => r.trim().startsWith('|'))
+        const cellen = (r: string) => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim())
+        const [kop, scheiding, ...rest] = regels
+        if (scheiding && /^[\s|:-]+$/.test(scheiding)) {
+          const th = cellen(kop).map(c => `<th>${c}</th>`).join('')
+          const tr = rest.map(r => `<tr>${cellen(r).map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
+          return `<div class="tabel-scroll"><table><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`
+        }
+      }
       return `<p>${trimmed.replaceAll('\n', '<br>')}</p>`
     })
     .join('')
@@ -129,5 +140,19 @@ useHead(() => ({
 }
 .prose-greendee :deep(ul) {
   @apply mt-4 list-disc space-y-2 pl-6 text-[17px] font-medium leading-8 text-gray-600;
+}
+/* Tabellen mogen breder zijn dan de tekstkolom en scrollen dan apart, zodat
+   de pagina zelf nooit horizontaal meegaat. */
+.prose-greendee :deep(.tabel-scroll) {
+  @apply mt-6 overflow-x-auto;
+}
+.prose-greendee :deep(table) {
+  @apply w-full min-w-[520px] border-collapse text-left text-[15px];
+}
+.prose-greendee :deep(th) {
+  @apply border-b-2 border-greendee-green/30 py-3 pr-5 align-top font-bold text-greendee-ink;
+}
+.prose-greendee :deep(td) {
+  @apply border-b border-gray-200 py-3 pr-5 align-top font-medium leading-6 text-gray-600;
 }
 </style>
