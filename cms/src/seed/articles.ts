@@ -157,10 +157,105 @@ async function republishLinked(strapi: Core.Strapi) {
   await store.set({ value: true })
 }
 
+const IMAGE_DIR = path.join(SEED_DIR, 'images')
+
+const MIME_BY_EXT: Record<string, string> = {
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+}
+
+interface HeroImage {
+  bestand: string
+  alt: string
+  /** Waar de foto vandaan komt, zodat de herkomst naleesbaar blijft. */
+  herkomst: string
+  licentie: string
+}
+
+async function uploadImage(strapi: Core.Strapi, hero: HeroImage) {
+  const filepath = path.join(IMAGE_DIR, hero.bestand)
+  if (!fs.existsSync(filepath)) {
+    strapi.log.warn(`[seed] foto niet gevonden, bericht krijgt er geen: ${hero.bestand}`)
+    return null
+  }
+
+  const stats = fs.statSync(filepath)
+  const ext = path.extname(hero.bestand).toLowerCase()
+
+  const uploaded = await strapi.plugin('upload').service('upload').upload({
+    data: {
+      fileInfo: {
+        name: hero.bestand,
+        alternativeText: hero.alt,
+        caption: `${hero.licentie} — ${hero.herkomst}`,
+      },
+    },
+    files: {
+      filepath,
+      originalFilename: hero.bestand,
+      mimetype: MIME_BY_EXT[ext] ?? 'application/octet-stream',
+      size: stats.size,
+    },
+  })
+
+  return Array.isArray(uploaded) ? uploaded[0] : uploaded
+}
+
+// Zet een sfeerbeeld boven elk nieuwsbericht. De foto's zijn CC0 of publiek
+// domein, dus ze vragen geen naamsvermelding; de herkomst staat in het bijschrift
+// in de mediabibliotheek zodat die naleesbaar blijft.
+//
+// Een bericht dat al een eigen foto heeft blijft ongemoeid: zodra een redacteur
+// er zelf een kiest, is dat het laatste woord.
+async function attachHeroImages(strapi: Core.Strapi) {
+  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'articles-heroimages-attached' })
+  if (await store.get()) return
+
+  const kaartPad = path.join(SEED_DIR, 'articles-heroimages.json')
+  if (!fs.existsSync(kaartPad)) return
+
+  const kaart: Record<string, HeroImage> = JSON.parse(fs.readFileSync(kaartPad, 'utf8'))
+  const docs = strapi.documents('api::article.article')
+  let gezet = 0
+  let overgeslagen = 0
+  let mislukt = 0
+
+  for (const [slug, hero] of Object.entries(kaart)) {
+    const [concept] = await docs.findMany({
+      filters: { slug }, limit: 1, status: 'draft', populate: ['heroImage'],
+    })
+    if (!concept) continue
+    if (concept.heroImage) { overgeslagen++; continue }
+
+    const image = await uploadImage(strapi, hero)
+    if (!image) { mislukt++; continue }
+
+    await docs.update({ documentId: concept.documentId, data: { heroImage: image.id }, status: 'draft' })
+
+    // Net als bij de bronnen: het concept is bijgewerkt, maar de site leest de
+    // gepubliceerde versie. Alleen opnieuw publiceren wat al gepubliceerd was.
+    const [live] = await docs.findMany({ filters: { slug }, limit: 1, status: 'published' })
+    if (live) await docs.publish({ documentId: concept.documentId })
+
+    gezet++
+  }
+
+  strapi.log.info(
+    `[seed] foto gezet bij ${gezet} berichten, ${overgeslagen} hadden er al een, ${mislukt} mislukt`,
+  )
+
+  // Alleen latchen als er niets is blijven liggen, zodat een ontbrekend bestand
+  // bij de volgende boot opnieuw wordt geprobeerd.
+  if (mislukt === 0) await store.set({ value: true })
+}
+
 export async function seedArticles(strapi: Core.Strapi) {
   for (const batch of BATCHES) {
     await runBatch(strapi, batch)
   }
   await linkSources(strapi)
   await republishLinked(strapi)
+  await attachHeroImages(strapi)
 }
