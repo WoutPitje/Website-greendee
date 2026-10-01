@@ -92,8 +92,45 @@ async function runBatch(strapi: Core.Strapi, batch: ArticleBatch) {
   }
 }
 
+// De bronnen onder elk bericht stonden eerst als platte tekst in de seed; de
+// URL's zaten als hyperlink in het Word-bestand en zijn er later uit gehaald.
+// Deze migratie zet het bronnenblok om naar markdown-links, maar alleen als het
+// nog letterlijk gelijk is aan wat de seed heeft geplaatst. Heeft een redacteur
+// de tekst aangepast, dan blijft die staan.
+async function linkSources(strapi: Core.Strapi) {
+  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'articles-sources-linked' })
+  if (await store.get()) return
+
+  const kaartPad = path.join(SEED_DIR, 'articles-bronnen-links.json')
+  if (!fs.existsSync(kaartPad)) return
+
+  const kaart: Record<string, { oud: string, nieuw: string }> = JSON.parse(fs.readFileSync(kaartPad, 'utf8'))
+  const docs = strapi.documents('api::article.article')
+  let bijgewerkt = 0
+  let overgeslagen = 0
+
+  for (const [slug, blok] of Object.entries(kaart)) {
+    const [entry] = await docs.findMany({ filters: { slug }, limit: 1, status: 'draft' })
+    if (!entry) continue
+
+    const body = String(entry.body ?? '')
+    if (body.includes(blok.nieuw)) continue
+    if (!body.includes(blok.oud)) { overgeslagen++; continue }
+
+    const nieuweBody = body.replace(blok.oud, blok.nieuw)
+    // Gepubliceerde berichten blijven gepubliceerd; concepten blijven concept.
+    const status = entry.publishedAt ? 'published' : 'draft'
+    await docs.update({ documentId: entry.documentId, data: { body: nieuweBody }, status })
+    bijgewerkt++
+  }
+
+  strapi.log.info(`[seed] bronnen gelinkt in ${bijgewerkt} berichten, ${overgeslagen} handmatig aangepast en overgeslagen`)
+  await store.set({ value: true })
+}
+
 export async function seedArticles(strapi: Core.Strapi) {
   for (const batch of BATCHES) {
     await runBatch(strapi, batch)
   }
+  await linkSources(strapi)
 }

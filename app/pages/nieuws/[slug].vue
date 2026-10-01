@@ -84,6 +84,18 @@ if (!article.value) {
 // Strapi's richtext field is markdown; only the handful of constructs the editor
 // produces are turned into HTML, and every angle bracket is escaped first so a
 // pasted fragment cannot inject markup.
+// Markdown-links binnen een regel. De tekst is hier al ge-escaped, dus dit
+// voegt alleen een anker toe. Alleen http(s) en interne paden worden klikbaar:
+// een javascript:- of data:-URL uit het CMS mag nooit uitgevoerd worden.
+function inline(tekst: string) {
+  return tekst.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_heel, label, url) => {
+    const extern = /^https?:\/\//i.test(url)
+    if (!extern && !url.startsWith('/')) return label
+    const attrs = extern ? ' target="_blank" rel="noopener noreferrer"' : ''
+    return `<a href="${url}"${attrs}>${label}</a>`
+  })
+}
+
 const body = computed(() => {
   const escaped = (article.value?.body ?? '')
     .replaceAll('&', '&amp;')
@@ -95,11 +107,11 @@ const body = computed(() => {
     .map((block) => {
       const trimmed = block.trim()
       if (!trimmed) return ''
-      if (trimmed.startsWith('### ')) return `<h3>${trimmed.slice(4)}</h3>`
-      if (trimmed.startsWith('## ')) return `<h2>${trimmed.slice(3)}</h2>`
-      if (trimmed.startsWith('# ')) return `<h2>${trimmed.slice(2)}</h2>`
+      if (trimmed.startsWith('### ')) return `<h3>${inline(trimmed.slice(4))}</h3>`
+      if (trimmed.startsWith('## ')) return `<h2>${inline(trimmed.slice(3))}</h2>`
+      if (trimmed.startsWith('# ')) return `<h2>${inline(trimmed.slice(2))}</h2>`
       if (/^[-*] /.test(trimmed)) {
-        const items = trimmed.split('\n').map(line => `<li>${line.replace(/^[-*] /, '')}</li>`).join('')
+        const items = trimmed.split('\n').map(line => `<li>${inline(line.replace(/^[-*] /, ''))}</li>`).join('')
         return `<ul>${items}</ul>`
       }
       // Pipe-tabel: kopregel, scheidingsregel, daarna de rijen.
@@ -108,12 +120,12 @@ const body = computed(() => {
         const cellen = (r: string) => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim())
         const [kop, scheiding, ...rest] = regels
         if (scheiding && /^[\s|:-]+$/.test(scheiding)) {
-          const th = cellen(kop).map(c => `<th>${c}</th>`).join('')
-          const tr = rest.map(r => `<tr>${cellen(r).map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
+          const th = cellen(kop).map(c => `<th>${inline(c)}</th>`).join('')
+          const tr = rest.map(r => `<tr>${cellen(r).map(c => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')
           return `<div class="tabel-scroll"><table><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`
         }
       }
-      return `<p>${trimmed.replaceAll('\n', '<br>')}</p>`
+      return `<p>${inline(trimmed.replaceAll('\n', '<br>'))}</p>`
     })
     .join('')
 })
@@ -143,6 +155,9 @@ useHead(() => ({
 }
 /* Tabellen mogen breder zijn dan de tekstkolom en scrollen dan apart, zodat
    de pagina zelf nooit horizontaal meegaat. */
+.prose-greendee :deep(a) {
+  @apply font-semibold text-greendee-green underline underline-offset-2 transition-opacity hover:opacity-70;
+}
 .prose-greendee :deep(.tabel-scroll) {
   @apply mt-6 overflow-x-auto;
 }
