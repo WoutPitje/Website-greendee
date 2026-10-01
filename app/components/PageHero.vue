@@ -10,7 +10,7 @@
             :src="`${image}-2400.jpg`"
             :srcset="`${image}-1280.jpg 1280w, ${image}-2400.jpg 2400w`"
             alt=""
-            class="absolute inset-0 size-full max-w-none object-cover object-[72%_50%] lg:object-center lg:inset-auto lg:left-[-7.36%] lg:top-[-19.41%] lg:h-[138.68%] lg:w-[114.66%]"
+            class="absolute inset-0 size-full max-w-none object-cover object-[72%_50%] lg:object-center lg:inset-auto lg:left-[-7.36%] lg:top-[-30%] lg:h-[138.68%] lg:w-[114.66%]"
           >
         </picture>
       </div>
