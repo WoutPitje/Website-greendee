@@ -59,3 +59,42 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+---
+
+## MCP-endpoint
+
+Strapi serveert een Model Context Protocol-endpoint op `/mcp`, waarmee een
+AI-client content kan lezen en schrijven. Het staat achter `MCP_ENABLED`
+(`config/server.ts`) en is standaard uit; op de productie-CMS staat de variabele
+in Coolify op `true`.
+
+Controleren of het leeft, zonder token:
+
+```bash
+curl -X POST https://cms.greendee.nl/mcp \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+# {"jsonrpc":"2.0","error":{"code":-32000,"message":"Authentication required"},"id":null}
+```
+
+Verbinden kost een **admintoken** — niet een Content-API-token en niet het
+Coolify-token. Aanmaken kan alleen in het adminpaneel, want de REST-route
+erachter vraagt om een ingelogde admin: Settings → Admin tokens → Create new
+admin token. Het token erft de rechten van de admin waaraan het hangt, dus geef
+het een rol die niet meer mag dan nodig is.
+
+Daarna, met het token (en niet in de repo — `claude mcp add` zet het in je eigen
+configuratie):
+
+```bash
+claude mcp add strapi --transport http https://cms.greendee.nl/mcp \
+  -H "Authorization: Bearer <admintoken>"
+```
+
+Let op de Strapi-versie. Tot en met 5.52 beschrijft het endpoint zijn tools in
+JSON Schema draft-07; clients die dat niet accepteren laten de tools stilletjes
+weg, wat zich voordoet als een rechtenprobleem terwijl de server niets logt.
+Vanaf 5.53 is dat opgelost en vanaf 5.54 zijn er ook Media Library-tools. Komt de
+verbinding op met nul tools, dan is upgraden de oplossing en niet sleutelen aan
+de rechten van het token.
