@@ -99,9 +99,14 @@ claude mcp add strapi --transport http https://cms.greendee.nl/mcp \
   -H "Authorization: Bearer <admintoken>"
 ```
 
-Let op de Strapi-versie. Tot en met 5.52 beschrijft het endpoint zijn tools in
-JSON Schema draft-07; clients die dat niet accepteren laten de tools stilletjes
-weg, wat zich voordoet als een rechtenprobleem terwijl de server niets logt.
-Vanaf 5.53 is dat opgelost en vanaf 5.54 zijn er ook Media Library-tools. Komt de
+Op 5.51.2 beschrijft het endpoint zijn tools in JSON Schema draft-07. Claude
+Code gaat daar prima mee om — op 2026-10-01 geverifieerd met een echte
+lijstaanroep — maar sommige andere clients laten zulke tools stilletjes weg, wat
+zich voordoet als een rechtenprobleem terwijl de server niets logt. Komt een
 verbinding op met nul tools, dan is upgraden de oplossing en niet sleutelen aan
-de rechten van het token.
+de rechten van het token; vanaf 5.53 zijn de schema's draft 2020-12.
+
+Beschikbaar zijn de content-managertools voor article, reference, testimonial en
+users-permissions: lezen, aanmaken, wijzigen, verwijderen, publiceren en
+depubliceren. **Media Library-tools ontbreken**, die kwamen pas in 5.54, dus
+afbeeldingen uploaden en koppelen blijft via de seeder of het adminpaneel gaan.
