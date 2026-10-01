@@ -118,13 +118,42 @@ async function linkSources(strapi: Core.Strapi) {
     if (!body.includes(blok.oud)) { overgeslagen++; continue }
 
     const nieuweBody = body.replace(blok.oud, blok.nieuw)
-    // Gepubliceerde berichten blijven gepubliceerd; concepten blijven concept.
-    const status = entry.publishedAt ? 'published' : 'draft'
-    await docs.update({ documentId: entry.documentId, data: { body: nieuweBody }, status })
+    await docs.update({ documentId: entry.documentId, data: { body: nieuweBody }, status: 'draft' })
     bijgewerkt++
   }
 
   strapi.log.info(`[seed] bronnen gelinkt in ${bijgewerkt} berichten, ${overgeslagen} handmatig aangepast en overgeslagen`)
+  await store.set({ value: true })
+}
+
+// De vorige stap schrijft naar het concept. Een bericht dat al gepubliceerd is
+// houdt daarnaast een eigen gepubliceerde versie, en díe serveert de publieke
+// API. Hier wordt zo'n bericht opnieuw gepubliceerd zodat de gelinkte bronnen
+// ook echt op de site staan. Een bericht dat nog concept is, blijft concept.
+async function republishLinked(strapi: Core.Strapi) {
+  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'articles-sources-republished' })
+  if (await store.get()) return
+
+  const kaartPad = path.join(SEED_DIR, 'articles-bronnen-links.json')
+  if (!fs.existsSync(kaartPad)) return
+
+  const kaart: Record<string, { oud: string, nieuw: string }> = JSON.parse(fs.readFileSync(kaartPad, 'utf8'))
+  const docs = strapi.documents('api::article.article')
+  let opnieuw = 0
+
+  for (const [slug, blok] of Object.entries(kaart)) {
+    const [live] = await docs.findMany({ filters: { slug }, limit: 1, status: 'published' })
+    if (!live) continue
+    if (String(live.body ?? '').includes(blok.nieuw)) continue
+
+    const [concept] = await docs.findMany({ filters: { slug }, limit: 1, status: 'draft' })
+    if (!concept || !String(concept.body ?? '').includes(blok.nieuw)) continue
+
+    await docs.publish({ documentId: concept.documentId })
+    opnieuw++
+  }
+
+  if (opnieuw) strapi.log.info(`[seed] ${opnieuw} gepubliceerde berichten bijgewerkt met de gelinkte bronnen`)
   await store.set({ value: true })
 }
 
@@ -133,4 +162,5 @@ export async function seedArticles(strapi: Core.Strapi) {
     await runBatch(strapi, batch)
   }
   await linkSources(strapi)
+  await republishLinked(strapi)
 }
