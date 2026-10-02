@@ -44,6 +44,11 @@ export default defineNuxtConfig({
       // form instead of an empty embed.
       calendlyUrl: '',
 
+      // Meet-ID van GA4. Geen geheim: het staat sowieso in de paginabron. De
+      // plugin laadt alleen op de live domeinnaam, zodat staging en lokaal
+      // ontwikkelen de statistieken niet vervuilen.
+      gaId: 'G-6W5G5WQMKS',
+
       // Absolute base for canonical URLs, Open Graph tags and the sitemap.
       // Staging overrides this with NUXT_PUBLIC_SITE_URL so it never claims to
       // be production, and anything that is not the live domain is served as

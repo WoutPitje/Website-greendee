@@ -57,10 +57,47 @@
       geeft, voor hetzelfde doel: uw vraag beantwoorden.
     </p>
 
+    <h2>Cookies en bezoekersstatistieken</h2>
+    <p>
+      Wij gebruiken Google Analytics om te zien welke pagina's worden bekeken en hoe
+      bezoekers de site gebruiken. Daarmee kunnen wij de site verbeteren. Google
+      Analytics plaatst daarvoor cookies.
+    </p>
+    <p>
+      <strong>Dat gebeurt alleen als u daar toestemming voor geeft.</strong> Zolang u
+      die niet heeft gegeven, wordt er niets van Google geladen: geen script, geen
+      cookie, en er gaat geen enkel verzoek naar Google. Kiest u voor "alleen
+      noodzakelijk", dan blijft dat zo.
+    </p>
+    <p>
+      Geeft u wel toestemming, dan worden de pagina's die u bekijkt, het tijdstip, uw
+      globale locatie, het type apparaat en browser en de pagina waarvandaan u kwam
+      naar Google gestuurd. Google bewaart uw IP-adres niet als los gegeven; het wordt
+      gebruikt om de globale locatie te bepalen en daarna verwijderd. Wij gebruiken
+      geen advertentiefuncties en koppelen de statistieken niet aan uw naam of
+      e-mailadres. De statistieken worden maximaal veertien maanden bewaard.
+    </p>
+    <p>
+      Uw keuze zelf onthouden wij in uw browser (lokale opslag, niet in een cookie),
+      zodat wij het niet bij elke pagina opnieuw hoeven te vragen. Die ene opslag is
+      noodzakelijk en staat los van uw toestemming.
+    </p>
+
+    <ClientOnly>
+      <p v-if="beschikbaar">
+        <button type="button" class="font-semibold text-greendee-green underline underline-offset-2 transition-opacity hover:opacity-70" @click="herzie">
+          Wijzig uw cookiekeuze
+        </button>
+        <span v-if="huidige !== 'onbekend'" class="text-gray-500">
+          &nbsp;&mdash; nu ingesteld op
+          {{ huidige === 'geaccepteerd' ? 'accepteren' : 'alleen noodzakelijk' }}.
+        </span>
+      </p>
+    </ClientOnly>
+
     <h2>Wat wij niet doen</h2>
     <ul>
-      <li>Wij plaatsen geen cookies en gebruiken geen lokale opslag in uw browser.</li>
-      <li>Er staat geen bezoekersstatistiek of advertentienetwerk op deze site.</li>
+      <li>Er staat geen advertentienetwerk op deze site.</li>
       <li>Wij volgen u niet over andere websites en stellen geen profiel van u op.</li>
       <li>Wij verkopen uw gegevens niet en verhuren ze niet aan derden.</li>
     </ul>
@@ -95,6 +132,11 @@
             <td>Het lettertype van de site</td>
             <td>Verenigde Staten</td>
           </tr>
+          <tr>
+            <td>Google Analytics</td>
+            <td>Bezoekersstatistieken, alleen met uw toestemming</td>
+            <td>Verenigde Staten</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -115,6 +157,7 @@
         fiscale bewaarplicht.
       </li>
       <li><strong>Technische logbestanden:</strong> enkele weken.</li>
+      <li><strong>Statistieken in Google Analytics:</strong> maximaal veertien maanden.</li>
     </ul>
 
     <h2>Uw rechten</h2>
@@ -153,6 +196,11 @@
 </template>
 
 <script setup lang="ts">
+const { keuze: huidige, lees, wis: herzie } = useCookieConsent()
+const beschikbaar = useAnalyticsBeschikbaar()
+
+onMounted(lees)
+
 useSeo({
   titel: 'Privacyverklaring',
   beschrijving:
