@@ -11,9 +11,14 @@
       :class="reference.imageIsLogo ? 'bg-white object-contain p-6' : ''"
     >
 
+    <!-- Het tekstblok eronder is zo'n 230px hoog, dus een verloop van 220px liet
+         de titel op de kale foto vallen. Op een lichte lucht was witte tekst dan
+         nauwelijks te lezen. Dit verloop loopt hoger door en is onderin dieper,
+         zodat elke regel op een donkere ondergrond staat, ongeacht de foto. -->
     <div
       aria-hidden="true"
-      class="absolute inset-x-0 bottom-0 h-[220px] bg-gradient-to-b from-transparent via-black/10 to-black/50"
+      class="absolute inset-x-0 bottom-0 h-[320px]"
+      style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.18) 28%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.85) 100%)"
     />
 
     <div class="absolute inset-x-5 bottom-5 flex flex-col items-start gap-[7px]">
