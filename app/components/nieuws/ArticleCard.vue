@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="`/nieuws/${article.slug}`"
-    class="group flex h-[460px] w-full flex-col items-start overflow-hidden rounded-[20px] border-[1.5px] border-gray-200 bg-white transition-colors hover:border-greendee-green lg:w-[368px]"
+    class="group flex h-[460px] min-w-0 grow basis-[330px] flex-col items-start overflow-hidden rounded-[20px] border-[1.5px] border-gray-200 bg-white transition-colors hover:border-greendee-green"
   >
     <div class="h-[200px] w-full shrink-0 bg-[#d9dde3]">
       <img v-if="article.image" :src="article.image" :alt="article.title" class="size-full object-cover">

@@ -41,8 +41,8 @@
       </NuxtLink>
     </section>
 
-    <section class="flex flex-col items-start gap-10 rounded-t-[40px] bg-[#f3f3f3] px-5 pb-24 pt-16 lg:px-36 lg:pt-[88px]">
-      <div class="flex w-full flex-col items-start gap-[5px]">
+    <section class="flex flex-col items-center gap-10 rounded-t-[40px] bg-[#f3f3f3] px-5 pb-24 pt-16 lg:px-36 lg:pt-[88px]">
+      <div class="flex w-full max-w-container flex-col items-start gap-[5px]">
         <p class="text-[15px] font-bold leading-[26px] text-greendee-green">Kennisbank</p>
         <h2 class="w-full text-[28px] font-extrabold leading-9 text-greendee-ink lg:text-h2 lg:leading-[44px]">
           Alles over energie, uitgelegd.
@@ -53,7 +53,7 @@
         </p>
       </div>
 
-      <div v-if="articles.length" class="flex w-full flex-col items-center gap-10">
+      <div v-if="articles.length" class="flex w-full max-w-container flex-col items-center gap-10">
         <div class="flex w-full flex-wrap items-start gap-9">
           <button
             v-for="option in filters"
@@ -76,6 +76,18 @@
 
         <div class="flex w-full flex-wrap items-start gap-6">
           <NieuwsArticleCard v-for="article in visible" :key="article.id" :article="article" />
+
+          <!-- De kaarten groeien mee zodat een rij altijd volloopt, maar dan rekt
+               een halfvolle laatste rij zijn kaarten breder uit dan de rijen
+               erboven. Deze onzichtbare opvullers dragen dezelfde basisbreedte en
+               vangen die ruimte op, zodat elke kaart even breed blijft. Onder de
+               768px staat er toch maar een kaart per rij en zijn ze overbodig. -->
+          <i
+            v-for="n in 2"
+            :key="`opvuller-${n}`"
+            aria-hidden="true"
+            class="hidden h-0 grow basis-[330px] md:block"
+          />
         </div>
 
         <button
@@ -88,7 +100,7 @@
         </button>
       </div>
 
-      <p v-else class="w-full py-10 text-[15px] font-medium text-gray-500">
+      <p v-else class="w-full max-w-container py-10 text-[15px] font-medium text-gray-500">
         Er zijn nog geen artikelen gepubliceerd. Zodra GreenDee in Strapi het eerste
         artikel plaatst, verschijnt het hier.
       </p>

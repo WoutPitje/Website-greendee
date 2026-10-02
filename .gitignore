@@ -23,3 +23,6 @@ logs
 .env.*
 !.env.example
 .env.local
+
+# Schermafbeeldingen en logs van de Playwright MCP-server
+.playwright-mcp/
