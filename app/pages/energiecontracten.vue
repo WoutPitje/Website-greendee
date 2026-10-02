@@ -8,8 +8,8 @@
       eyebrow="Onze diensten"
       title="Energiecontracten"
       intro="Uw contractvorm bepaalt wat u betaalt voor dezelfde kilowatturen. GreenDee brengt in kaart welke vorm past bij uw verbruiksprofiel en begeleidt de overstap."
-      image="/v2/hero-offertetrajecten"
-      image-alt="Gesprek over een energiecontract"
+      image="/v2/hero-energiecontracten"
+      image-alt="Twee mensen aan tafel bij een contract"
     />
 
     <NumberedListSection

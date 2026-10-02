@@ -8,8 +8,8 @@
       eyebrow="Onze diensten"
       title="Monitoring en rendementsbewaking"
       intro="Na oplevering begint het pas. GreenDee bewaakt of uw installatie doet wat de businesscase beloofde en grijpt in wanneer dat niet zo is."
-      image="/v2/hero-energiesimulaties"
-      image-alt="Monitoring van een energie-installatie"
+      image="/v2/hero-monitoring"
+      image-alt="Grafieken op een scherm waarop prestaties worden gevolgd"
     />
 
     <NumberedListSection
