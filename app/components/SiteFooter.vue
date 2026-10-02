@@ -63,7 +63,8 @@ const columns: { title: string, links: FooterLink[] }[] = [
     links: [
       { label: 'Nieuws', href: '/nieuws' },
       { label: 'Vacatures', href: '/vacatures' },
-      { label: 'Algemene voorwaarden', href: '/algemene-voorwaarden-dnr-2011.pdf', external: true, target: '_blank' },
+      { label: 'Algemene voorwaarden', href: '/algemene-voorwaarden' },
+      { label: 'Privacyverklaring', href: '/privacyverklaring' },
     ],
   },
   {
