@@ -52,6 +52,7 @@ interface StrapiArticleDetail {
   category?: string
   body?: string
   publishedDate?: string
+  author?: string
   heroImage?: { url?: string } | null
 }
 
@@ -72,6 +73,7 @@ const { data: article } = await useAsyncData(`article-${slug}`, async () => {
     category: entry.category ?? '',
     body: entry.body ?? '',
     publishedDate: entry.publishedDate ?? '',
+    author: entry.author ?? 'GreenDee',
     image: url.startsWith('/') ? `/cms${url}` : url,
     readingMinutes: Math.max(1, Math.round(words / 200)),
   }
@@ -134,9 +136,37 @@ function formatDate(value: string) {
   return new Date(value).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
+const { canonical, afbeelding } = useSeo(() => ({
+  titel: article.value?.title ?? 'Artikel',
+  beschrijving: article.value?.summary ?? '',
+  // De foto staat in het CMS en wordt via /cms geserveerd; valt terug op het
+  // standaardbeeld als een bericht nog geen foto heeft.
+  afbeelding: article.value?.image || undefined,
+  type: 'article',
+  gepubliceerd: article.value?.publishedDate || undefined,
+  auteur: article.value?.author,
+}))
+
+// Gestructureerde gegevens, zodat een zoekmachine het bericht als artikel
+// herkent in plaats van als willekeurige pagina.
 useHead(() => ({
-  title: article.value ? `${article.value.title} | GreenDee` : 'Artikel | GreenDee',
-  meta: [{ name: 'description', content: article.value?.summary ?? '' }],
+  script: article.value
+    ? [{
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: article.value.title,
+          description: article.value.summary,
+          image: afbeelding.value,
+          datePublished: article.value.publishedDate,
+          author: { '@type': 'Person', name: article.value.author },
+          publisher: { '@type': 'Organization', name: 'GreenDee' },
+          mainEntityOfPage: canonical.value,
+          articleSection: article.value.category,
+        }),
+      }]
+    : [],
 }))
 </script>
 

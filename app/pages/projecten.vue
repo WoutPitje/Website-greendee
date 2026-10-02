@@ -60,12 +60,11 @@
 <script setup lang="ts">
 import type { Reference } from '~/composables/useReferences'
 
-useHead({
-  title: 'Projecten | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'Van agrarische bedrijven tot bedrijventerreinen: batterijopslag, zonnestroom en laadinfrastructuur door heel Nederland.',
-  }],
+useSeo({
+  titel: 'Projecten',
+  beschrijving:
+    'Van agrarische bedrijven tot bedrijventerreinen: batterijopslag, zonnestroom en laadinfrastructuur door heel Nederland.',
+  afbeelding: 'projecten',
 })
 
 const { data } = await useReferences()

@@ -47,12 +47,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Business Cases | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'Van energievraag naar onderbouwd investeringsbesluit, gebaseerd op echte data.',
-  }],
+useSeo({
+  titel: 'Business Cases',
+  beschrijving:
+    'Van energievraag naar onderbouwd investeringsbesluit, gebaseerd op echte data.',
+  afbeelding: 'business-cases',
 })
 
 const problemen = [

@@ -109,12 +109,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Nieuws en kennisbank | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'Artikelen over netcongestie, techniek, subsidies en wetgeving, plus het laatste nieuws van GreenDee.',
-  }],
+useSeo({
+  titel: 'Nieuws en kennisbank',
+  beschrijving:
+    'Artikelen over netcongestie, techniek, subsidies en wetgeving, plus het laatste nieuws van GreenDee.',
+  afbeelding: 'nieuws',
 })
 
 const { data } = await useArticles()

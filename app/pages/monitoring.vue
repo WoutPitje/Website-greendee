@@ -50,12 +50,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Monitoring en rendementsbewaking | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'GreenDee bewaakt of uw energie-installatie doet wat de businesscase beloofde.',
-  }],
+useSeo({
+  titel: 'Monitoring en rendementsbewaking',
+  beschrijving:
+    'GreenDee bewaakt of uw energie-installatie doet wat de businesscase beloofde.',
+  afbeelding: 'monitoring',
 })
 
 const problemen = [

@@ -91,12 +91,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Vacatures | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'GreenDee zoekt een energieadviseur die klanten door het hele traject begeleidt.',
-  }],
+useSeo({
+  titel: 'Vacatures',
+  beschrijving:
+    'GreenDee zoekt een energieadviseur die klanten door het hele traject begeleidt.',
+  afbeelding: 'vacatures',
 })
 
 const open = ref<number | null>(null)

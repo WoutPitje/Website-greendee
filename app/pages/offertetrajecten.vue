@@ -45,12 +45,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Offertetrajecten | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'GreenDee voert namens u de uitvraag naar de markt en begeleidt de keuze van installateur of leverancier.',
-  }],
+useSeo({
+  titel: 'Offertetrajecten',
+  beschrijving:
+    'GreenDee voert namens u de uitvraag naar de markt en begeleidt de keuze van installateur of leverancier.',
+  afbeelding: 'offertetrajecten',
 })
 
 const problemen = [

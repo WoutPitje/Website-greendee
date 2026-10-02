@@ -20,11 +20,10 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Contact | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'Plan een vrijblijvend gesprek van 30 minuten met GreenDee over uw energievraagstuk.',
-  }],
+useSeo({
+  titel: 'Contact',
+  beschrijving:
+    'Plan een vrijblijvend gesprek van 30 minuten met GreenDee over uw energievraagstuk.',
+  afbeelding: 'contact',
 })
 </script>

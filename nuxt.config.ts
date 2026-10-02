@@ -42,7 +42,13 @@ export default defineNuxtConfig({
       // Booking link for the contact page. Set NUXT_PUBLIC_CALENDLY_URL in
       // Coolify once the account exists; until then the page shows the mail
       // form instead of an empty embed.
-      calendlyUrl: ''
+      calendlyUrl: '',
+
+      // Absolute base for canonical URLs, Open Graph tags and the sitemap.
+      // Staging overrides this with NUXT_PUBLIC_SITE_URL so it never claims to
+      // be production, and anything that is not the live domain is served as
+      // noindex (see server/routes/robots.txt.ts).
+      siteUrl: 'https://greendee.nl'
     }
   },
 
@@ -71,9 +77,8 @@ export default defineNuxtConfig({
         { name: 'author', content: 'Lars van Dee - GreenDee' },
         { name: 'generator', content: 'Nuxt 4' },
         { name: 'format-detection', content: 'telephone=no' },
-        { property: 'og:title', content: 'GreenDee - Slimme oplossingen voor netcongestie' },
-        { property: 'og:description', content: 'Van advies tot realisatie: GreenDee begeleidt uw duurzame energieprojecten.' },
-        { property: 'og:type', content: 'website' },
+        // og:title, og:description, og:url, og:type en og:image zet elke pagina
+        // zelf via useSeo(); hier staat alleen wat voor de hele site geldt.
         { property: 'og:locale', content: 'nl_NL' },
         { property: 'og:site_name', content: 'GreenDee' }
       ],

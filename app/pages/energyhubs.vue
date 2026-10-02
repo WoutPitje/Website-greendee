@@ -59,12 +59,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Energyhubs | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'Van energiesimulatie per bedrijf tot een gezamenlijke energyhub. GreenDee helpt gemeenten en bedrijventerreinen ondernemers verder ondanks netcongestie.',
-  }],
+useSeo({
+  titel: 'Energyhubs',
+  beschrijving:
+    'Van energiesimulatie per bedrijf tot een gezamenlijke energyhub. GreenDee helpt gemeenten en bedrijventerreinen ondernemers verder ondanks netcongestie.',
+  afbeelding: 'energyhubs',
 })
 
 const problemen = [

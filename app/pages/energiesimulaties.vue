@@ -48,12 +48,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Energiesimulaties | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'GreenDee rekent met eigen software door wat er op uw aansluiting gebeurt, nog voordat er geïnvesteerd wordt.',
-  }],
+useSeo({
+  titel: 'Energiesimulaties',
+  beschrijving:
+    'GreenDee rekent met eigen software door wat er op uw aansluiting gebeurt, nog voordat er geinvesteerd wordt.',
+  afbeelding: 'energiesimulaties',
 })
 
 const problemen = [

@@ -47,11 +47,10 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Over ons | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'GreenDee verkoopt geen los advies, maar duurzame investeringsbesluiten. Lees waar wij voor staan.',
-  }],
+useSeo({
+  titel: 'Over ons',
+  beschrijving:
+    'GreenDee verkoopt geen los advies, maar duurzame investeringsbesluiten. Lees waar wij voor staan.',
+  afbeelding: 'over-ons',
 })
 </script>

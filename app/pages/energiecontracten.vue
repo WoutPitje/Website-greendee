@@ -50,12 +50,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'Energiecontracten | GreenDee',
-  meta: [{
-    name: 'description',
-    content: 'GreenDee brengt in kaart welke contractvorm past bij uw verbruiksprofiel en begeleidt de overstap.',
-  }],
+useSeo({
+  titel: 'Energiecontracten',
+  beschrijving:
+    'GreenDee brengt in kaart welke contractvorm past bij uw verbruiksprofiel en begeleidt de overstap.',
+  afbeelding: 'energiecontracten',
 })
 
 const problemen = [
