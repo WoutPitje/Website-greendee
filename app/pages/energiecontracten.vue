@@ -9,7 +9,7 @@
       title="Energiecontracten"
       intro="Uw contractvorm bepaalt wat u betaalt voor dezelfde kilowatturen. GreenDee brengt in kaart welke vorm past bij uw verbruiksprofiel en begeleidt de overstap."
       image="/v2/hero-energiecontracten"
-      image-alt="Twee mensen aan tafel bij een contract"
+      image-alt="Het team van GreenDee in gesprek met een ondernemer"
     />
 
     <NumberedListSection
@@ -36,7 +36,7 @@
       title="Wij vergelijken, u tekent."
       body="GreenDee legt uw verbruiksprofiel naast de beschikbare contractvormen, haalt aanbiedingen op bij leveranciers en legt ze naast elkaar op gelijke uitgangspunten. U houdt de keuze en het contract op eigen naam."
       image="/v2/rol-greendee"
-      image-alt="Adviseur van GreenDee"
+      image-alt="Lars van GreenDee in telefonisch overleg"
       reverse
       background="grey"
     />

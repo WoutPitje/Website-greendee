@@ -34,7 +34,7 @@
       title="Wij voeren de uitvraag, u houdt de regie."
       body="GreenDee legt de uitgangspunten vast, selecteert de partijen en zet de uitvraag uit. Wij begeleiden het locatiebezoek en de vragenronde, verzorgen de communicatie en de opvolging, en leveren aan het eind een onderbouwd advies."
       image="/v2/rol-greendee"
-      image-alt="Adviseur van GreenDee bij een zonnepark"
+      image-alt="Lars van GreenDee in telefonisch overleg"
     />
 
     <CtaSection

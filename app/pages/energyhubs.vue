@@ -45,7 +45,7 @@
       title="Wij rekenen door, u houdt de regie."
       body="GreenDee voert de inventarisatie op locatie uit, maakt de energiesimulaties en voegt ze samen tot een ringonderzoek. In fase 2 werken we samen met een partner die het energyhub-traject trekt; wij leveren de onderbouwing waarop de keuzes rusten."
       image="/v2/rol-greendee"
-      image-alt="Adviseur van GreenDee op locatie"
+      image-alt="Lars van GreenDee in telefonisch overleg"
       reverse
       background="grey"
     />

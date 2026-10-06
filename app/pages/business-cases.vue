@@ -31,9 +31,9 @@
 
     <RoleSection
       title="Eén aanspreekpunt, van eerste gesprek tot blijvend rendement."
-      body="Wij voeren de regie richting netbeheerder, gemeente, verzekeraar en veiligheidsregio, en bewaken na realisatie jaarlijks uw energiekosten en rendement."
+      body="Wij ondersteunen u met de gesprekken met netbeheerder, gemeente, verzekeraar en veiligheidsregio, en bewaken na realisatie jaarlijks uw energiekosten en rendement."
       image="/v2/rol-greendee"
-      image-alt="Adviseur van GreenDee bij een zonnepark"
+      image-alt="Lars van GreenDee in telefonisch overleg"
       background="grey"
     />
 
