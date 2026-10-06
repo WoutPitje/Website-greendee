@@ -80,7 +80,7 @@
       title="Geen passende vacature?"
       body="We maken graag kennis met mensen die willen bijdragen aan onze missie. Stuur uw cv en een korte motivatie."
       cta-label="Stuur een open sollicitatie"
-      cta-to="mailto:lars@greendee.nl?subject=Open%20sollicitatie"
+      cta-to="mailto:offerte@greendee.nl?subject=Open%20sollicitatie"
       background="white"
       :rounded-top="false"
       body-size="base"

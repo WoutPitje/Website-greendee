@@ -95,6 +95,19 @@
       </p>
     </ClientOnly>
 
+    <h3>De online agenda</h3>
+    <p>
+      Op de contactpagina kunt u via Calendly een afspraak inplannen. Ook Calendly
+      plaatst eigen cookies, daarom laden wij de agenda pas nadat u op
+      <strong>Agenda laden</strong> klikt. Doet u dat niet, dan is er geen contact met
+      Calendly en blijft het mailformulier de manier om ons te bereiken.
+    </p>
+    <p>
+      Plant u een afspraak in, dan geeft u uw naam, e-mailadres en het gekozen tijdstip
+      door aan Calendly. Zij leveren die gegevens bij ons af en bewaren ze in hun eigen
+      systeem. Wij gebruiken ze alleen om de afspraak na te komen.
+    </p>
+
     <h2>Wat wij niet doen</h2>
     <ul>
       <li>Er staat geen advertentienetwerk op deze site.</li>
@@ -137,6 +150,11 @@
             <td>Bezoekersstatistieken, alleen met uw toestemming</td>
             <td>Verenigde Staten</td>
           </tr>
+          <tr>
+            <td>Calendly</td>
+            <td>De online agenda, alleen als u hem zelf laadt</td>
+            <td>Verenigde Staten</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -158,6 +176,10 @@
       </li>
       <li><strong>Technische logbestanden:</strong> enkele weken.</li>
       <li><strong>Statistieken in Google Analytics:</strong> maximaal veertien maanden.</li>
+      <li>
+        <strong>Ingeplande afspraken:</strong> zolang nodig om de afspraak na te komen
+        en daarna in onze agenda-administratie.
+      </li>
     </ul>
 
     <h2>Uw rechten</h2>

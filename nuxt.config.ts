@@ -39,10 +39,9 @@ export default defineNuxtConfig({
     contactFrom: 'GreenDee website <website@mail.greendee.nl>',
 
     public: {
-      // Booking link for the contact page. Set NUXT_PUBLIC_CALENDLY_URL in
-      // Coolify once the account exists; until then the page shows the mail
-      // form instead of an empty embed.
-      calendlyUrl: '',
+      // Booking link for the contact page. De agenda laadt pas na een klik,
+      // omdat Calendly eigen cookies plaatst; zie CalendlySection.
+      calendlyUrl: 'https://calendly.com/lars-greendee/30min',
 
       // Meet-ID van GA4. Geen geheim: het staat sowieso in de paginabron. De
       // plugin laadt alleen op de live domeinnaam, zodat staging en lokaal
