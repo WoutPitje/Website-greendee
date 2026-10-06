@@ -60,6 +60,48 @@
       </div>
     </section>
 
+    <!-- ── A2: gesplitst met beeldraster ─────────────────────────────────── -->
+    <!-- Zelfde opzet als A, maar rechts staan zon, wind en opslag naast elkaar.
+         Daarmee laat de hero zien dat het om de hele energievoorziening gaat en
+         niet alleen om windmolens. -->
+    <section v-else-if="actief === 'a2'" class="relative overflow-hidden bg-greendee-green-darkest">
+      <div class="absolute inset-y-0 right-0 hidden w-1/2 gap-1.5 lg:grid lg:grid-rows-2">
+        <img :src="`${MOZAIEK[0]!.bestand}-2400.jpg`" :alt="MOZAIEK[0]!.alt" class="size-full object-cover">
+        <div class="grid grid-cols-2 gap-1.5">
+          <img :src="`${MOZAIEK[1]!.bestand}-1280.jpg`" :alt="MOZAIEK[1]!.alt" class="size-full object-cover">
+          <img :src="`${MOZAIEK[2]!.bestand}-1280.jpg`" :alt="MOZAIEK[2]!.alt" class="size-full object-cover">
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[120px]"
+        style="background-image: linear-gradient(180deg, rgba(2,65,0,0.65) 0%, rgba(2,65,0,0) 100%)"
+      />
+      <AppHeader />
+
+      <div class="relative mx-auto w-full max-w-container px-5 lg:px-0">
+        <div class="flex flex-col gap-6 py-14 lg:w-[calc(50%-32px)] lg:py-24">
+          <p :class="EYEBROW">{{ EYEBROW_TEKST }}</p>
+          <h1 class="text-[34px] font-extrabold leading-[42px] text-white lg:text-[46px] lg:leading-[54px]">{{ KOP }}</h1>
+          <p class="text-[16px] font-medium leading-7 text-white/80">{{ INTRO }}</p>
+          <div class="flex flex-col gap-3 sm:flex-row">
+            <span :class="KNOP_GEEL">Plan een gesprek in</span>
+            <span :class="KNOP_RAND">Bekijk onze projecten</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/15 pt-6">
+            <div v-for="c in CIJFERS" :key="c.label">
+              <p class="text-[26px] font-extrabold leading-8 text-greendee-yellow">{{ c.waarde }}</p>
+              <p class="text-[13px] font-medium text-white/70">{{ c.label }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid h-[220px] grid-cols-3 gap-1.5 lg:hidden">
+        <img v-for="m in MOZAIEK" :key="m.bestand" :src="`${m.bestand}-1280.jpg`" :alt="m.alt" class="size-full object-cover">
+      </div>
+    </section>
+
     <!-- ── B: links met scrim ────────────────────────────────────────────── -->
     <section v-else-if="actief === 'b'" class="relative h-[640px] overflow-hidden lg:h-[760px]">
       <img :src="`${FOTO}-2400.jpg`" alt="" class="absolute inset-0 size-full object-cover">
@@ -145,7 +187,26 @@
           schaduwrandje, en benoemt de kop wat de bezoeker oplost.
         </p>
 
-        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <p class="mt-8 text-[13px] font-bold uppercase tracking-wider text-gray-400">Foto</p>
+        <div class="mt-3 flex flex-wrap gap-3">
+          <button
+            v-for="f in FOTOS"
+            :key="f.sleutel"
+            type="button"
+            class="overflow-hidden rounded-xl border-[1.5px] transition-colors"
+            :class="f.sleutel === foto.sleutel ? 'border-greendee-green' : 'border-gray-200 hover:border-greendee-green'"
+            @click="foto = f"
+          >
+            <img :src="`${f.bestand}-1280.jpg`" :alt="f.naam" class="h-[70px] w-[110px] object-cover">
+            <span class="block px-3 py-2 text-[13px] font-bold text-greendee-ink">{{ f.naam }}</span>
+          </button>
+        </div>
+        <p class="mt-2 text-[13px] font-medium text-gray-500">
+          Geldt voor alle varianten behalve A2; die toont zon, wind en opslag altijd samen.
+        </p>
+
+        <p class="mt-8 text-[13px] font-bold uppercase tracking-wider text-gray-400">Opzet</p>
+        <div class="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <button
             v-for="optie in OPTIES"
             :key="optie.sleutel"
@@ -164,7 +225,23 @@
 </template>
 
 <script setup lang="ts">
-const FOTO = '/v2/hero-keuze-c'
+const FOTOS = [
+  { sleutel: 'molens', naam: 'Windmolens', bestand: '/v2/hero-foto-molens' },
+  { sleutel: 'zon', naam: 'Zonnepark', bestand: '/v2/hero-foto-zon' },
+  { sleutel: 'accu', naam: 'Batterijopslag', bestand: '/v2/hero-foto-accu' },
+  { sleutel: 'veld', naam: 'In het veld', bestand: '/v2/hero-foto-veld' },
+] as const
+
+const foto = ref(FOTOS[0]!)
+const FOTO = computed(() => foto.value.bestand)
+
+// Zon, wind en opslag naast elkaar, voor wie wil laten zien dat het niet alleen
+// over windmolens gaat.
+const MOZAIEK = [
+  { bestand: '/v2/hero-foto-zon', alt: 'Zonnepark' },
+  { bestand: '/v2/hero-foto-molens', alt: 'Windmolens' },
+  { bestand: '/v2/hero-foto-opslag', alt: 'Batterijopslag op een bedrijventerrein' },
+]
 
 const EYEBROW_TEKST = 'Netcongestie opgelost'
 const KOP = 'Uw ambitie past wél binnen uw aansluiting.'
@@ -197,12 +274,13 @@ const SCRIM_LINKS = 'background-image: linear-gradient(90deg, rgba(2,65,0,0.92) 
 const OPTIES = [
   { sleutel: 'nu', naam: 'Zoals nu', toelichting: 'Gecentreerd, tekst met schaduw op de foto' },
   { sleutel: 'a', naam: 'A — gesplitst', toelichting: 'Tekst op groen vlak, foto op de rechterhelft' },
+  { sleutel: 'a2', naam: 'A2 — gesplitst, drie beelden', toelichting: 'Zon, wind en opslag naast elkaar' },
   { sleutel: 'b', naam: 'B — links met scrim', toelichting: 'Schermbrede foto, groen verloop van links' },
   { sleutel: 'c', naam: 'C — cijferbalk', toelichting: 'Waas over de foto, cijfers onderaan' },
   { sleutel: 'e', naam: "E — klantlogo's", toelichting: 'Als B, met de logobalk direct eronder' },
 ] as const
 
-const actief = ref<'nu' | 'a' | 'b' | 'c' | 'e'>('a')
+const actief = ref<'nu' | 'a' | 'a2' | 'b' | 'c' | 'e'>('a2')
 
 useSeo({
   titel: 'Hero vergelijken',
