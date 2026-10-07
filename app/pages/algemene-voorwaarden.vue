@@ -16,8 +16,8 @@
       <li>Bergerweg 200, 1817 MN Alkmaar</li>
       <li>Telefoon: <a href="tel:+31634466611">06-34466611</a></li>
       <li>E-mail: <a href="mailto:offerte@greendee.nl">offerte@greendee.nl</a></li>
-      <li>KvK-nummer: <strong>nog aanvullen</strong></li>
-      <li>Btw-identificatienummer: <strong>nog aanvullen</strong></li>
+      <li>KvK-nummer: 97695564</li>
+      <li>Btw-identificatienummer: NL005283192B66</li>
     </ul>
 
     <h2>Welke voorwaarden gelden</h2>

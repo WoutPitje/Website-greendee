@@ -37,6 +37,8 @@ useHead({
         'GreenDee helpt MKB-bedrijven, agrariers en bedrijventerreinen verder ondanks netcongestie, van energiesimulatie en businesscase tot realisatie en bewaking.',
       telephone: '+31634466611',
       email: 'offerte@greendee.nl',
+      vatID: 'NL005283192B66',
+      identifier: { '@type': 'PropertyValue', propertyID: 'KvK', value: '97695564' },
       areaServed: { '@type': 'Country', name: 'Nederland' },
       address: vestiging('Saneringsweg 3', '4053 JK', 'IJzendoorn').address,
       location: [
