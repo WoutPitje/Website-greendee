@@ -24,9 +24,14 @@ export default defineNuxtPlugin(() => {
 
     const w = window as unknown as { dataLayer?: unknown[], gtag?: (...args: unknown[]) => void }
     w.dataLayer = w.dataLayer || []
-    // gtag moet argumenten doorgeven zoals ze binnenkomen, vandaar `arguments`
-    // en geen rest-parameter: Google leest de dataLayer letterlijk uit.
-    function gtag(...args: unknown[]) { w.dataLayer!.push(args) }
+    // Hier moet een echt `arguments`-object in de dataLayer, geen gewone array.
+    // Google leest de dataLayer letterlijk uit en herkent alleen die eerste
+    // vorm als opdracht; een array wordt zonder enige foutmelding genegeerd.
+    // Het verschil is onzichtbaar: het script van Google laadt dan keurig,
+    // maar er wordt niets gemeten.
+    const gtag: (...args: unknown[]) => void = function () {
+      w.dataLayer!.push(arguments)
+    }
     w.gtag = gtag
 
     gtag('consent', 'default', {

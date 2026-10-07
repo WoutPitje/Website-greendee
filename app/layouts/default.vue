@@ -8,6 +8,12 @@
 
     <SiteFooter />
 
-    <CookieBanner />
+    <!-- De balk bestaat alleen in de browser: of hij nodig is hangt af van de
+         hostnaam en van een keuze in localStorage, en die kent de server geen
+         van beide. Zonder ClientOnly verschijnt hij midden in de hydratie en
+         klaagt Vue terecht dat server en browser niet overeenkomen. -->
+    <ClientOnly>
+      <CookieBanner />
+    </ClientOnly>
   </div>
 </template>
