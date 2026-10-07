@@ -16,6 +16,55 @@ export default defineNuxtConfig({
     '/gebiedsontwikkeling': { redirect: { to: '/offertetrajecten', statusCode: 301 } },
     '/referenties': { redirect: { to: '/projecten', statusCode: 301 } },
     '/vacature': { redirect: { to: '/vacatures', statusCode: 301 } },
+
+    // Beveiligingsheaders op elke respons. Het certificaat regelt alleen de
+    // versleuteling; deze headers bepalen wat een browser verder wel en niet
+    // mag doen met de pagina.
+    '/**': {
+      headers: {
+        // Nuxt vertelt standaard waarmee de site gebouwd is. Dat is gratis
+        // informatie voor wie gericht naar een bekend lek zoekt.
+        'x-powered-by': '',
+
+        // Een jaar lang alleen nog via https, ook als iemand het adres zonder
+        // https intikt. Zonder preload en zonder includeSubDomains, zodat een
+        // subdomein dat nog geen certificaat heeft niet onbereikbaar wordt.
+        'strict-transport-security': 'max-age=31536000',
+
+        // Geen bestandstype laten raden: een geupload bestand dat zich voordoet
+        // als script wordt dan niet alsnog uitgevoerd.
+        'x-content-type-options': 'nosniff',
+
+        // De site mag niet in een frame van een andere site staan, zodat
+        // niemand er een onzichtbare laag overheen kan leggen.
+        'x-frame-options': 'SAMEORIGIN',
+
+        // Bij het doorklikken naar een andere site gaat alleen het domein mee,
+        // niet het volledige pad.
+        'referrer-policy': 'strict-origin-when-cross-origin',
+
+        // Camera, microfoon en locatie heeft deze site niet nodig.
+        'permissions-policy': 'camera=(), microphone=(), geolocation=(), payment=()',
+
+        // Welke bronnen een pagina mag laden. Ruim genoeg voor wat de site
+        // echt gebruikt: het lettertype van Google, Analytics na toestemming,
+        // de Calendly-agenda en afbeeldingen uit het CMS.
+        'content-security-policy': [
+          "default-src 'self'",
+          // Nuxt zet zijn hydratiegegevens inline in de pagina.
+          "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+          "font-src 'self' https://fonts.gstatic.com",
+          "img-src 'self' data: https:",
+          "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com",
+          "frame-src https://calendly.com https://*.calendly.com",
+          "frame-ancestors 'self'",
+          "base-uri 'self'",
+          "form-action 'self'",
+          "object-src 'none'",
+        ].join('; '),
+      },
+    },
   },
 
   // SSR Node server (Docker/Coolify). Keeps pages dynamic for the
