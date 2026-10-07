@@ -15,6 +15,7 @@ const VASTE_PAGINAS: { pad: string, prioriteit: string, frequentie: string }[] =
   { pad: '/energyhubs', prioriteit: '0.8', frequentie: 'monthly' },
   { pad: '/projecten', prioriteit: '0.7', frequentie: 'monthly' },
   { pad: '/over-ons', prioriteit: '0.6', frequentie: 'yearly' },
+  { pad: '/onze-doelen', prioriteit: '0.6', frequentie: 'yearly' },
   { pad: '/nieuws', prioriteit: '0.7', frequentie: 'weekly' },
   { pad: '/vacatures', prioriteit: '0.5', frequentie: 'monthly' },
   { pad: '/contact', prioriteit: '0.6', frequentie: 'yearly' },

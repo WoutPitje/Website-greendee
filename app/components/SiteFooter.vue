@@ -63,6 +63,7 @@ const columns: { title: string, links: FooterLink[] }[] = [
     links: [
       { label: 'Nieuws', href: '/nieuws' },
       { label: 'Vacatures', href: '/vacatures' },
+      { label: 'Onze doelen', href: '/onze-doelen' },
       { label: 'Algemene voorwaarden', href: '/algemene-voorwaarden' },
       { label: 'Privacyverklaring', href: '/privacyverklaring' },
     ],

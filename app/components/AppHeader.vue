@@ -165,6 +165,7 @@ const diensten = [
 const mainLinks = [
   { title: 'Projecten', href: '/projecten' },
   { title: 'Over ons', href: '/over-ons' },
+  { title: 'Onze doelen', href: '/onze-doelen' },
   { title: 'Nieuws', href: '/nieuws' },
 ]
 
