@@ -65,6 +65,14 @@
           </button>
 
           <div v-if="open === index" class="flex flex-col gap-8 border-t border-gray-200 px-6 py-8 lg:flex-row lg:px-8">
+            <!-- Een vacature zonder uitgewerkte omschrijving laat geen leeg paneel
+                 achter maar wijst de weg naar een gesprek. -->
+            <p v-if="!vacature.columns.length" class="text-[15px] font-medium leading-6 text-gray-600">
+              De volledige omschrijving volgt binnenkort. Benieuwd wat deze plek inhoudt?
+              Mail uw cv en een korte motivatie naar
+              <a href="mailto:offerte@greendee.nl?subject=Stage%20Medewerker%20Energieprojecten" class="font-semibold text-greendee-green underline underline-offset-2">offerte@greendee.nl</a>,
+              dan nemen wij contact met u op.
+            </p>
             <div v-for="column in vacature.columns" :key="column.title" class="flex flex-1 flex-col items-start gap-3">
               <p class="text-[13px] font-bold uppercase tracking-[1.4px] text-greendee-green">{{ column.title }}</p>
               <ul class="flex list-disc flex-col gap-2 pl-5 text-[15px] font-medium leading-6 text-gray-600">
@@ -75,6 +83,8 @@
         </div>
       </div>
     </section>
+
+    <VacaturesTeamGroeiSection />
 
     <CtaSection
       title="Geen passende vacature?"
@@ -140,6 +150,16 @@ const vacatures = [
         ],
       },
     ],
+  },
+  {
+    title: 'Stage Medewerker Energieprojecten',
+    tags: [
+      { label: 'Stage · mbo 4' },
+      { label: 'Stagevergoeding' },
+      { label: 'Hybride' },
+    ],
+    // De omschrijving staat nog niet in het ontwerp; de kaart vangt dat op.
+    columns: [],
   },
 ]
 </script>
