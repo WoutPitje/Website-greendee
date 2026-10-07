@@ -13,7 +13,14 @@
       <div
         ref="rail"
         class="-mx-5 flex w-[calc(100%+40px)] snap-x snap-mandatory items-center gap-[35px] overflow-x-auto px-5 pb-2 pt-4 lg:mx-0 lg:w-full lg:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        :class="sleept ? 'cursor-grabbing select-none snap-none' : 'cursor-grab'"
         @scroll="onScroll"
+        @pointerdown="startSlepen"
+        @pointermove="sleep"
+        @pointerup="stopSlepen"
+        @pointercancel="stopSlepen"
+        @pointerleave="stopSlepen"
+        @click.capture="onderdrukKlikNaSlepen"
       >
         <ProjectCard v-for="reference in featured" :key="reference.id" :reference="reference" />
 
@@ -69,5 +76,41 @@ function onScroll() {
   if (!el) return
   // 320px card + 35px gap.
   activeSlide.value = Math.round(el.scrollLeft / 355)
+}
+
+// Op een touchscreen kun je de rail al vegen, maar met een muis niet: dan blijft
+// hij stilstaan omdat de scrollbalk verborgen is. Daarom slepen met de aanwijzer.
+const sleept = ref(false)
+let startX = 0
+let startScroll = 0
+let afstand = 0
+
+function startSlepen(e: PointerEvent) {
+  // Touch en pen scrollen zelf al; alleen de muis heeft hulp nodig.
+  if (e.pointerType !== 'mouse' || !rail.value) return
+  sleept.value = true
+  afstand = 0
+  startX = e.clientX
+  startScroll = rail.value.scrollLeft
+}
+
+function sleep(e: PointerEvent) {
+  if (!sleept.value || !rail.value) return
+  const verplaatsing = e.clientX - startX
+  afstand = Math.max(afstand, Math.abs(verplaatsing))
+  rail.value.scrollLeft = startScroll - verplaatsing
+}
+
+function stopSlepen() {
+  sleept.value = false
+}
+
+// Sleep je een kaart opzij, dan hoort hij niet ook nog te openen.
+function onderdrukKlikNaSlepen(e: MouseEvent) {
+  if (afstand > 5) {
+    e.preventDefault()
+    e.stopPropagation()
+    afstand = 0
+  }
 }
 </script>

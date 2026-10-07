@@ -52,11 +52,19 @@
               </p>
             </div>
 
-            <div class="flex w-full flex-col items-start overflow-hidden rounded-[20px] bg-[#ecf4eb] p-7 lg:w-[300px] lg:shrink-0">
-              <p class="text-[11px] font-bold tracking-[1.1px] text-greendee-green">CIJFERS</p>
-              <div v-for="stat in stats" :key="stat.label" class="flex w-full flex-col items-start gap-0.5 pt-[18px]">
-                <p class="w-full text-[13px] font-medium text-gray-600">{{ stat.label }}</p>
-                <p class="w-full text-[22px] font-bold leading-[30px] text-greendee-green">{{ stat.value }}</p>
+            <!-- Feedback: het cijfervak mocht groter, en de foto hoort erbij —
+                 zonder beeld bleef het venster een lap tekst. -->
+            <div class="flex w-full flex-col gap-5 lg:w-[360px] lg:shrink-0">
+              <div v-if="reference?.image" class="h-[200px] w-full overflow-hidden rounded-[20px] bg-gray-100 lg:h-[240px]">
+                <img :src="reference.image" :alt="reference.title" class="size-full object-cover">
+              </div>
+
+              <div class="flex w-full flex-col items-start overflow-hidden rounded-[20px] bg-[#ecf4eb] p-8">
+                <p class="text-[12px] font-bold tracking-[1.1px] text-greendee-green">CIJFERS</p>
+                <div v-for="stat in stats" :key="stat.label" class="flex w-full flex-col items-start gap-1 pt-6">
+                  <p class="w-full text-[14px] font-medium text-gray-600">{{ stat.label }}</p>
+                  <p class="w-full text-[26px] font-bold leading-[34px] text-greendee-green">{{ stat.value }}</p>
+                </div>
               </div>
             </div>
           </div>

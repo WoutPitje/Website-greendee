@@ -28,17 +28,13 @@
         </span>
       </div>
 
-      <p class="w-full text-[13px] font-medium leading-5 text-gray-500">
-        Schematische weergave van een etmaal. Geen meetdata — de werkelijke curve volgt
-        uit uw eigen kwartierdata.
-      </p>
     </figure>
   </section>
 </template>
 
 <script setup lang="ts">
 const legend = [
-  { label: 'Huidig verbruik', class: 'bg-greendee-ink' },
+  { label: 'Huidig verbruik', class: 'bg-[#D97706]' },
   { label: 'Met energieopslag', class: 'bg-greendee-green' },
   { label: 'Gecontracteerde capaciteit', class: 'bg-gray-400 opacity-60' },
 ]

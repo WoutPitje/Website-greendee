@@ -43,7 +43,7 @@
         </p>
       </div>
 
-      <ProjectTable :references="references" />
+      <ProjectTable :references="references" @open="selected = $event" />
     </section>
 
     <CtaSection

@@ -31,7 +31,7 @@
     <FeaturedTestimonialSection />
 
     <RoleSection
-      title="Wij voeren de uitvraag, u houdt de regie."
+      title="Wij voeren de marktuitvraag uit, u houdt de regie."
       body="GreenDee legt de uitgangspunten vast, selecteert de partijen en zet de uitvraag uit. Wij begeleiden het locatiebezoek en de vragenronde, verzorgen de communicatie en de opvolging, en leveren aan het eind een onderbouwd advies."
       image="/v2/rol-greendee"
       image-alt="Lars van GreenDee in telefonisch overleg"
@@ -78,7 +78,7 @@ const stappen = [
   },
   {
     title: 'Selectie van partijen',
-    body: 'Uitvraag bij zorgvuldig geselecteerde installateurs en leveranciers. Getoetst op certificering: ISO 9001 en VCA.',
+    body: 'Uitvraag bij zorgvuldig geselecteerde installateurs en leveranciers. Getoetst op behaalde relevante certificeringen.',
   },
   {
     title: 'Uitvraag en coördinatie',
@@ -86,11 +86,11 @@ const stappen = [
   },
   {
     title: 'Vergelijken en beoordelen',
-    body: 'Aanbiedingen naast elkaar op gelijke uitgangspunten. Beoordeling op prijs, scope, kwaliteit, planning en garanties.',
+    body: 'Aanbiedingen naast elkaar op gelijke uitgangspunten. Beoordeling op prijs, scope, kwaliteit, planning, garanties en duurzaamheid.',
   },
   {
     title: 'Advies',
-    body: 'Onderbouwd advies met aandachtspunten voor het contract. Overdracht naar realisatie, of terug naar de businesscase als de prijzen afwijken.',
+    body: 'Onderbouwd advies. Overdracht naar realisatie, of terug naar de businesscase als de prijzen afwijken.',
   },
 ]
 

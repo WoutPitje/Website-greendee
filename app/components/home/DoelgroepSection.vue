@@ -68,7 +68,7 @@ const content = {
   },
   mkb: {
     title: 'Verduurzamen zonder gedoe.',
-    body: 'Onafhankelijk advies en subsidiebegeleiding, afgestemd op de schaal van uw onderneming.',
+    body: 'Advies en subsidiebegeleiding, afgestemd op de schaal van uw onderneming.',
     image: '/v2/doelgroep-mkb',
     alt: 'MKB-ondernemer bij de eigen energie-installatie',
   },

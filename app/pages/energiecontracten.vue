@@ -15,7 +15,7 @@
     <NumberedListSection
       eyebrow="Herkent u dit?"
       title="Hetzelfde verbruik, een heel andere rekening."
-      intro="Tarieven, contractvormen en voorwaarden verschillen sterk. Zonder inzicht in uw eigen profiel is een aanbieding niet te beoordelen."
+      intro="Opslagen, tarieven, contractvormen en voorwaarden van energiecontracten zijn het afgelopen jaar sterk veranderd. Het juist beoordelen van een nieuw energiecontract is daarmee van belang."
       :items="problemen"
     />
 
@@ -64,7 +64,7 @@ const problemen = [
   },
   {
     title: 'De contractvorm past niet bij uw profiel',
-    body: 'Vast, variabel of dynamisch pakt heel anders uit voor een bedrijf met scherpe pieken dan voor een bedrijf met een vlakke basislast.',
+    body: 'Vast, variabel of dynamisch pakt heel anders uit per bedrijf. Wie kan sturen op verbruik, of gebruik kan maken van een batterij met een goed EMS, komt heel ergens anders uit.',
   },
   {
     title: 'Teruglevering levert minder op dan verwacht',

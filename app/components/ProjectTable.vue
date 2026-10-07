@@ -21,18 +21,23 @@
     </div>
 
     <div class="flex w-full flex-col items-start">
-      <div
+      <!-- Een rij opent hetzelfde venster als een projectkaart. Zonder dat kon
+           je in deze lijst wel een naam lezen maar niet zien wat het project
+           inhoudt. -->
+      <button
         v-for="reference in visible"
         :key="reference.id"
-        class="flex w-full flex-col gap-1 rounded-xl border-b border-gray-200 py-5 pl-4 pr-5 sm:flex-row sm:items-center sm:gap-6"
+        type="button"
+        class="group flex w-full flex-col gap-1 rounded-xl border-b border-gray-200 py-5 pl-4 pr-5 text-left transition-colors hover:bg-[#ecf4eb] sm:flex-row sm:items-center sm:gap-6"
+        @click="$emit('open', reference)"
       >
         <div class="flex flex-1 flex-wrap items-center gap-x-3.5 gap-y-0.5">
-          <p class="text-[18px] font-bold text-greendee-ink">{{ reference.title }}</p>
+          <p class="text-[18px] font-bold text-greendee-ink underline-offset-4 group-hover:underline">{{ reference.title }}</p>
           <p class="text-[15px] font-medium text-gray-500">{{ reference.location }}</p>
         </div>
         <p class="text-[14px] font-medium text-gray-600 sm:w-[170px] sm:text-right">{{ reference.category }}</p>
         <p class="text-[18px] font-bold text-greendee-green sm:w-[165px] sm:text-right">{{ reference.capacity }}</p>
-      </div>
+      </button>
     </div>
 
     <button
@@ -49,6 +54,8 @@
 
 <script setup lang="ts">
 import type { Reference } from '~/composables/useReferences'
+
+defineEmits<{ open: [reference: Reference] }>()
 
 const props = withDefaults(defineProps<{
   references: Reference[]

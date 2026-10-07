@@ -7,7 +7,7 @@
     <InnerPageHero
       eyebrow="Onze diensten"
       title="Energyhubs"
-      intro="Als het net vol zit, houdt de ambitie van ondernemers op. GreenDee brengt eerst per bedrijf in beeld wat er binnen de eigen aansluiting nog kan, en bouwt van daaruit aan een gezamenlijke energyhub."
+      intro="Wilt u een energiehub beginnen, of een bestaande uitbreiden? Met GreenDee onderzoekt u samen met andere ondernemingen de mogelijkheden. Een energiehub helpt u verduurzamen en helpt u het elektriciteitsnet bij u in de buurt beter te gebruiken. Wij simuleren de energieprofielen, regisseren de hub en kijken mee naar de subsidiemogelijkheden."
       image="/v2/hero-energyhubs"
       image-alt="Bedrijventerrein vanuit de lucht"
     />
@@ -81,7 +81,7 @@ const problemen = [
   },
   {
     title: 'Ondernemers haken af',
-    body: 'Een traject zonder duidelijk beslismoment kost bedrijven tijd zonder dat zij weten waar ze aan toe zijn.',
+    body: 'Tijd van ondernemers is kostbaar. Verspil die niet: maak duidelijke afspraken met milestones, zodat iedereen vooraf weet waar hij aan toe is.',
   },
 ]
 
@@ -100,7 +100,7 @@ const faseEen = [
   {
     title: 'Beslismoment op één objectief criterium',
     duration: 'direct na de simulatie',
-    body: 'Is de ambitie haalbaar met batterij, zon, slimme aansturing en contractoptimalisatie binnen de eigen aansluiting, en is dat financieel rond? Zo ja, dan volgen investeringsbesluit, subsidiescan en marktuitvraag. Zo nee, dan gaat het bedrijf door naar fase 2 — en de simulatie is dan meteen de input.',
+    body: 'Is de ambitie haalbaar met batterij, zon, slimme aansturing en contractoptimalisatie binnen de eigen aansluiting, en is dat financieel rond? Zo ja, dan is dit bedrijf niet direct een geschikte partner voor een energyhub. Zo nee, dan gaat het bedrijf door naar fase 2, en de simulatie is dan meteen de input.',
   },
 ]
 
@@ -133,5 +133,11 @@ const resultaten = [
   { term: 'Snel geholpen', description: 'Bedrijven die het zelf redden, kunnen binnen enkele weken door zonder op een gezamenlijk traject te wachten.' },
   { term: 'Onderbouwde hub', description: 'De energyhub start met de bedrijven die hem echt nodig hebben, op basis van doorgerekende profielen.' },
   { term: 'Groei zonder netverzwaring', description: 'Ondernemers kunnen uitbreiden en verduurzamen zonder te wachten tot het net verzwaard is.' },
+  {
+    term: 'Subsidie aangevraagd',
+    description: 'Sinds 1 oktober is er een landelijke subsidieregeling voor energyhubs. GreenDee vraagt die voor u aan, '
+      + 'waardoor een deel van de kosten wordt gesubsidieerd.',
+    href: 'https://www.rvo.nl/subsidies-financiering/ehub',
+  },
 ]
 </script>

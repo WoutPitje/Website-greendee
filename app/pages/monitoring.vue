@@ -14,8 +14,8 @@
 
     <NumberedListSection
       eyebrow="Herkent u dit?"
-      title="De installatie draait. Maar levert die ook op?"
-      intro="Een installatie die het technisch doet, kan financieel alsnog achterblijven bij de aannames uit de businesscase."
+      title="De installatie draait. Maar levert hij ook het besproken rendement op?"
+      intro="Een installatie die het technisch doet, kan financieel alsnog achterblijven."
       :items="problemen"
     />
 
@@ -42,7 +42,7 @@
     />
 
     <CtaSection
-      title="Weet u of uw installatie nog op koers ligt?"
+      title="Wie neemt er verantwoordelijkheid voor uw installatie na oplevering?"
       body="In een eerste gesprek kijken we naar uw huidige opbrengst en naar wat de businesscase destijds beloofde."
       background="white"
     />
@@ -60,19 +60,11 @@ useSeo({
 const problemen = [
   {
     title: 'Niemand kijkt er meer naar',
-    body: 'Na oplevering verdwijnt de installatie uit beeld. Een storing of een verkeerd ingestelde sturing valt pas op als de rekening tegenvalt.',
+    body: 'Na oplevering verdwijnt de installatie uit beeld. Een storing of een verkeerd ingestelde sturing valt pas op bij de jaarlijkse rekening of uitbetaling.',
   },
   {
     title: 'De opbrengst wijkt af van de aannames',
-    body: 'De businesscase rekende met bepaalde prijzen en volumes. Of die in de praktijk gehaald worden, wordt zelden teruggekoppeld.',
-  },
-  {
-    title: 'Sturing is niet meegegroeid',
-    body: 'Verbruik, tarieven en regelgeving veranderen. Een sturing die bij oplevering klopte, is een paar jaar later niet meer optimaal.',
-  },
-  {
-    title: 'Garanties verlopen ongemerkt',
-    body: 'Zonder vastlegging van prestaties is een beroep op garantie achteraf lastig te onderbouwen.',
+    body: 'De businesscase rekende met bepaalde prijzen en volumes. Of dit in de praktijk ook de juiste setpoints zijn, kijkt niemand meer naar.',
   },
 ]
 
@@ -97,8 +89,12 @@ const stappen = [
 
 const resultaten = [
   { term: 'Zicht', description: 'Een periodiek beeld van opbrengst, verbruik en beschikbaarheid van uw installatie.' },
-  { term: 'Onderbouwing', description: 'Vastgelegde prestaties waarmee u een beroep op garantie kunt onderbouwen.' },
   { term: 'Bijsturing', description: 'Signalering van afwijkingen, met een concrete actie in plaats van alleen een constatering.' },
   { term: 'Rendement', description: 'Inzicht in of de investering doet wat de businesscase beloofde, jaar na jaar.' },
+  {
+    term: 'Eigenaarschap',
+    description: 'Wij monitoren onze installaties alsof we zelf eigenaar zijn en acteren daar ook op. '
+      + 'Wij zijn verantwoordelijk voor het besproken rendement en nemen hiervoor eigenaarschap.',
+  },
 ]
 </script>

@@ -40,10 +40,10 @@
       <div class="relative mx-auto w-full max-w-container px-5 lg:px-0">
         <div class="flex flex-col gap-6 py-14 lg:w-[calc(50%-32px)] lg:py-24">
           <p :class="EYEBROW">{{ EYEBROW_TEKST }}</p>
-          <h1 class="text-[34px] font-extrabold leading-[42px] text-white lg:text-[46px] lg:leading-[54px]">{{ KOP }}</h1>
+          <h1 class="text-[34px] font-extrabold leading-[42px] text-white lg:text-[46px] lg:leading-[54px]">{{ KOP_VOOR }} <span class="italic text-greendee-yellow">{{ KOP_ACCENT }}</span></h1>
           <p class="text-[16px] font-medium leading-7 text-white/80">{{ INTRO }}</p>
           <div class="flex flex-col gap-3 sm:flex-row">
-            <span :class="KNOP_GEEL">Plan een gesprek in</span>
+            <span :class="KNOP_GEEL">Ontdek onze oplossingen</span>
             <span :class="KNOP_RAND">Bekijk onze projecten</span>
           </div>
           <div class="mt-2 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/15 pt-6">
@@ -82,10 +82,10 @@
       <div class="relative mx-auto w-full max-w-container px-5 lg:px-0">
         <div class="flex flex-col gap-6 py-14 lg:w-[calc(50%-32px)] lg:py-24">
           <p :class="EYEBROW">{{ EYEBROW_TEKST }}</p>
-          <h1 class="text-[34px] font-extrabold leading-[42px] text-white lg:text-[46px] lg:leading-[54px]">{{ KOP }}</h1>
+          <h1 class="text-[34px] font-extrabold leading-[42px] text-white lg:text-[46px] lg:leading-[54px]">{{ KOP_VOOR }} <span class="italic text-greendee-yellow">{{ KOP_ACCENT }}</span></h1>
           <p class="text-[16px] font-medium leading-7 text-white/80">{{ INTRO }}</p>
           <div class="flex flex-col gap-3 sm:flex-row">
-            <span :class="KNOP_GEEL">Plan een gesprek in</span>
+            <span :class="KNOP_GEEL">Ontdek onze oplossingen</span>
             <span :class="KNOP_RAND">Bekijk onze projecten</span>
           </div>
           <div class="mt-2 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/15 pt-6">
@@ -109,10 +109,10 @@
       <AppHeader />
       <div class="relative mx-auto flex h-full w-full max-w-container flex-col justify-center gap-6 px-5 lg:px-0">
         <p :class="EYEBROW">{{ EYEBROW_TEKST }}</p>
-        <h1 class="max-w-[660px] text-[34px] font-extrabold leading-[42px] text-white lg:text-[54px] lg:leading-[62px]">{{ KOP }}</h1>
+        <h1 class="max-w-[660px] text-[34px] font-extrabold leading-[42px] text-white lg:text-[54px] lg:leading-[62px]">{{ KOP_VOOR }} <span class="italic text-greendee-yellow">{{ KOP_ACCENT }}</span></h1>
         <p class="max-w-[520px] text-[16px] font-medium leading-7 text-white/85 lg:text-[18px] lg:leading-8">{{ INTRO }}</p>
         <div class="flex flex-col gap-3 sm:flex-row">
-          <span :class="KNOP_GEEL">Plan een gesprek in</span>
+          <span :class="KNOP_GEEL">Ontdek onze oplossingen</span>
           <span :class="KNOP_RAND">Bekijk onze projecten</span>
         </div>
         <div class="mt-4 flex flex-wrap gap-x-10 gap-y-4">
@@ -131,10 +131,10 @@
       <AppHeader />
       <div class="relative mx-auto flex h-full w-full max-w-[760px] flex-col items-center justify-center gap-6 px-5 text-center">
         <p :class="EYEBROW">{{ EYEBROW_TEKST }}</p>
-        <h1 class="text-[34px] font-extrabold leading-[42px] text-white lg:text-[54px] lg:leading-[62px]">{{ KOP }}</h1>
+        <h1 class="text-[34px] font-extrabold leading-[42px] text-white lg:text-[54px] lg:leading-[62px]">{{ KOP_VOOR }} <span class="italic text-greendee-yellow">{{ KOP_ACCENT }}</span></h1>
         <p class="text-[16px] font-medium leading-7 text-white/85 lg:text-[18px] lg:leading-8">{{ INTRO }}</p>
         <div class="flex flex-col gap-3 sm:flex-row">
-          <span :class="KNOP_GEEL">Plan een gesprek in</span>
+          <span :class="KNOP_GEEL">Ontdek onze oplossingen</span>
           <span :class="KNOP_RAND">Bekijk onze projecten</span>
         </div>
       </div>
@@ -158,10 +158,10 @@
         <AppHeader />
         <div class="relative mx-auto flex h-full w-full max-w-container flex-col justify-center gap-6 px-5 lg:px-0">
           <p :class="EYEBROW">{{ EYEBROW_TEKST }}</p>
-          <h1 class="max-w-[660px] text-[34px] font-extrabold leading-[42px] text-white lg:text-[54px] lg:leading-[62px]">{{ KOP }}</h1>
+          <h1 class="max-w-[660px] text-[34px] font-extrabold leading-[42px] text-white lg:text-[54px] lg:leading-[62px]">{{ KOP_VOOR }} <span class="italic text-greendee-yellow">{{ KOP_ACCENT }}</span></h1>
           <p class="max-w-[520px] text-[16px] font-medium leading-7 text-white/85 lg:text-[18px] lg:leading-8">{{ INTRO }}</p>
           <div class="flex flex-col gap-3 sm:flex-row">
-            <span :class="KNOP_GEEL">Plan een gesprek in</span>
+            <span :class="KNOP_GEEL">Ontdek onze oplossingen</span>
             <span :class="KNOP_RAND">Bekijk onze projecten</span>
           </div>
         </div>
@@ -243,10 +243,11 @@ const MOZAIEK = [
   { bestand: '/v2/hero-foto-opslag', alt: 'Batterijopslag op een bedrijventerrein' },
 ]
 
-const EYEBROW_TEKST = 'Netcongestie opgelost'
-const KOP = 'Uw ambitie past wél binnen uw aansluiting.'
-const INTRO = 'GreenDee rekent met eigen software door wat er binnen uw aansluiting nog kan, '
-  + 'en begeleidt u van businesscase tot realisatie en bewaking.'
+const EYEBROW_TEKST = 'Uw partner in de energietransitie'
+const KOP_VOOR = 'Uw partner in'
+const KOP_ACCENT = 'duurzame energieoplossingen.'
+const INTRO = "GreenDee helpt bedrijventerreinen, MKB'ers en agrariërs bij het opzetten, "
+  + 'monitoren en onderhouden van toekomstbestendige energieoplossingen.'
 
 // Allemaal cijfers die elders op de site al staan, zodat de hero niets belooft
 // wat de rest van de site niet waarmaakt.

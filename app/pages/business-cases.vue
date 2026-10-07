@@ -57,15 +57,15 @@ useSeo({
 const problemen = [
   {
     title: 'Netcongestie',
-    body: 'De netaansluiting groeit niet mee met uw plannen. Hoeveel vermogen is er werkelijk beschikbaar en hoe benut u dat optimaal?',
+    body: 'De netaansluiting groeit niet mee met uw plannen. Wat kost niks doen, wat levert de investering op, en wat is de TCO?',
   },
   {
     title: 'Teruglevering onder druk',
     body: 'Zonnestroom leveren op momenten dat de prijs laag is. Kan een batterij het eigen verbruik en de opbrengst verhogen?',
   },
   {
-    title: 'Elektrificatie wagenpark',
-    body: 'Laadinfrastructuur voor bestelbussen en vrachtwagens vraagt piekvermogen.',
+    title: 'Laadinfra',
+    body: 'Wanneer verdient een openbaar laadplein zich terug, en hoeveel laadsessies zijn daarvoor nodig? Wanneer is eigen laadinfra voordeliger dan buiten de deur laden, en wanneer een elektrische vrachtwagen voordeliger dan een diesel?',
   },
   {
     title: 'Energiecontract en kosten',

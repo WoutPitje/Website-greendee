@@ -19,7 +19,18 @@
         <dt class="font-bold leading-[26px] text-greendee-green lg:w-[200px] lg:shrink-0">
           {{ row.term }}
         </dt>
-        <dd class="flex-1 font-medium leading-[27px] text-gray-600">{{ row.description }}</dd>
+        <dd class="flex-1 font-medium leading-[27px] text-gray-600">
+          {{ row.description }}
+          <!-- Optioneel: een regel mag naar een externe bron wijzen, bijvoorbeeld
+               de subsidiepagina van RVO. -->
+          <a
+            v-if="row.href"
+            :href="row.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ml-1 whitespace-nowrap font-semibold text-greendee-green underline underline-offset-2 transition-opacity hover:opacity-70"
+          >Meer over de regeling</a>
+        </dd>
       </div>
     </dl>
   </section>
@@ -31,7 +42,7 @@ withDefaults(defineProps<{
   title: string
   /** Rendered in green italic, as the second half of the heading. */
   titleAccent: string
-  rows: { term: string, description: string }[]
+  rows: { term: string, description: string, href?: string }[]
   roundedTop?: boolean
 }>(), {
   eyebrow: 'Resultaten',
