@@ -23,7 +23,8 @@
     <h3>Het contactformulier</h3>
     <p>
       Vult u het contactformulier in, dan verwerken wij uw naam, e-mailadres en uw
-      omschrijving van het vraagstuk. Telefoonnummer en bedrijfsnaam zijn optioneel.
+      omschrijving van het vraagstuk. Een telefoonnummer mag u erbij zetten, maar is
+      niet verplicht.
       Wij gebruiken die gegevens om uw vraag te beantwoorden en, als daar aanleiding
       toe is, een offerte uit te brengen.
     </p>

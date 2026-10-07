@@ -24,6 +24,13 @@
             placeholder="E-mailadres"
             class="w-full rounded-xl border-[1.5px] border-gray-200 bg-white px-[18px] py-[15px] text-[15px] font-medium text-greendee-ink placeholder:text-gray-400"
           >
+          <input
+            v-model="form.phone"
+            type="tel"
+            autocomplete="tel"
+            placeholder="Telefoonnummer (optioneel)"
+            class="w-full rounded-xl border-[1.5px] border-gray-200 bg-white px-[18px] py-[15px] text-[15px] font-medium text-greendee-ink placeholder:text-gray-400"
+          >
           <textarea
             v-model="form.message"
             required
@@ -70,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-const form = reactive({ name: '', email: '', message: '', honeypot: '' })
+const form = reactive({ name: '', email: '', phone: '', message: '', honeypot: '' })
 const state = ref<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
 async function submit() {
@@ -80,6 +87,7 @@ async function submit() {
     state.value = 'sent'
     form.name = ''
     form.email = ''
+    form.phone = ''
     form.message = ''
   }
   catch {
@@ -89,8 +97,8 @@ async function submit() {
 
 const details = [
   { label: 'Telefoon', value: '06-34466611', href: 'tel:+31634466611' },
-  // Hier staat Lars' eigen adres, want dit is direct contact. Het formulier
-  // hiernaast gaat wel naar offerte@ (server-side, zie runtimeConfig.contactTo).
+  // Zowel dit adres als het formulier komen uit bij offerte@, zodat aanvragen
+  // op een plek binnenkomen in plaats van bij een persoon.
   { label: 'E-mail', value: 'offerte@greendee.nl', href: 'mailto:offerte@greendee.nl' },
   { label: 'IJzendoorn', value: 'Saneringsweg 3, 4053 JK' },
   { label: 'Alkmaar', value: 'Bergerweg 200, 1817 MN' },
