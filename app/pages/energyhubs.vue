@@ -24,6 +24,7 @@
       title="Eerst kijken wat er binnen de eigen aansluiting kan."
       intro="Per ondernemer brengen we de ambitie in beeld en rekenen we door of die binnen de bestaande netaansluiting past."
       :steps="faseEen"
+      timeline
     />
 
     <StepGridSection

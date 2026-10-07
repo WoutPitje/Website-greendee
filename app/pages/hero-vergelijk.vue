@@ -7,7 +7,7 @@
          niet het beeld. Welke foto het wordt is een losse keuze. -->
 
     <!-- ── Zoals nu ──────────────────────────────────────────────────────── -->
-    <PageHero v-if="actief === 'nu'" :image="FOTO">
+    <PageHero v-if="actief === 'nu'" image="/v2/hero-home">
       <div class="flex w-full flex-col items-center justify-center gap-2.5 text-center text-white lg:w-[564px]">
         <h1 class="text-[29px] font-extrabold leading-[37px] text-shadow-hero-mobile lg:text-display lg:text-shadow-hero">
           Uw partner in
