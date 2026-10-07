@@ -4,7 +4,7 @@
        weg. Nu ligt er een groen verloop van links over de foto: de tekst staat
        op een echte ondergrond, de foto blijft schermbreed in beeld, en de
        cijfers eronder onderbouwen de belofte. -->
-  <section class="relative h-[640px] overflow-hidden lg:h-[760px]">
+  <section class="relative min-h-[680px] overflow-hidden lg:h-[760px]">
     <picture>
       <source :srcset="`${image}-1280.webp 1280w, ${image}-2400.webp 2400w`" type="image/webp">
       <img
@@ -23,7 +23,10 @@
 
     <AppHeader />
 
-    <div class="relative mx-auto flex h-full w-full max-w-container flex-col justify-center gap-6 px-5 lg:px-0">
+    <!-- Op mobiel past de inhoud niet gecentreerd binnen de hoogte: dan schuift
+         hij omhoog tot achter de header. Daarom daar bovenlangs ruimte voor de
+         header en laat de sectie meegroeien; vanaf lg centreert hij weer. -->
+    <div class="relative mx-auto flex w-full max-w-container flex-col justify-center gap-6 px-5 pb-14 pt-[104px] lg:h-full lg:px-0 lg:py-0">
       <!-- Benoemt de breedte van het werk. Niet nog eens "partner": dat staat al
            in de kop eronder. -->
       <p class="text-[15px] font-bold leading-[26px] text-greendee-yellow">

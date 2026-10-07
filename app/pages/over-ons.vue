@@ -43,6 +43,8 @@
     <OveronsDnaSection />
 
     <OveronsDuurzaamheidsscoreSection />
+
+    <OveronsTeamSection />
   </div>
 </template>
 
