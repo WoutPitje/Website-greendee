@@ -24,9 +24,10 @@
     <AppHeader />
 
     <div class="relative mx-auto flex h-full w-full max-w-container flex-col justify-center gap-6 px-5 lg:px-0">
-      <!-- Niet nog eens "Uw partner in": dat staat al in de kop eronder. -->
+      <!-- Benoemt de breedte van het werk. Niet nog eens "partner": dat staat al
+           in de kop eronder. -->
       <p class="text-[15px] font-bold leading-[26px] text-greendee-yellow">
-        Netcongestie opgelost
+        Zon, opslag, laadinfra en netcongestie
       </p>
 
       <h1 class="max-w-[680px] text-[32px] font-extrabold leading-[40px] text-white lg:text-[54px] lg:leading-[62px]">
