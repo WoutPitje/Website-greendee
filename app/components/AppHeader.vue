@@ -76,12 +76,13 @@
     </div>
   </div>
 
-  <!-- Mobile: logo + hamburger, 20px from each edge, 28px from the top. -->
+  <!-- Mobiel: logo en hamburger, 20px van elke rand zodat ze uitlijnen op de
+       tekst eronder, en 28px van boven. -->
   <div class="absolute inset-x-5 top-7 z-50 lg:hidden">
-    <div class="flex items-start justify-between rounded-2xl p-2.5">
+    <div class="flex items-center justify-between">
       <NuxtLink to="/" @click="mobileOpen = false">
         <span class="sr-only">GreenDee</span>
-        <img src="/v2/logo-white.png" alt="GreenDee" class="h-6 w-[90px] object-contain" width="90" height="24">
+        <img src="/v2/logo-white.png" alt="GreenDee" class="h-8 w-[124px] object-contain" width="124" height="32">
       </NuxtLink>
 
       <button
