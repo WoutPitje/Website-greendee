@@ -2,8 +2,7 @@
   <div>
     <!-- Deze pagina staat niet in het v2-ontwerp. Layout volgt het stramien van de
          andere dienstenpagina's; alle teksten hieronder zijn een concept van ons
-         en moeten door GreenDee worden nagelezen vóór livegang. De hero-foto is
-         geleend van Energiesimulaties en heeft nog een eigen beeld nodig. -->
+         en moeten door GreenDee worden nagelezen. -->
     <InnerPageHero
       eyebrow="Onze diensten"
       title="Monitoring en rendementsbewaking"
