@@ -21,6 +21,7 @@
         @pointercancel="stopSlepen"
         @pointerleave="stopSlepen"
         @click.capture="onderdrukKlikNaSlepen"
+        @dragstart.prevent
       >
         <ProjectCard v-for="reference in featured" :key="reference.id" :reference="reference" />
 
@@ -46,12 +47,18 @@
         </NuxtLink>
       </div>
 
+      <!-- De bolletjes stonden er als decoratie, maar ze zien eruit als knoppen.
+           Daarom zijn het er nu ook: wie erop klikt verwacht te verspringen. -->
       <div class="flex w-full justify-center gap-3 py-4">
-        <span
+        <button
           v-for="index in slideCount"
           :key="index"
+          type="button"
           class="h-1.5 rounded-[3px] transition-all"
-          :class="index - 1 === activeSlide ? 'w-[18px] bg-greendee-green' : 'w-1.5 bg-[#e5e7eb]'"
+          :class="index - 1 === activeSlide ? 'w-[18px] bg-greendee-green' : 'w-1.5 bg-[#e5e7eb] hover:bg-[#c9cdd3]'"
+          :aria-label="`Ga naar project ${index} van ${slideCount}`"
+          :aria-current="index - 1 === activeSlide"
+          @click="gaNaar(index - 1)"
         />
       </div>
     </div>
@@ -71,11 +78,23 @@ const slideCount = computed(() => featured.value.length + 1)
 const rail = ref<HTMLElement | null>(null)
 const activeSlide = ref(0)
 
+// 320px kaart + 35px tussenruimte.
+const KAARTSTAP = 355
+
 function onScroll() {
   const el = rail.value
   if (!el) return
-  // 320px card + 35px gap.
-  activeSlide.value = Math.round(el.scrollLeft / 355)
+  // Op een breed scherm staan er meerdere kaarten tegelijk in beeld, dus is de
+  // rail eerder uitgescrold dan dat alle bolletjes aan de beurt zijn geweest.
+  // Aan het eind lichten we daarom het laatste bolletje op: dat is wat je ziet.
+  const maximum = el.scrollWidth - el.clientWidth
+  activeSlide.value = el.scrollLeft >= maximum - 4
+    ? slideCount.value - 1
+    : Math.round(el.scrollLeft / KAARTSTAP)
+}
+
+function gaNaar(index: number) {
+  rail.value?.scrollTo({ left: index * KAARTSTAP, behavior: 'smooth' })
 }
 
 // Op een touchscreen kun je de rail al vegen, maar met een muis niet: dan blijft
@@ -92,6 +111,10 @@ function startSlepen(e: PointerEvent) {
   afstand = 0
   startX = e.clientX
   startScroll = rail.value.scrollLeft
+  // Rechtstreeks op het element en niet via een klasse: Vue tekent pas bij de
+  // volgende tick opnieuw, en tot die tijd trekt het verplichte snappen elke
+  // sleepstap terug naar de kaart waar je vandaan kwam. Dan lijkt de rail stuk.
+  rail.value.style.scrollSnapType = 'none'
 }
 
 function sleep(e: PointerEvent) {
@@ -102,7 +125,11 @@ function sleep(e: PointerEvent) {
 }
 
 function stopSlepen() {
+  if (!sleept.value) return
   sleept.value = false
+  // Snappen weer aan de stylesheet overlaten, zodat de rail netjes op een
+  // kaart uitkomt zodra je loslaat.
+  if (rail.value) rail.value.style.scrollSnapType = ''
 }
 
 // Sleep je een kaart opzij, dan hoort hij niet ook nog te openen.

@@ -6,8 +6,8 @@
           Kies voor een partner die je echt kan helpen
         </h2>
         <p class="w-full text-[15px] font-medium leading-6 text-gray-600 lg:text-body lg:tracking-[-0.36px]">
-          Advies, makkelijk contact en kennis van subsidies. GreenDee begeleidt je
-          bedrijf bij het realiseren van toekomstbestendige energieoplossingen.
+          Advies, makkelijk contact en kennis van subsidies. Daarbij combineren wij
+          technische expertise met financiële haalbaarheid en praktische uitvoerbaarheid.
         </p>
         <NuxtLink
           to="/contact"

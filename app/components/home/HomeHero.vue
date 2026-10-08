@@ -30,7 +30,7 @@
       <!-- Benoemt de breedte van het werk. Niet nog eens "partner": dat staat al
            in de kop eronder. -->
       <p class="text-[15px] font-bold leading-[26px] text-greendee-yellow">
-        Zon, opslag, laadinfra en netcongestie
+        Wind, zon, opslag, laadinfra en netcongestie
       </p>
 
       <h1 class="max-w-[680px] text-[32px] font-extrabold leading-[40px] text-white lg:text-[54px] lg:leading-[62px]">
@@ -42,12 +42,13 @@
 
       <p class="max-w-[520px] text-[16px] font-medium leading-7 text-white/85 lg:text-[18px] lg:leading-8">
         GreenDee helpt bedrijventerreinen, mkb'ers en agrariërs bij het opzetten,
-        monitoren en onderhouden van toekomstbestendige energieoplossingen.
+        monitoren en onderhouden van toekomstbestendige energieoplossingen. Verzekerd
+        van volledige ontzorging voor al je energiezaken.
       </p>
 
       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
         <NuxtLink
-          to="/offertetrajecten"
+          to="/diensten"
           class="flex items-center justify-center rounded-full bg-greendee-yellow px-6 py-4 text-[16px] font-bold leading-[22px] text-greendee-ink transition-transform hover:-translate-y-0.5 lg:text-body"
         >
           Ontdek onze oplossingen

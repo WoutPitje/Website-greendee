@@ -44,10 +44,11 @@
         </article>
       </div>
 
-      <!-- Onderbouwing van het CO₂-doel: waar de 10.000 ton vandaan moet komen. -->
+      <!-- Onderbouwing van het CO₂-doel: waar de 10.000 ton per jaar vandaan moet komen.
+           De tussendoelen zijn het jaarcijfer op dat moment, geen optelsom. -->
       <div class="mt-9 rounded-[18px] bg-white p-7 lg:p-8">
         <h3 class="text-[20px] font-extrabold leading-7 tracking-[-0.24px] text-greendee-ink lg:text-[24px] lg:leading-[29px]">
-          Wat er nodig is voor 10.000 ton CO₂ per jaar
+          Wat er nodig is voor 10.000 ton CO₂ per jaar vanaf 2031
         </h3>
 
         <div class="mt-5 flex h-[54px] w-full gap-[3px] overflow-hidden rounded-[10px]">
@@ -81,11 +82,11 @@ const doelen = [
   {
     getal: '10.000',
     eenheid: 'ton',
-    label: 'CO₂ vermeden',
+    label: 'CO₂ per jaar vermeden',
     tussendoelen: [
-      { wanneer: 'Eind 2028', waarde: '2.500 ton' },
-      { wanneer: 'Eind 2030', waarde: '5.000 ton' },
-      { wanneer: 'Eind 2031', waarde: '10.000 ton' },
+      { wanneer: 'Eind 2028', waarde: '2.500 ton per jaar' },
+      { wanneer: 'Eind 2030', waarde: '5.000 ton per jaar' },
+      { wanneer: 'Eind 2031', waarde: '10.000 ton per jaar' },
     ],
     meting: 'per project leggen we in de energiesimulatie vast hoeveel kWh wordt opgewekt '
       + 'of verschoven; via monitoring meten we de werkelijke kWh en rekenen we om met de '

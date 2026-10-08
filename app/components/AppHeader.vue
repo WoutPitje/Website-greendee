@@ -155,6 +155,9 @@ const dropdownOpen = ref(false)
 const mobileOpen = ref(false)
 
 const diensten = [
+  // Bovenaan het overzicht, zodat je vanuit het menu ook bij het hele aanbod
+  // kunt komen en niet gedwongen één dienst moet kiezen.
+  { title: 'Alle diensten', href: '/diensten' },
   { title: 'Offertetrajecten', href: '/offertetrajecten' },
   { title: 'Energiesimulaties', href: '/energiesimulaties' },
   { title: 'Businesscases', href: '/business-cases' },

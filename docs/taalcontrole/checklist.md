@@ -71,7 +71,7 @@ Bron: *Taalcontrole website greendee.nl*, gecontroleerd op 8 oktober 2026, opges
 - [x] **31** `code` Doel 1 — *10.000ton* → 10.000 ton. *(Spatiëring)*
 - [x] **32** `code` Doel 4 — *25MW* → 25 MW. *(Spatiëring)*
 - [x] **33** `code` Doel 3, Hoe we meten — *Daarnaast komt 50% van het kWp uit Europa, eind 2031.* → Daarnaast komt eind 2031 50% van het geadviseerde kWp uit Europa. *(Zinsbouw)*
-- [!] **34** `code` Kop *Wat er nodig is voor 10.000 ton CO₂ per jaar*. Het rapport zegt cumulatief t/m 2031. De onderbouwing eronder wijst op een jaarcijfer: ~10.000 panelen ≈ 1.500 ton per jáár. Eén van beide klopt niet. **Formulering ongewijzigd gelaten; vraag uitstaan bij GreenDee.** *(Inhoud)*
+- [x] **34** `code` GreenDee bevestigt: 10.000 ton is een **jaarcijfer vanaf 2031**, niet cumulatief. Het rapport zat ernaast. Wel ondubbelzinnig gemaakt — kop, label en alle drie de tussendoelen zeggen nu expliciet "per jaar", want juist die onduidelijkheid deed het taalbureau struikelen. *(Inhoud)*
 - [x] **35** `code` Diverse plekken — *CO2* → CO₂. *(Consistentie)*
 - [x] **36** `code` Cybersecurity, mijlpaal 1 en 2 — icoon "behaald" bij data in de toekomst. *(Inhoud)*
 - [x] **37** `code` Cybersecurity, mijlpaal 3 — *risico’s* → risico's (rechte apostrof). *(Consistentie)*

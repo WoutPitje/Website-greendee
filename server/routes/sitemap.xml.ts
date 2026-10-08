@@ -7,6 +7,7 @@
 
 const VASTE_PAGINAS: { pad: string, prioriteit: string, frequentie: string }[] = [
   { pad: '/', prioriteit: '1.0', frequentie: 'weekly' },
+  { pad: '/diensten', prioriteit: '0.9', frequentie: 'monthly' },
   { pad: '/offertetrajecten', prioriteit: '0.8', frequentie: 'monthly' },
   { pad: '/energiesimulaties', prioriteit: '0.8', frequentie: 'monthly' },
   { pad: '/business-cases', prioriteit: '0.8', frequentie: 'monthly' },

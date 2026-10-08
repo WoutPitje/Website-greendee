@@ -35,6 +35,6 @@
 const doelen = [
   { waarde: '8 of hoger', label: 'Medewerkerstevredenheid', toelichting: 'Niemand onder de 6.' },
   { waarde: 'Max. 10%', label: 'Verloop', toelichting: 'Vrijwillig vertrek per jaar.' },
-  { waarde: '€ 2.500', label: 'Autonomie en ontwikkeling', toelichting: 'Plus 5 dagen opleiding per jaar.' },
+  { waarde: '€ 2.500', label: 'Opleidingsbudget', toelichting: 'Per jaar, plus vijf opleidingsdagen.' },
 ]
 </script>

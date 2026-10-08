@@ -11,7 +11,7 @@
     <NumberedListSection
       eyebrow="Herken je dit?"
       title="Vier offertes, vier verschillende uitgangspunten."
-      intro="Zonder een gelijke uitvraag zijn offertes niet te vergelijken en ontstaan er meerwerk en kosten tijdens de uitvoering."
+      intro="Zonder een gelijke uitvraag zijn offertes niet te vergelijken en ontstaat er meerwerk tijdens de uitvoering."
       :items="problemen"
     />
 

@@ -31,8 +31,8 @@
     />
 
     <RoleSection
-      title="Geen verkooppraatje."
-      body="GreenDee rekent met eigen software door wat er op je aansluiting gebeurt. Wij leggen de aannames vast, rekenen de scenario's door en leveren een advies dat dient als basis voor je businesscase, het elektrotechnisch ontwerp en het gesprek met de netbeheerder."
+      title="Wij brengen de mogelijkheden van je energiesysteem in kaart."
+      body="GreenDee rekent met eigen software door wat er op je aansluiting gebeurt. Wij leggen de aannames vast, rekenen de scenario's door en leveren een advies dat dient als basis voor je businesscase, het elektrotechnisch ontwerp en het gesprek met de netbeheerder, zodat je onderbouwde keuzes kunt maken."
       image="/v2/rol-energiesimulaties"
       image-alt="Adviseur van GreenDee bij een zonnepark"
       reverse

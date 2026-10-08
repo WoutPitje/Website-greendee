@@ -18,7 +18,7 @@
     <StepGridSection
       eyebrow="Onze aanpak"
       title="Van energievraag naar onderbouwd investeringsbesluit."
-      intro="In zes stappen. Gemiddeld 8–10 weken van opdracht tot offertes."
+      intro="In zes stappen. Doorlooptijd gemiddeld 8–10 weken."
       :steps="stappen"
     />
 
@@ -60,12 +60,12 @@ const problemen = [
     body: 'De netaansluiting groeit niet mee met je plannen. Wat kost niets doen, wat levert de investering op, en wat is de TCO?',
   },
   {
-    title: 'Teruglevering onder druk',
+    title: 'Terugleveren levert nog weinig op',
     body: 'Zonnestroom leveren op momenten dat de prijs laag is. Kan een batterij het eigen verbruik en de opbrengst verhogen?',
   },
   {
     title: 'Laadinfra',
-    body: 'Wanneer verdient een openbaar laadplein zich terug, en hoeveel laadsessies zijn daarvoor nodig? Wanneer is eigen laadinfra voordeliger dan buiten de deur laden, en wanneer een elektrische vrachtwagen voordeliger dan een diesel?',
+    body: 'Wanneer verdient een openbaar laadplein zich terug, en hoeveel laadsessies zijn daarvoor nodig? Wanneer is eigen laadinfra voordeliger dan buiten de deur laden, en wanneer is een elektrische vrachtwagen voordeliger dan een diesel?',
   },
   {
     title: 'Energiecontract en kosten',
