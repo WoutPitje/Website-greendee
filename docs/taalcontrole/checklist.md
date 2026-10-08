@@ -22,7 +22,7 @@ Bron: *Taalcontrole website greendee.nl*, gecontroleerd op 8 oktober 2026, opges
 
 - [x] **S1** `beide` Aanspreekvorm u → je doorgevoerd op alle pagina's, alle vijftien artikelen en de projectkaarten. Juridische pagina's houden bewust **u** (zie X1).
 - [x] **S2** `code` **Gereproduceerd tijdens de deploy van deze ronde.** Terwijl de nieuwe container opkwam gaf /over-ons een 502, liep /projecten in een time-out en serveerde /offertetrajecten nog de oude tekst terwijl / al nieuw was. Oud en nieuw staan dus even allebei in Traefik, en daartussen valt een gat van ongeveer een minuut. Dat is wat het taalbureau heeft gezien; buiten dat venster geven alle pagina's 200. Een healthcheck staat al aan (GET / op 3000), dus het gat zit in het omschakelen zelf, niet in het opstarten. Echt dichtzetten vraagt dat Traefik de oude container laat leeglopen voordat hij verdwijnt — los op te pakken.
-- [!] **S3** `cms` Twaalf van de vijftien artikelen staan in de toekomst (15 okt t/m 31 dec 2026), niet vijf. **Geblokkeerd:** het publiceren naar Strapi werd geweigerd, dus ik kon de datums niet rechtzetten. Voorstel: alles 84 dagen terug, dan blijft de weekcadans intact en valt de nieuwste op vandaag.
+- [x] **S3** `cms` Alle vijftien artikelen opnieuw gedateerd, wekelijks terugtellend vanaf 8 oktober 2026. Niet blind 84 dagen terug: vier artikelen citeren bronnen die dan ná hun eigen publicatiedatum zouden vallen (het energiecontract-artikel haalt cijfers t/m 27 september aan, het crisiswetgevingsartikel 1 oktober). De volgorde is daarom bepaald door de recentste bron per artikel, zodat geen artikel ouder is dan zijn eigen cijfers.
 - [x] **S4** `beide` MKB → mkb, overal. Ook in de algemene metabeschrijving in `app/app.vue`.
 - [x] **S5** `beide` Business Cases → Businesscases in menu, homepagekaart en paginatitel. URL ongewijzigd.
 - [x] **S6** `beide` Duizendtallen met punt, getallen t/m twintig voluit. Het vacature-aantal telt nu zelf mee via een telwoordfunctie.
@@ -168,7 +168,7 @@ Bron: *Taalcontrole website greendee.nl*, gecontroleerd op 8 oktober 2026, opges
 ## Artikel: Energiecontract voor 2027
 
 - [x] **103** `cms` *terug levert* → teruglevert. *(Spelling)*
-- [!] **104** `cms` Kop *Waar u in 2027 extra op let* → *Waar je in 2027 extra op moet letten*. De agent liet per ongeluk "op" weg; ik heb dat hersteld, maar **het publiceren werd geblokkeerd**. Het artikel staat nu als concept klaar; live staat nog de versie zonder "op". *(Formulering)*
+- [x] **104** `cms` Kop → *Waar je in 2027 extra op moet letten*. De agent liet "op" weg; hersteld en gepubliceerd.
 - [x] **105** `cms` Intro — *uw verbruiksprofiel, uw flexibiliteit … risico u kunt dragen* → je … je … je kunt dragen. *(u → je)*
 - [x] **106** `cms` Flexibiliteit — *als u daadwerkelijk kunt sturen … betaalt u* → als je daadwerkelijk kunt sturen … betaal je. *(u → je)*
 - [x] **107** `cms` Wat betekent dit voor u? — *uw kwartierdata: wanneer verbruikt u, wanneer levert u terug, en wat kunt u verschuiven?* → je kwartierdata: wanneer verbruik je, wanneer lever je terug, en wat kun je verschuiven? *(u → je)*
@@ -205,4 +205,4 @@ Bron: *Taalcontrole website greendee.nl*, gecontroleerd op 8 oktober 2026, opges
 ## Buiten het rapport, wel nodig
 
 - [x] **X1** `code` Algemene voorwaarden en privacyverklaring houden **u**. Een leveringsvoorwaarde en een privacyverklaring zijn geen wervende tekst; tutoyeren staat daar vreemd en in juridisch Nederlands is de formele vorm de norm. Het rapport heeft deze pagina's ook niet gecontroleerd (S7), dus er ligt geen oordeel van het taalbureau onder. Wel nagelopen op de overige schrijfwijzen: schoon. `scripts/taalcheck.py` zondert ze expliciet uit, dus de keuze staat vastgelegd en is in één regel terug te draaien.
-- [x] **X2** `code` `scripts/taalcheck.py` toetst alle pagina's uit de sitemap op elf regels (aanspreekvorm, de spelfouten, MKB, Business Cases, CO₂, duizendtallen, gekrulde apostrof, p/m, peakshaving, vergunningsvrij, 120+). Nulmeting op de oude site: **289 bevindingen**. Na deze ronde op productie: **nul**.
+- [x] **X2** `code` `scripts/taalcheck.py` toetst alle pagina's uit de sitemap op elf regels (aanspreekvorm, de spelfouten, MKB, Business Cases, CO₂, duizendtallen, gekrulde apostrof, p/m, peakshaving, vergunningsvrij, 120+) plus een toets op publicatiedatums in de toekomst, via het datetime-attribuut en niet via de lopende tekst — een artikel mag schrijven over 2027, maar er niet uit komen. Nulmeting op de oude site: **289 bevindingen**. Na deze ronde op productie: **nul**.

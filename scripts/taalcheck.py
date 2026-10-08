@@ -17,6 +17,7 @@ from __future__ import annotations
 import re
 import subprocess
 import sys
+from datetime import date
 from html.parser import HTMLParser
 
 # De juridische pagina's houden bewust de formele aanspreekvorm: een
@@ -88,6 +89,20 @@ REGELS: list[tuple[str, re.Pattern[str], str]] = [
 ]
 
 
+PUBLICATIEDATUM = re.compile(r'<time[^>]*\bdatetime="(\d{4}-\d{2}-\d{2})')
+
+
+def publicatie_in_de_toekomst(html: str) -> list[str]:
+    """Een artikel dat volgende maand gepubliceerd heet te zijn, leest als een fout.
+
+    Dit kijkt bewust naar het datetime-attribuut van <time> en niet naar de
+    lopende tekst: een artikel mag prima schrijven over wat er op 1 januari 2027
+    verandert, maar het mag zelf niet uit de toekomst komen.
+    """
+    vandaag = date.today()
+    return [d for d in PUBLICATIEDATUM.findall(html) if date.fromisoformat(d) > vandaag]
+
+
 def haal(url: str) -> str:
     # Via curl en niet via urllib: de Python op deze machines heeft geen
     # werkende certificaatbundel, waardoor elke https-aanvraag afketst.
@@ -133,6 +148,9 @@ def toets(basis: str) -> int:
         tekst = uithaler.tekst
 
         bevindingen: list[str] = []
+        for gevonden in publicatie_in_de_toekomst(html):
+            bevindingen.append(f'publicatiedatum: {gevonden}  (ligt in de toekomst)')
+
         for naam, patroon, uitleg in REGELS:
             if naam == 'aanspreekvorm' and pad in FORMEEL_TOEGESTAAN:
                 continue
