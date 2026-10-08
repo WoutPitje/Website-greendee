@@ -84,13 +84,13 @@ const doelen = [
     titel: 'Autonomie en ontwikkeling',
     uitleg: 'Eigen projectverantwoordelijkheid, opleidingsbudget en opleidingsuren.',
     waarde: '€ 2.500',
-    toelichting: 'En 5 dagen opleiding per jaar, en binnen een jaar draag je een eigen project.',
+    toelichting: 'Plus vijf opleidingsdagen per jaar. Binnen een jaar ben je verantwoordelijk voor een eigen project.',
   },
   {
     titel: 'Ziekteverzuim en werkdruk',
     uitleg: 'We meten verzuim in procenten, werkdruk als vraag in de enquête en overuren.',
     waarde: 'Onder 3%',
-    toelichting: 'Verzuim, werkdruk gemiddeld onder een 7.',
+    toelichting: 'Verzuim onder 3%; werkdruk gemiddeld lager dan een 7.',
   },
   {
     titel: 'Plezier',

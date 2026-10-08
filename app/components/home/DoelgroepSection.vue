@@ -54,7 +54,7 @@
 type SegmentKey = 'mkb' | 'bedrijventerrein' | 'agrarisch'
 
 const segments: { key: SegmentKey, label: string }[] = [
-  { key: 'mkb', label: 'MKB' },
+  { key: 'mkb', label: 'Mkb' },
   { key: 'bedrijventerrein', label: 'Bedrijventerrein' },
   { key: 'agrarisch', label: 'Agrarisch' },
 ]
@@ -62,24 +62,24 @@ const segments: { key: SegmentKey, label: string }[] = [
 const content = {
   neutraal: {
     title: 'Oplossingen voor elke sector.',
-    body: 'Of u nu een bedrijventerrein beheert, een MKB-onderneming runt of een agrarisch bedrijf hebt. GreenDee helpt u grip te krijgen op netcongestie en energiekosten.',
+    body: 'Of je nu een bedrijventerrein beheert, een mkb-onderneming runt of een agrarisch bedrijf hebt: GreenDee helpt je grip te krijgen op netcongestie en energiekosten.',
     image: '/v2/doelgroep-neutraal',
     alt: 'Batterijsysteem in een weiland',
   },
   mkb: {
     title: 'Verduurzamen zonder gedoe.',
-    body: 'Advies en subsidiebegeleiding, afgestemd op de schaal van uw onderneming.',
+    body: 'Advies en subsidiebegeleiding, afgestemd op de schaal van je onderneming.',
     image: '/v2/doelgroep-mkb',
-    alt: 'MKB-ondernemer bij de eigen energie-installatie',
+    alt: 'Mkb-ondernemer bij de eigen energie-installatie',
   },
   bedrijventerrein: {
-    title: 'Grip op netcongestie voor uw hele terrein.',
+    title: 'Grip op netcongestie voor je hele terrein.',
     body: 'Meerdere bedrijven, één aansluiting. GreenDee zorgt dat iedereen stroom houdt, ook bij piekbelasting.',
     image: '/v2/doelgroep-bedrijventerrein',
     alt: 'Bedrijventerrein vanuit de lucht',
   },
   agrarisch: {
-    title: 'Energieopslag die meebeweegt met uw bedrijfsvoering.',
+    title: 'Energieopslag die meebeweegt met je bedrijfsvoering.',
     body: 'Van koeling tot stallen. Altijd voldoende capaciteit, ook op piekmomenten in het seizoen.',
     image: '/v2/doelgroep-agrarisch',
     alt: 'Agrarisch bedrijf met zonnepanelen',

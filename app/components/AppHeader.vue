@@ -157,7 +157,7 @@ const mobileOpen = ref(false)
 const diensten = [
   { title: 'Offertetrajecten', href: '/offertetrajecten' },
   { title: 'Energiesimulaties', href: '/energiesimulaties' },
-  { title: 'Business Cases', href: '/business-cases' },
+  { title: 'Businesscases', href: '/business-cases' },
   { title: 'Energiecontracten', href: '/energiecontracten' },
   { title: 'Monitoring en rendementsbewaking', href: '/monitoring' },
   { title: 'Energyhubs', href: '/energyhubs' },

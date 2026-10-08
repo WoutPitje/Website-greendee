@@ -6,13 +6,13 @@
     <InnerPageHero
       eyebrow="Onze diensten"
       title="Monitoring en rendementsbewaking"
-      intro="Na oplevering begint het pas. GreenDee bewaakt of uw installatie doet wat de businesscase beloofde en grijpt in wanneer dat niet zo is."
+      intro="Na oplevering begint het pas. GreenDee bewaakt of je installatie doet wat de businesscase beloofde en grijpt in wanneer dat niet zo is."
       image="/v2/hero-monitoring"
       image-alt="Grafieken op een scherm waarop prestaties worden gevolgd"
     />
 
     <NumberedListSection
-      eyebrow="Herkent u dit?"
+      eyebrow="Herken je dit?"
       title="De installatie draait. Maar levert hij ook het besproken rendement op?"
       intro="Een installatie die het technisch doet, kan financieel alsnog achterblijven."
       :items="problemen"
@@ -25,7 +25,7 @@
     />
 
     <ResultsSection
-      title="Zicht op wat uw installatie"
+      title="Zicht op wat je installatie"
       title-accent="werkelijk oplevert."
       :rows="resultaten"
       rounded-top
@@ -41,8 +41,8 @@
     />
 
     <CtaSection
-      title="Wie neemt er verantwoordelijkheid voor uw installatie na oplevering?"
-      body="In een eerste gesprek kijken we naar uw huidige opbrengst en naar wat de businesscase destijds beloofde."
+      title="Wie neemt er verantwoordelijkheid voor je installatie na oplevering?"
+      body="In een eerste gesprek kijken we naar je huidige opbrengst en naar wat de businesscase destijds beloofde."
       background="white"
     />
   </div>
@@ -52,7 +52,7 @@
 useSeo({
   titel: 'Monitoring en rendementsbewaking',
   beschrijving:
-    'GreenDee bewaakt of uw energie-installatie doet wat de businesscase beloofde.',
+    'GreenDee bewaakt of je energie-installatie doet wat de businesscase beloofde.',
   afbeelding: 'monitoring',
 })
 
@@ -87,7 +87,7 @@ const stappen = [
 ]
 
 const resultaten = [
-  { term: 'Zicht', description: 'Een periodiek beeld van opbrengst, verbruik en beschikbaarheid van uw installatie.' },
+  { term: 'Zicht', description: 'Een periodiek beeld van opbrengst, verbruik en beschikbaarheid van je installatie.' },
   { term: 'Bijsturing', description: 'Signalering van afwijkingen, met een concrete actie in plaats van alleen een constatering.' },
   { term: 'Rendement', description: 'Inzicht in of de investering doet wat de businesscase beloofde, jaar na jaar.' },
   {

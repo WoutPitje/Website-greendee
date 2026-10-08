@@ -15,8 +15,8 @@
     >
       <p class="text-[15px] font-bold leading-6 text-white">Mogen we meekijken?</p>
       <p class="mt-2 text-[14px] font-medium leading-6 text-white/80">
-        Met uw toestemming meten wij via Google Analytics welke pagina's worden
-        bekeken, zodat we de site kunnen verbeteren. Zegt u nee, dan gebeurt er
+        Met je toestemming meten wij via Google Analytics welke pagina's worden
+        bekeken, zodat we de site kunnen verbeteren. Zeg je nee, dan gebeurt er
         niets: er wordt dan geen cookie geplaatst en geen gegeven naar Google
         gestuurd. Meer hierover staat in onze
         <NuxtLink to="/privacyverklaring" class="font-semibold text-white underline underline-offset-2">privacyverklaring</NuxtLink>.

@@ -3,7 +3,7 @@
     <div class="flex w-full max-w-container flex-col items-start gap-10 lg:flex-row lg:gap-20">
       <div class="flex flex-1 flex-col items-start justify-center gap-8 lg:gap-[38px]">
         <h2 class="w-full text-[24px] font-bold leading-8 text-greendee-ink lg:text-[28px] lg:leading-9">
-          Wat u kunt verwachten
+          Wat je kunt verwachten
         </h2>
 
         <div v-for="item in verwachtingen" :key="item.title" class="flex w-full items-start gap-4">
@@ -45,17 +45,17 @@ const verwachtingen = [
   {
     icon: '/v2/icon-klok.svg',
     title: 'Een gesprek van 30 minuten.',
-    body: 'Een kort gesprek waarin we uw situatie doornemen.',
+    body: 'Een kort gesprek waarin we je situatie doornemen.',
   },
   {
     icon: '/v2/icon-schild.svg',
     title: 'Gratis en vrijblijvend.',
-    body: 'Geen kosten, geen offerte die u moet tekenen, geen verplichtingen achteraf.',
+    body: 'Geen kosten, geen offerte die je moet tekenen, geen verplichtingen achteraf.',
   },
   {
     icon: '/v2/icon-video.svg',
-    title: 'Online of bij u op locatie.',
-    body: 'GreenDee is landelijk actief en komt graag bij u op locatie. Wij inventariseren eerst telefonisch of online of wij iets voor elkaar kunnen betekenen.',
+    title: 'Online of bij jou op locatie.',
+    body: 'GreenDee is landelijk actief en komt graag bij je op locatie. Wij inventariseren eerst telefonisch of online of wij iets voor elkaar kunnen betekenen.',
   },
 ]
 </script>

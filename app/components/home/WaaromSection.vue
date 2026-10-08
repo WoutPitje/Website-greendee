@@ -3,10 +3,10 @@
     <div class="flex w-full max-w-container flex-col items-start gap-10 lg:flex-row lg:gap-20">
       <div class="flex w-full flex-col items-start justify-center gap-6 lg:w-[470px]">
         <h2 class="text-[28px] font-bold leading-[35px] text-greendee-ink lg:text-h2 lg:text-black">
-          Kies voor een partner die u echt kan helpen
+          Kies voor een partner die je echt kan helpen
         </h2>
         <p class="w-full text-[15px] font-medium leading-6 text-gray-600 lg:text-body lg:tracking-[-0.36px]">
-          Advies, makkelijk contact en kennis van subsidies. GreenDee begeleidt uw
+          Advies, makkelijk contact en kennis van subsidies. GreenDee begeleidt je
           bedrijf bij het realiseren van toekomstbestendige energieoplossingen.
         </p>
         <NuxtLink
@@ -59,11 +59,11 @@
 </template>
 
 <script setup lang="ts">
-// `ghost` is the oversized watermark behind each card. On the first card the
-// design deliberately shows a different number than the value.
+// `ghost` is the oversized watermark behind each card, matching `value` so the
+// watermark doesn't contradict the number in front of it.
 const stats = [
-  { ghost: '120+', value: '25+', label: 'Bedrijven geholpen', highlight: false },
-  { ghost: '99%', value: '99%', label: 'Klanttevredenheid', highlight: true },
-  { ghost: '5+', value: '5+', label: 'Jaren ervaring', highlight: false },
+  { ghost: '25+', value: '25+', label: 'bedrijven geholpen', highlight: false },
+  { ghost: '99%', value: '99%', label: 'klanttevredenheid', highlight: true },
+  { ghost: '5+', value: '5+', label: 'jaar ervaring', highlight: false },
 ]
 </script>

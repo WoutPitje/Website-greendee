@@ -13,7 +13,7 @@
           {{ article.category }}
         </span>
         <span class="text-[13px] font-medium leading-[18px] text-gray-500">
-          {{ article.readingMinutes }} min lezen
+          {{ article.readingMinutes }} min. leestijd
         </span>
       </div>
 

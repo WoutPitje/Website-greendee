@@ -36,7 +36,7 @@
             <p class="w-full text-[20px] font-bold text-white">Nieuwsgierig geworden?</p>
             <div class="flex w-full flex-col items-start gap-5">
               <p class="w-full text-[13px] font-medium text-white/90">
-                Bent u al overtuigd van de expertise van GreenDee, of wilt u meer zien?
+                Ben je al overtuigd van de expertise van GreenDee, of wil je meer zien?
               </p>
               <p class="w-full text-[14px] font-bold text-greendee-yellow">
                 Bekijk alle projecten →

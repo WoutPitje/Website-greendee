@@ -47,8 +47,8 @@
     </section>
 
     <CtaSection
-      title="Wordt uw bedrijf het volgende project?"
-      body="Elk project begint met dezelfde vraag, maar eindigt niet met hetzelfde antwoord. Benieuwd wat we voor u kunnen betekenen?"
+      title="Wordt jouw bedrijf het volgende project?"
+      body="Elk project begint met dezelfde vraag, maar eindigt niet met hetzelfde antwoord. Benieuwd wat we voor jou kunnen betekenen?"
       background="mint"
       :rounded-top="false"
     />

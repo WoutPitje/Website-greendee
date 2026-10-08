@@ -20,7 +20,7 @@
             <span class="rounded-full bg-greendee-yellow px-3 py-1.5 text-[12px] font-bold leading-4 text-[#412402]">
               {{ article.category }}
             </span>
-            <span class="text-[13px] font-medium text-white/80">{{ article.readingMinutes }} min lezen</span>
+            <span class="text-[13px] font-medium text-white/80">{{ article.readingMinutes }} min. leestijd</span>
             <time v-if="article.publishedDate" class="text-[13px] font-medium text-white/80" :datetime="article.publishedDate">
               {{ formatDate(article.publishedDate) }}
             </time>

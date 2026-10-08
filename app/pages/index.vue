@@ -20,9 +20,9 @@
 
 <script setup lang="ts">
 useSeo({
-  titel: 'Uw partner in duurzame energieoplossingen',
+  titel: 'Jouw partner in duurzame energieoplossingen',
   beschrijving:
-    'GreenDee helpt MKB-bedrijven, agrariers en bedrijventerreinen verder ondanks netcongestie: van energiesimulatie en businesscase tot realisatie en bewaking.',
+    'GreenDee helpt mkb-bedrijven, agrariërs en bedrijventerreinen verder ondanks netcongestie: van energiesimulatie en businesscase tot realisatie en bewaking.',
   afbeelding: 'home',
 })
 </script>

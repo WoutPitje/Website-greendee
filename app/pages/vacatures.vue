@@ -3,7 +3,7 @@
     <InnerPageHero
       eyebrow="Werken bij GreenDee"
       title="Werk mee aan de energietransitie."
-      intro="Bij GreenDee helpt u MKB-bedrijven en agrariërs met duurzame energieoplossingen. Bekijk onze vacatures of stuur een open sollicitatie."
+      intro="Bij GreenDee help je mkb-bedrijven en agrariërs met duurzame energieoplossingen. Bekijk onze vacatures of stuur een open sollicitatie."
       image="/v2/hero-vacatures"
       image-alt="Het team van GreenDee in gesprek"
       cta-label=""
@@ -17,7 +17,7 @@
         </h2>
         <p class="w-full text-[15px] font-medium leading-6 text-black lg:text-body lg:tracking-[-0.36px]">
           Er {{ vacatures.length === 1 ? 'staat' : 'staan' }} op dit moment
-          {{ vacatures.length }} {{ vacatures.length === 1 ? 'vacature' : 'vacatures' }} open.
+          {{ telwoord(vacatures.length) }} {{ vacatures.length === 1 ? 'vacature' : 'vacatures' }} open.
           Klik op een vacature voor de volledige omschrijving.
         </p>
       </div>
@@ -69,9 +69,9 @@
                  achter maar wijst de weg naar een gesprek. -->
             <p v-if="!vacature.columns.length" class="text-[15px] font-medium leading-6 text-gray-600">
               De volledige omschrijving volgt binnenkort. Benieuwd wat deze plek inhoudt?
-              Mail uw cv en een korte motivatie naar
-              <a href="mailto:offerte@greendee.nl?subject=Stage%20Medewerker%20Energieprojecten" class="font-semibold text-greendee-green underline underline-offset-2">offerte@greendee.nl</a>,
-              dan nemen wij contact met u op.
+              Mail je cv en een korte motivatie naar
+              <a href="mailto:offerte@greendee.nl?subject=Stagiair%20Energieprojecten" class="font-semibold text-greendee-green underline underline-offset-2">offerte@greendee.nl</a>,
+              dan nemen wij contact met je op.
             </p>
             <div v-for="column in vacature.columns" :key="column.title" class="flex flex-1 flex-col items-start gap-3">
               <p class="text-[13px] font-bold uppercase tracking-[1.4px] text-greendee-green">{{ column.title }}</p>
@@ -88,7 +88,7 @@
 
     <CtaSection
       title="Geen passende vacature?"
-      body="We maken graag kennis met mensen die willen bijdragen aan onze missie. Stuur uw cv en een korte motivatie."
+      body="We maken graag kennis met mensen die willen bijdragen aan onze missie. Stuur je cv en een korte motivatie."
       cta-label="Stuur een open sollicitatie"
       cta-to="mailto:offerte@greendee.nl?subject=Open%20sollicitatie"
       background="white"
@@ -110,6 +110,17 @@ useSeo({
 
 const open = ref<number | null>(null)
 
+// Getallen t/m twintig voluit in lopende tekst. Het aantal vacatures komt uit
+// de lengte van de array hieronder en groeit dus vanzelf mee; vanaf 21 valt
+// deze terug op het cijfer.
+const TELWOORDEN = [
+  'nul', 'één', 'twee', 'drie', 'vier', 'vijf', 'zes', 'zeven', 'acht', 'negen', 'tien',
+  'elf', 'twaalf', 'dertien', 'veertien', 'vijftien', 'zestien', 'zeventien', 'achttien', 'negentien', 'twintig',
+]
+function telwoord(aantal: number) {
+  return TELWOORDEN[aantal] ?? String(aantal)
+}
+
 // Eén vaste vacature, zoals afgesproken. Komen er meer, dan is dit het moment om
 // er een Strapi-collectie van te maken.
 const vacatures = [
@@ -118,7 +129,7 @@ const vacatures = [
     tags: [
       { label: 'Fulltime · 40 uur' },
       { label: 'Alkmaar & thuis' },
-      { label: '€ 2.000 – € 4.000 bruto p/m' },
+      { label: '€ 2.000 – € 4.000 bruto per maand' },
       { label: 'Eerste medewerker', highlight: true },
     ],
     columns: [
@@ -152,7 +163,7 @@ const vacatures = [
     ],
   },
   {
-    title: 'Stage Medewerker Energieprojecten',
+    title: 'Stagiair Energieprojecten',
     tags: [
       { label: 'Stage · mbo 4' },
       { label: 'Stagevergoeding' },

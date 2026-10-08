@@ -34,7 +34,7 @@ useHead({
       url: basis,
       logo: `${basis}/v2/logo-white.png`,
       description:
-        'GreenDee helpt MKB-bedrijven, agrariers en bedrijventerreinen verder ondanks netcongestie, van energiesimulatie en businesscase tot realisatie en bewaking.',
+        'GreenDee helpt mkb-bedrijven, agrariërs en bedrijventerreinen verder ondanks netcongestie, van energiesimulatie en businesscase tot realisatie en bewaking.',
       telephone: '+31634466611',
       email: 'offerte@greendee.nl',
       vatID: 'NL005283192B66',

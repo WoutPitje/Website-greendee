@@ -19,7 +19,10 @@
         >
           <p class="flex items-end gap-2 font-extrabold text-greendee-green">
             <span class="text-[48px] leading-[52px] tracking-[-1.2px] lg:text-[60px] lg:leading-[63px]">{{ doel.getal }}</span>
-            <span v-if="doel.eenheid" class="text-[24px] leading-[30px] lg:text-[30px] lg:leading-9">{{ doel.eenheid }}</span>
+            <!-- Letterlijke spatie in de tekst zelf, niet alleen de flex-gap: anders
+                 lopen getal en eenheid aan elkaar zodra CSS wegvalt of een
+                 schermlezer de tekst voorleest. -->
+            <span v-if="doel.eenheid" class="text-[24px] leading-[30px] lg:text-[30px] lg:leading-9">{{ ` ${doel.eenheid}` }}</span>
           </p>
           <p class="text-[18px] font-extrabold leading-6 text-greendee-ink">{{ doel.label }}</p>
 
@@ -41,10 +44,10 @@
         </article>
       </div>
 
-      <!-- Onderbouwing van het CO2-doel: waar de 10.000 ton vandaan moet komen. -->
+      <!-- Onderbouwing van het CO₂-doel: waar de 10.000 ton vandaan moet komen. -->
       <div class="mt-9 rounded-[18px] bg-white p-7 lg:p-8">
         <h3 class="text-[20px] font-extrabold leading-7 tracking-[-0.24px] text-greendee-ink lg:text-[24px] lg:leading-[29px]">
-          Wat er nodig is voor 10.000 ton CO2 per jaar
+          Wat er nodig is voor 10.000 ton CO₂ per jaar
         </h3>
 
         <div class="mt-5 flex h-[54px] w-full gap-[3px] overflow-hidden rounded-[10px]">
@@ -78,7 +81,7 @@ const doelen = [
   {
     getal: '10.000',
     eenheid: 'ton',
-    label: 'CO2 vermeden',
+    label: 'CO₂ vermeden',
     tussendoelen: [
       { wanneer: 'Eind 2028', waarde: '2.500 ton' },
       { wanneer: 'Eind 2030', waarde: '5.000 ton' },
@@ -110,8 +113,8 @@ const doelen = [
       { wanneer: 'Eind 2031', waarde: '100% slaafvrij' },
     ],
     meting: 'per offerte registreren we fabrikant, traceerbaarheidsbewijs en herkomst; '
-      + 'jaarlijks tellen we het geadviseerde kWp per categorie. Daarnaast komt 50% van het '
-      + 'kWp uit Europa, eind 2031.',
+      + 'jaarlijks tellen we het geadviseerde kWp per categorie. Daarnaast komt eind 2031 '
+      + '50% van het geadviseerde kWp uit Europa.',
   },
   {
     getal: '25',

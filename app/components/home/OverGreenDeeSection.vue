@@ -12,7 +12,7 @@
         </div>
 
         <p class="text-[15px] font-medium leading-6 tracking-[-0.054px] text-gray-600 lg:text-body lg:tracking-[-0.0648px] lg:text-black">
-          GreenDee ondersteunt u bij het realiseren van toekomstbestendige
+          GreenDee ondersteunt je bij het realiseren van toekomstbestendige
           energieoplossingen. Onze focus ligt op netcongestie, stijgende
           energiekosten en elektrificatie.
         </p>

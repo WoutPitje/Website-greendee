@@ -3,7 +3,7 @@
     <InnerPageHero
       eyebrow="Over ons"
       title="Persoonlijke aanpak. Professioneel en duurzaam resultaat."
-      intro="GreenDee ondersteunt u bij het realiseren van toekomstbestendige energieoplossingen, met focus op netcongestie, stijgende energiekosten en elektrificatie."
+      intro="GreenDee ondersteunt je bij het realiseren van toekomstbestendige energieoplossingen, met focus op netcongestie, stijgende energiekosten en elektrificatie."
       image="/v2/hero-over-ons"
       image-alt="Het team van GreenDee in gesprek"
       cta-label=""

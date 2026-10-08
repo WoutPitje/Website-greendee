@@ -3,13 +3,13 @@
     <InnerPageHero
       eyebrow="Onze diensten"
       title="Offertetrajecten"
-      intro="GreenDee voert namens u de uitvraag naar de markt en begeleidt de keuze van installateur of leverancier."
+      intro="GreenDee voert namens jou de uitvraag naar de markt uit en begeleidt de keuze van installateur of leverancier."
       image="/v2/hero-offertetrajecten"
       image-alt="Gesprek aan tafel over een offertetraject"
     />
 
     <NumberedListSection
-      eyebrow="Herkent u dit?"
+      eyebrow="Herken je dit?"
       title="Vier offertes, vier verschillende uitgangspunten."
       intro="Zonder een gelijke uitvraag zijn offertes niet te vergelijken en ontstaan er meerwerk en kosten tijdens de uitvoering."
       :items="problemen"
@@ -23,15 +23,15 @@
     />
 
     <ResultsSection
-      title="Begrijpbare offertes"
-      title-accent="die u naast elkaar kunt leggen."
+      title="Begrijpelijke offertes"
+      title-accent="die je naast elkaar kunt leggen."
       :rows="resultaten"
     />
 
     <FeaturedTestimonialSection />
 
     <RoleSection
-      title="Wij voeren de marktuitvraag uit, u houdt de regie."
+      title="Wij voeren de marktuitvraag uit, jij houdt de regie."
       body="GreenDee legt de uitgangspunten vast, selecteert de partijen en zet de uitvraag uit. Wij begeleiden het locatiebezoek en de vragenronde, verzorgen de communicatie en de opvolging, en leveren aan het eind een onderbouwd advies."
       image="/v2/rol-greendee"
       image-alt="Lars van GreenDee in telefonisch overleg"
@@ -39,7 +39,7 @@
 
     <CtaSection
       title="Klaar om de markt op te gaan?"
-      body="Wij stellen de uitvraag op, halen de offertes op en leggen ze naast elkaar op gelijke uitgangspunten. U neemt het besluit."
+      body="Wij stellen de uitvraag op, halen de offertes op en leggen ze naast elkaar op gelijke uitgangspunten. Jij neemt het besluit."
     />
   </div>
 </template>
@@ -48,7 +48,7 @@
 useSeo({
   titel: 'Offertetrajecten',
   beschrijving:
-    'GreenDee voert namens u de uitvraag naar de markt en begeleidt de keuze van installateur of leverancier.',
+    'GreenDee voert namens jou de uitvraag naar de markt uit en begeleidt de keuze van installateur of leverancier.',
   afbeelding: 'offertetrajecten',
 })
 
@@ -62,8 +62,8 @@ const problemen = [
     body: 'Dat leidt tot meerwerk en faalkosten tijdens de uitvoering.',
   },
   {
-    title: 'Tijdverlies aan het voortraject',
-    body: 'U bent veel tijd kwijt aan het voortraject met meerdere partijen en kunt niet beoordelen of prijs en kwaliteit marktconform zijn.',
+    title: 'Tijdverlies in het voortraject',
+    body: 'Je bent veel tijd kwijt in het voortraject met meerdere partijen en kunt niet beoordelen of prijs en kwaliteit marktconform zijn.',
   },
   {
     title: 'Dimensionering naar het product',
@@ -78,11 +78,11 @@ const stappen = [
   },
   {
     title: 'Selectie van partijen',
-    body: 'Uitvraag bij zorgvuldig geselecteerde installateurs en leveranciers. Getoetst op behaalde relevante certificeringen.',
+    body: 'Uitvraag bij zorgvuldig geselecteerde installateurs en leveranciers. Getoetst op relevante certificeringen.',
   },
   {
     title: 'Uitvraag en coördinatie',
-    body: 'Uitzetten van de uitvraag, begeleiden van het locatiebezoek en de vragenronde voor installateurs. GreenDee verzorgt communicatie en opvolging; u houdt één vast aanspreekpunt.',
+    body: 'Uitzetten van de uitvraag, begeleiden van het locatiebezoek en de vragenronde voor installateurs. GreenDee verzorgt communicatie en opvolging; je houdt één vast aanspreekpunt.',
   },
   {
     title: 'Vergelijken en beoordelen',

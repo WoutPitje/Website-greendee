@@ -3,14 +3,14 @@
     <InnerPageHero
       eyebrow="Onze diensten"
       title="Energiesimulaties"
-      intro="GreenDee rekent met eigen software (NetcongestieOpgelost.nl) door wat er op uw aansluiting gebeurt, nog voordat er geïnvesteerd wordt."
+      intro="GreenDee rekent met eigen software (NetcongestieOpgelost.nl) door wat er op je aansluiting gebeurt, nog voordat er geïnvesteerd wordt."
       image="/v2/hero-energiesimulaties"
       image-alt="Energiesimulatie op een scherm"
     />
 
     <NumberedListSection
       eyebrow="Het probleem"
-      title="Uw netaansluiting is een harde grens."
+      title="Je netaansluiting is een harde grens."
       intro="Uitbreiding, elektrificatie en verduurzaming passen daar niet vanzelfsprekend binnen."
       :items="problemen"
     />
@@ -24,7 +24,7 @@
     />
 
     <ResultsSection
-      title="Een advies op basis van uw eigen data,"
+      title="Een advies op basis van je eigen data,"
       title-accent="niet op aannames."
       :rows="resultaten"
       rounded-top
@@ -32,7 +32,7 @@
 
     <RoleSection
       title="Geen verkooppraatje."
-      body="GreenDee rekent met eigen software door wat er op uw aansluiting gebeurt. Wij leggen de aannames vast, rekenen de scenario's door en leveren een advies dat dient als basis voor uw businesscase, het elektrotechnisch ontwerp en het gesprek met de netbeheerder."
+      body="GreenDee rekent met eigen software door wat er op je aansluiting gebeurt. Wij leggen de aannames vast, rekenen de scenario's door en leveren een advies dat dient als basis voor je businesscase, het elektrotechnisch ontwerp en het gesprek met de netbeheerder."
       image="/v2/rol-energiesimulaties"
       image-alt="Adviseur van GreenDee bij een zonnepark"
       reverse
@@ -40,8 +40,8 @@
     />
 
     <CtaSection
-      title="Benieuwd wat er op uw aansluiting past?"
-      body="Wij rekenen uw situatie door voordat u investeert. Zo weet u wat er mogelijk is binnen uw huidige aansluiting."
+      title="Benieuwd wat er op je aansluiting past?"
+      body="Wij rekenen je situatie door voordat je investeert. Zo weet je wat er mogelijk is binnen je huidige aansluiting."
       background="white"
     />
   </div>
@@ -51,18 +51,18 @@
 useSeo({
   titel: 'Energiesimulaties',
   beschrijving:
-    'GreenDee rekent met eigen software door wat er op uw aansluiting gebeurt, nog voordat er geinvesteerd wordt.',
+    'GreenDee rekent met eigen software door wat er op je aansluiting gebeurt, nog voordat er geïnvesteerd wordt.',
   afbeelding: 'energiesimulaties',
 })
 
 const problemen = [
   {
     title: 'Een harde grens op de aansluiting',
-    body: 'Uitbreiding, elektrificatie van uw wagenpark en uw verduurzamingsplannen passen niet vanzelfsprekend binnen uw netaansluiting.',
+    body: 'Uitbreiding, elektrificatie van je wagenpark en je verduurzamingsplannen passen niet vanzelfsprekend binnen je netaansluiting.',
   },
   {
     title: 'Over- of onderdimensionering',
-    body: 'Zonder simulatie vooraf is er kans op een te grote batterij of te veel zonnepanelen, of juist op onderdimensionering waardoor plannen alsnog niet door kunnen gaan.',
+    body: 'Zonder simulatie vooraf is er kans op een te grote batterij of te veel zonnepanelen, of juist op onderdimensionering, waardoor plannen alsnog niet door kunnen gaan.',
   },
   {
     title: 'Besluiten op onderbuikgevoel',
@@ -81,12 +81,12 @@ const stappen = [
     body: 'Analyse van afnamepieken, teruglevering, basislast en gelijktijdigheid. Toetsing van het werkelijke gebruik aan de gecontracteerde capaciteit.',
   },
   {
-    title: 'Assets simulatief toevoegen',
+    title: 'Assets in de simulatie toevoegen',
     body: 'Conceptueel toevoegen van zon, energieopslag, laadinfrastructuur, koeling, ventilatie of elektrificatie van warmte.',
   },
   {
     title: "Scenario's vergelijken",
-    body: "Alle scenario's worden vergeleken. Wat zijn de voor- en nadelen van de verschillende keuzes.",
+    body: "Alle scenario's worden vergeleken. Wat zijn de voor- en nadelen van de verschillende keuzes?",
   },
   {
     title: 'Rapportage en advies',
@@ -95,8 +95,8 @@ const stappen = [
 ]
 
 const resultaten = [
-  { term: 'Inzicht', description: 'De werkelijke vermogensvraag, basislast en gelijktijdigheid van uw locatie.' },
-  { term: 'Dimensionering', description: 'Onderbouwd advies voor batterij, zon en laadinfrastructuur, passend bij uw uitbreidingsplannen.' },
+  { term: 'Inzicht', description: 'De werkelijke vermogensvraag, basislast en gelijktijdigheid van je locatie.' },
+  { term: 'Dimensionering', description: 'Onderbouwd advies voor batterij, zon en laadinfrastructuur, passend bij je uitbreidingsplannen.' },
   { term: "Scenario's", description: "Een vergelijking van energiescenario's op gelijke uitgangspunten." },
   { term: 'Onderbouwing', description: 'Een datagedreven basis voor de investeringsbeslissing en voor het gesprek met de netbeheerder.' },
 ]

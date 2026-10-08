@@ -6,7 +6,7 @@
           Liever eerst contact via de mail?
         </h2>
         <p class="w-full text-[15px] font-medium leading-[22px] text-gray-500">
-          Wij streven ernaar om binnen één werkdag contact met u op te nemen.
+          Wij streven ernaar om binnen één werkdag contact met je op te nemen.
         </p>
 
         <div class="flex w-full flex-col items-start gap-3 pt-2">
@@ -34,7 +34,7 @@
           <textarea
             v-model="form.message"
             required
-            placeholder="Uw vraag"
+            placeholder="Je vraag"
             class="h-[110px] w-full resize-none rounded-xl border-[1.5px] border-gray-200 bg-white px-[18px] py-[15px] text-[15px] font-medium text-greendee-ink placeholder:text-gray-400"
           />
           <!-- Spam trap; a real visitor never fills this in. -->
@@ -50,7 +50,7 @@
         </button>
 
         <p v-if="state === 'sent'" class="text-[14px] font-medium text-greendee-green">
-          Bedankt, uw bericht is verstuurd. We nemen snel contact op.
+          Bedankt, je bericht is verstuurd. We nemen snel contact op.
         </p>
         <p v-else-if="state === 'error'" class="text-[14px] font-medium text-red-600">
           Er ging iets mis bij het versturen. Bel ons gerust op 06-34466611.

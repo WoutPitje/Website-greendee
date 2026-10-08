@@ -39,7 +39,7 @@
 
         <p class="w-full border-t border-gray-200 pt-3.5 text-[13px] font-medium leading-[21px] text-gray-500">
           Onze eigen meetlat, geen officieel keurmerk. De zes criteria wegen samen mee
-          in elke offertevergelijking die wij voor u maken.
+          in elke offertevergelijking die wij voor je maken.
         </p>
       </div>
     </div>
@@ -61,8 +61,8 @@ const widthClasses = [
 // Colours follow the six chevrons in the design, light to dark.
 const criteria = [
   {
-    label: 'Zoutwater en kobaltvrij',
-    body: 'Naast lithium brengen wij ook andere batterij-oplossingen in beeld, zoals zoutwater of LFP.',
+    label: 'Zoutwater- en kobaltvrije opslag',
+    body: 'Naast lithium-NMC brengen wij ook kobaltvrije oplossingen in beeld, zoals LFP of zoutwater.',
     color: '#C6E3B5',
     textColor: '#024100',
   },
@@ -74,7 +74,7 @@ const criteria = [
   },
   {
     label: 'Circulaire producten',
-    body: 'Ontworpen op hergebruik, met terugnamegarantie.',
+    body: 'Ontworpen voor hergebruik, met terugnamegarantie.',
     color: '#7FBF63',
     textColor: '#0A2E06',
   },
@@ -92,7 +92,7 @@ const criteria = [
   },
   {
     label: 'Europees waar het kan',
-    body: 'Binnen 10% van het alternatief adviseren wij Europees. Europese fabrikanten zijn een pré.',
+    body: 'Is het Europese product maximaal 10% duurder dan het alternatief, dan adviseren wij Europees. Europese fabrikanten zijn een pré.',
     color: '#024100',
     textColor: '#FFFFFF',
   },

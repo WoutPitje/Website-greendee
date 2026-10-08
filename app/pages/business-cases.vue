@@ -2,16 +2,16 @@
   <div>
     <InnerPageHero
       eyebrow="Onze diensten"
-      title="Business Cases"
-      intro="Van energievraag naar onderbouwd investeringsbesluit. Gebaseerd op echte data, zodat u weet wat een investering kost én oplevert."
+      title="Businesscases"
+      intro="Van energievraag naar onderbouwd investeringsbesluit. Gebaseerd op echte data, zodat je weet wat een investering kost én oplevert."
       image="/v2/hero-business-cases"
       image-alt="Overleg over een businesscase"
     />
 
     <NumberedListSection
-      eyebrow="Herkent u dit?"
+      eyebrow="Herken je dit?"
       title="Iedereen heeft een oplossing. Maar welke past bij mij?"
-      intro="Netcongestie, stijgende energiekosten en elektrificatie dwingen tot keuzes. Moet u investeren in zonnepanelen, een batterij, laadinfrastructuur of een nieuw energiecontract? GreenDee geeft hier een onderbouwd antwoord op."
+      intro="Netcongestie, stijgende energiekosten en elektrificatie dwingen tot keuzes. Moet je investeren in zonnepanelen, een batterij, laadinfrastructuur of een nieuw energiecontract? GreenDee geeft hier een onderbouwd antwoord op."
       :items="problemen"
     />
 
@@ -25,21 +25,21 @@
     <ResultCardsSection
       eyebrow="Het resultaat"
       title="Wat levert het op?"
-      intro="Een onderbouwd investeringsbesluit waarmee u direct verder kunt."
+      intro="Een onderbouwd investeringsbesluit waarmee je direct verder kunt."
       :cards="resultaten"
     />
 
     <RoleSection
       title="Eén aanspreekpunt, van eerste gesprek tot blijvend rendement."
-      body="Wij ondersteunen u met de gesprekken met netbeheerder, gemeente, verzekeraar en veiligheidsregio, en bewaken na realisatie jaarlijks uw energiekosten en rendement."
+      body="Wij ondersteunen je bij de gesprekken met netbeheerder, gemeente, verzekeraar en veiligheidsregio, en bewaken na realisatie jaarlijks je energiekosten en rendement."
       image="/v2/rol-greendee"
       image-alt="Lars van GreenDee in telefonisch overleg"
       background="grey"
     />
 
     <CtaSection
-      title="Wilt u weten of uw investering rendabel is?"
-      body="Het traject begint met een vrijblijvend gesprek over uw situatie en ambities. Daarna ontvangt u een offerte met vaste prijzen per onderdeel."
+      title="Wil je weten of je investering rendabel is?"
+      body="Het traject begint met een vrijblijvend gesprek over je situatie en ambities. Daarna ontvang je een offerte met vaste prijzen per onderdeel."
       background="mint"
       :rounded-top="false"
     />
@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 useSeo({
-  titel: 'Business Cases',
+  titel: 'Businesscases',
   beschrijving:
     'Van energievraag naar onderbouwd investeringsbesluit, gebaseerd op echte data.',
   afbeelding: 'business-cases',
@@ -57,7 +57,7 @@ useSeo({
 const problemen = [
   {
     title: 'Netcongestie',
-    body: 'De netaansluiting groeit niet mee met uw plannen. Wat kost niks doen, wat levert de investering op, en wat is de TCO?',
+    body: 'De netaansluiting groeit niet mee met je plannen. Wat kost niets doen, wat levert de investering op, en wat is de TCO?',
   },
   {
     title: 'Teruglevering onder druk',
@@ -69,7 +69,7 @@ const problemen = [
   },
   {
     title: 'Energiecontract en kosten',
-    body: 'Aflopende contracten en stijgende tarieven. Welke contractvorm past bij uw bedrijf en welke besparing is haalbaar?',
+    body: 'Aflopende contracten en stijgende tarieven. Welke contractvorm past bij je bedrijf en welke besparing is haalbaar?',
   },
 ]
 
@@ -77,7 +77,7 @@ const stappen = [
   {
     title: 'Kennismaking & situatieanalyse',
     duration: '1 week',
-    body: 'Wij brengen uw energievraag, aansluiting en ambities in kaart. U ontvangt een offerte met vaste prijzen per onderdeel.',
+    body: 'Wij brengen je energievraag, aansluiting en ambities in kaart. Je ontvangt een offerte met vaste prijzen per onderdeel.',
   },
   {
     title: 'Technische schouw & werktekening',
@@ -92,12 +92,12 @@ const stappen = [
   {
     title: 'Investeringsbesluit & subsidiescan',
     duration: '2–3 weken',
-    body: "CAPEX, OPEX, opbrengsten, terugverdientijd en risico's. Inclusief inventarisatie van subsidie en fiscale regelingen.",
+    body: "CAPEX, OPEX, opbrengsten, terugverdientijd en risico's. Inclusief inventarisatie van subsidies en fiscale regelingen.",
   },
   {
     title: 'Marktuitvraag & offertevergelijking',
     duration: '2–4 weken',
-    body: 'Programma van eisen namens u; ISO 9001/VCA gecertificeerde installateurs offreren op dezelfde uitgangspunten. Uiteraard geheel objectief vergelijkbaar.',
+    body: 'Programma van eisen namens jou; ISO 9001/VCA-gecertificeerde installateurs offreren op dezelfde uitgangspunten. De offertes zijn daardoor objectief vergelijkbaar.',
   },
   {
     title: 'Realisatie & rendementsbewaking',

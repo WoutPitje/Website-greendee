@@ -63,7 +63,7 @@ const pillars = [
   },
   {
     label: 'NIET ONDERHANDELBAAR',
-    body: 'Open over elke vergoeding die wij ontvangen; wij zijn open over profitshare constructies. Een slechte businesscase noemen wij een slechte businesscase. Afspraak is afspraak.',
+    body: 'Open over elke vergoeding die wij ontvangen, ook over profitshareconstructies. Een slechte businesscase noemen wij een slechte businesscase. Afspraak is afspraak.',
   },
   {
     label: 'VOOR KLANT EN PARTNER',
@@ -71,7 +71,7 @@ const pillars = [
   },
   {
     label: 'WAAR ONS TEAM TROTS OP IS',
-    body: 'Projecten die draaien en aantoonbaar financieel én duurzaam leveren. Een bedrijf dat zijn afspraken nakomt, ook naar het eigen team.',
+    body: 'Projecten die draaien en aantoonbaar financieel én duurzaam rendement opleveren. Een bedrijf dat zijn afspraken nakomt, ook naar het eigen team.',
   },
 ]
 </script>

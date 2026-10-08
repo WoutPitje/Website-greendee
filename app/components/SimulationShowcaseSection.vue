@@ -9,7 +9,7 @@
 
     <figure class="flex w-full flex-col items-start gap-5 overflow-hidden rounded-[20px] border-[1.5px] border-gray-200 bg-white px-5 pb-7 pt-8 lg:w-[900px] lg:px-8">
       <figcaption class="w-full text-[18px] font-bold leading-6 text-greendee-ink">
-        Wat een batterij met uw piek doet
+        Wat een batterij met je piek doet
       </figcaption>
 
       <div class="relative w-full overflow-x-auto">

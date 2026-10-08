@@ -24,7 +24,7 @@
 // ontwerp per merk gebruikt, en staan dus direct op het groen.
 const logos = [
   { naam: 'Amsterdam Warehouse Company', src: '/v2/logos/amsterdam.png' },
-  { naam: 'Fresh2you', src: '/v2/logos/fresh2you.png' },
+  { naam: 'Fresh2You', src: '/v2/logos/fresh2you.png' },
   { naam: 'A. van Boekel', src: '/v2/logos/boekel.png' },
   { naam: 'Burgerboerderij Oosterwold', src: '/v2/logos/oosterwold.png' },
   { naam: 'Hoek Bouma', src: '/v2/logos/hoekbouma.png' },

@@ -8,7 +8,7 @@
         Onze oplossingen.
       </h2>
       <p class="text-[15px] font-medium leading-6 text-gray-600 lg:text-body lg:tracking-[-0.0648px] lg:text-black">
-        Leer wat GreenDee voor uw bedrijf kan betekenen.
+        Ontdek wat GreenDee voor jouw bedrijf kan betekenen.
       </p>
     </div>
 
@@ -45,7 +45,7 @@
               {{ card.body }}
             </p>
             <span class="flex items-center gap-2.5 text-[12px] font-medium leading-[26px] tracking-[-0.24px] text-white">
-              Leer meer
+              Lees meer
               <ArrowRight class="transition-transform duration-150 group-hover:translate-x-1" />
             </span>
           </div>
@@ -61,21 +61,21 @@
 const cards = [
   {
     title: 'Energiesimulaties',
-    body: 'Met een energiesimulatie weet u vooraf wat de optimale balans is tussen uw netaansluiting, verbruik, opwek en opslag.',
+    body: 'Met een energiesimulatie weet je vooraf wat de optimale balans is tussen je netaansluiting, verbruik, opwek en opslag.',
     href: '/energiesimulaties',
     image: '/v2/kaart-energiesimulaties',
     crop: 'object-[39.5%_center]',
   },
   {
     title: 'Offertetrajecten',
-    body: 'GreenDee voert namens u een uitvraag naar de markt uit en begeleidt u door de keuzes van uitwerkingen.',
+    body: 'GreenDee voert namens jou een uitvraag naar de markt uit en begeleidt je bij de keuze tussen de uitwerkingen.',
     href: '/offertetrajecten',
     image: '/v2/kaart-offertetrajecten',
     crop: 'object-center',
   },
   {
-    title: 'Business Cases',
-    body: 'Een succesvolle investering begint met een betrouwbare businesscase. GreenDee rekent uw ambities door.',
+    title: 'Businesscases',
+    body: 'Een succesvolle investering begint met een betrouwbare businesscase. GreenDee rekent je ambities door.',
     href: '/business-cases',
     image: '/v2/kaart-business-cases',
     crop: 'object-[46.5%_center]',

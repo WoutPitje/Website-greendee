@@ -2,10 +2,10 @@
   <section class="flex flex-col items-center justify-center gap-8 bg-[#f3f3f3] px-5 py-16 lg:px-0 lg:py-[88px]">
     <div class="flex w-full flex-col items-center gap-[5px] text-center lg:w-[700px]">
       <h2 class="w-full text-[26px] font-bold leading-[34px] text-greendee-ink lg:text-h2 lg:text-black">
-        Kies een moment dat u uitkomt
+        Kies een moment dat jou uitkomt
       </h2>
       <p class="w-full text-[15px] font-medium leading-6 text-gray-600 lg:text-body">
-        Direct in de agenda van Lars. U ontvangt meteen een bevestiging.
+        Direct in de agenda van Lars. Je ontvangt meteen een bevestiging.
       </p>
     </div>
 
@@ -24,7 +24,7 @@
       <div v-else-if="calendlyUrl" class="flex flex-col items-center gap-4 px-6 py-16 text-center">
         <p class="max-w-[520px] text-[15px] font-medium leading-6 text-gray-600">
           De online agenda wordt door Calendly geleverd en plaatst eigen cookies.
-          Daarom laden wij hem pas als u dat wilt.
+          Daarom laden wij hem pas als je dat wilt.
         </p>
         <button
           type="button"

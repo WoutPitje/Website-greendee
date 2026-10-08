@@ -26,7 +26,7 @@
     </div>
 
     <p class="pt-4 text-center text-[16px] font-medium text-gray-600">
-      Staat uw vraag er niet bij? Stel uw vraag gewoon in het gesprek.
+      Staat je vraag er niet bij? Stel hem gewoon in het gesprek.
     </p>
   </section>
 </template>
@@ -35,7 +35,7 @@
 const faq = [
   {
     question: 'Hoe moet ik mij voorbereiden op een gesprek?',
-    answer: 'De belangrijkste gegevens die GreenDee nodig heeft zijn uw kwartierdata, uw energiecontract en de aansluitingsovereenkomst.',
+    answer: 'De belangrijkste gegevens die GreenDee nodig heeft zijn je kwartierdata, je energiecontract en de aansluitingsovereenkomst.',
   },
   {
     question: 'Ik ben een particulier. Kan ik ook terecht bij GreenDee?',
@@ -43,7 +43,7 @@ const faq = [
   },
   {
     question: 'Heeft het zin om contact op te nemen als ik nog géén concreet plan heb?',
-    answer: 'Zeker! Samen met u stellen wij een plan op om uw duurzame investeringsbesluit rond te maken.',
+    answer: 'Zeker! Samen met jou stellen wij een plan op om je duurzame investeringsbesluit rond te maken.',
   },
   {
     question: 'Zit ik ergens aan vast na het gesprek?',
@@ -51,7 +51,7 @@ const faq = [
   },
   {
     question: 'Wat kost een offertetraject of een energiesimulatie?',
-    answer: 'De kosten zijn afhankelijk van de omvang van uw situatie. Dit kunnen wij samen in het gesprek bekijken.',
+    answer: 'De kosten zijn afhankelijk van de omvang van je situatie. Dit kunnen wij samen in het gesprek bekijken.',
   },
 ]
 

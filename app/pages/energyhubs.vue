@@ -7,13 +7,13 @@
     <InnerPageHero
       eyebrow="Onze diensten"
       title="Energyhubs"
-      intro="Wilt u een energiehub beginnen, of een bestaande uitbreiden? Met GreenDee onderzoekt u samen met andere ondernemingen de mogelijkheden. Een energiehub helpt u verduurzamen en helpt u het elektriciteitsnet bij u in de buurt beter te gebruiken. Wij simuleren de energieprofielen, regisseren de hub en kijken mee naar de subsidiemogelijkheden."
+      intro="Wil je een energiehub beginnen, of een bestaande uitbreiden? Met GreenDee onderzoek je samen met andere ondernemingen de mogelijkheden. Een energiehub helpt je verduurzamen en helpt je het elektriciteitsnet bij jou in de buurt beter te gebruiken. Wij simuleren de energieprofielen, regisseren de hub en kijken mee naar de subsidiemogelijkheden."
       image="/v2/hero-energyhubs"
       image-alt="Bedrijventerrein vanuit de lucht"
     />
 
     <NumberedListSection
-      eyebrow="Herkent u dit?"
+      eyebrow="Herken je dit?"
       title="Ondernemers willen door, maar het net zit vol."
       intro="Gemeenten en parkmanagers willen bedrijven verder helpen, maar weten niet per bedrijf wat er nog kan en waar een gezamenlijke oplossing echt nodig is."
       :items="problemen"
@@ -43,7 +43,7 @@
     />
 
     <RoleSection
-      title="Wij rekenen door, u houdt de regie."
+      title="Wij rekenen door, jij houdt de regie."
       body="GreenDee voert de inventarisatie op locatie uit, maakt de energiesimulaties en voegt ze samen tot een ringonderzoek. In fase 2 werken we samen met een partner die het energyhub-traject trekt; wij leveren de onderbouwing waarop de keuzes rusten."
       image="/v2/rol-greendee"
       image-alt="Lars van GreenDee in telefonisch overleg"
@@ -52,8 +52,8 @@
     />
 
     <CtaSection
-      title="Zitten uw ondernemers vast op het net?"
-      body="In een eerste gesprek kijken we hoeveel bedrijven het betreft en welke stap in uw situatie het meeste oplevert."
+      title="Zitten je ondernemers vast op het net?"
+      body="In een eerste gesprek kijken we hoeveel bedrijven het betreft en welke stap in je situatie het meeste oplevert."
       background="white"
     />
   </div>
@@ -82,7 +82,7 @@ const problemen = [
   },
   {
     title: 'Ondernemers haken af',
-    body: 'Tijd van ondernemers is kostbaar. Verspil die niet: maak duidelijke afspraken met milestones, zodat iedereen vooraf weet waar hij aan toe is.',
+    body: 'Tijd van ondernemers is kostbaar. Verspil die niet: maak duidelijke afspraken met milestones, zodat voor iedereen vooraf duidelijk is wat er wanneer gebeurt.',
   },
 ]
 
@@ -136,7 +136,7 @@ const resultaten = [
   { term: 'Groei zonder netverzwaring', description: 'Ondernemers kunnen uitbreiden en verduurzamen zonder te wachten tot het net verzwaard is.' },
   {
     term: 'Subsidie aangevraagd',
-    description: 'Sinds 1 oktober is er een landelijke subsidieregeling voor energyhubs. GreenDee vraagt die voor u aan, '
+    description: 'Sinds 1 oktober is er een landelijke subsidieregeling voor energyhubs. GreenDee vraagt die voor jou aan, '
       + 'waardoor een deel van de kosten wordt gesubsidieerd.',
     href: 'https://www.rvo.nl/subsidies-financiering/ehub',
   },

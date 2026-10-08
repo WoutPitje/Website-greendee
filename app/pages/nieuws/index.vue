@@ -2,7 +2,7 @@
   <div>
     <InnerPageHero
       eyebrow="Kennisbank"
-      title="Antwoord op uw vragen over energie."
+      title="Antwoord op je vragen over energie."
       intro="Uitleg over netcongestie, batterijen, subsidies en wetgeving. Plus het laatste nieuws van GreenDee."
       image="/v2/hero-nieuws"
       image-alt="GreenDee aan het werk"
@@ -25,7 +25,7 @@
               {{ featured.category }}
             </span>
             <span class="text-[13px] font-medium leading-[18px] text-gray-500">
-              {{ featured.readingMinutes }} min lezen
+              {{ featured.readingMinutes }} min. leestijd
             </span>
           </div>
           <h2 class="w-full text-[26px] font-extrabold leading-[34px] text-greendee-ink lg:text-[34px] lg:leading-[42px]">

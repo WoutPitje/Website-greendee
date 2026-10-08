@@ -13,12 +13,15 @@
           />
         </div>
 
-        <div class="flex flex-wrap items-start gap-x-[18px] gap-y-1.5">
-          <span v-for="deel in legenda" :key="deel.label" class="flex items-center gap-[7px]">
-            <span class="size-[11px] shrink-0 rounded-[3px]" :class="deel.klasse" />
+        <!-- Losse li's in plaats van losse span's: zo blijven de drie labels van
+             elkaar gescheiden voor een schermlezer en als CSS wegvalt, in plaats
+             van alleen optisch gescheiden door een flex-gap. -->
+        <ul class="flex flex-wrap items-start gap-x-[18px] gap-y-1.5">
+          <li v-for="deel in legenda" :key="deel.label" class="flex items-center gap-[7px]">
+            <span class="size-[11px] shrink-0 rounded-[3px]" :class="deel.klasse" aria-hidden="true" />
             <span class="text-[13px] font-medium leading-5 text-gray-600">{{ deel.label }}</span>
-          </span>
-        </div>
+          </li>
+        </ul>
       </div>
 
       <div class="flex flex-col gap-3.5 lg:flex-1">

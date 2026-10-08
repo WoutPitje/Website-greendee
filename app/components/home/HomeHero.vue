@@ -34,14 +34,14 @@
       </p>
 
       <h1 class="max-w-[680px] text-[32px] font-extrabold leading-[40px] text-white lg:text-[54px] lg:leading-[62px]">
-        Uw partner in
+        Jouw partner in
         <!-- Geel in plaats van groen: het merkgroen verdwijnt tegen het groene
              verloop, geel houdt het accent leesbaar. -->
         <span class="italic text-greendee-yellow">duurzame energieoplossingen.</span>
       </h1>
 
       <p class="max-w-[520px] text-[16px] font-medium leading-7 text-white/85 lg:text-[18px] lg:leading-8">
-        GreenDee helpt bedrijventerreinen, MKB'ers en agrariërs bij het opzetten,
+        GreenDee helpt bedrijventerreinen, mkb'ers en agrariërs bij het opzetten,
         monitoren en onderhouden van toekomstbestendige energieoplossingen.
       </p>
 

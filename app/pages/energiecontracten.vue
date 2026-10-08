@@ -6,13 +6,13 @@
     <InnerPageHero
       eyebrow="Onze diensten"
       title="Energiecontracten"
-      intro="Uw contractvorm bepaalt wat u betaalt voor dezelfde kilowatturen. GreenDee brengt in kaart welke vorm past bij uw verbruiksprofiel en begeleidt de overstap."
+      intro="Je contractvorm bepaalt wat je betaalt voor dezelfde kilowatturen. GreenDee brengt in kaart welke vorm past bij je verbruiksprofiel en begeleidt de overstap."
       image="/v2/hero-energiecontracten"
       image-alt="Het team van GreenDee in gesprek met een ondernemer"
     />
 
     <NumberedListSection
-      eyebrow="Herkent u dit?"
+      eyebrow="Herken je dit?"
       title="Hetzelfde verbruik, een heel andere rekening."
       intro="Opslagen, tarieven, contractvormen en voorwaarden van energiecontracten zijn het afgelopen jaar sterk veranderd. Het juist beoordelen van een nieuw energiecontract is daarmee van belang."
       :items="problemen"
@@ -26,14 +26,14 @@
 
     <ResultsSection
       title="Een contract dat past bij"
-      title-accent="hoe u werkelijk verbruikt."
+      title-accent="hoe je werkelijk verbruikt."
       :rows="resultaten"
       rounded-top
     />
 
     <RoleSection
-      title="Wij vergelijken, u tekent."
-      body="GreenDee legt uw verbruiksprofiel naast de beschikbare contractvormen, haalt aanbiedingen op bij leveranciers en legt ze naast elkaar op gelijke uitgangspunten. U houdt de keuze en het contract op eigen naam."
+      title="Wij vergelijken, jij tekent."
+      body="GreenDee legt je verbruiksprofiel naast de beschikbare contractvormen, haalt aanbiedingen op bij leveranciers en legt ze naast elkaar op gelijke uitgangspunten. Je houdt de keuze en het contract op eigen naam."
       image="/v2/rol-greendee"
       image-alt="Lars van GreenDee in telefonisch overleg"
       reverse
@@ -41,8 +41,8 @@
     />
 
     <CtaSection
-      title="Loopt uw contract binnenkort af?"
-      body="Begin op tijd. In een eerste gesprek kijken we naar uw verbruiksprofiel en naar wat er in uw situatie te winnen valt."
+      title="Loopt je contract binnenkort af?"
+      body="Begin op tijd. In een eerste gesprek kijken we naar je verbruiksprofiel en naar wat er in je situatie te winnen valt."
       background="white"
     />
   </div>
@@ -52,7 +52,7 @@
 useSeo({
   titel: 'Energiecontracten',
   beschrijving:
-    'GreenDee brengt in kaart welke contractvorm past bij uw verbruiksprofiel en begeleidt de overstap.',
+    'GreenDee brengt in kaart welke contractvorm past bij je verbruiksprofiel en begeleidt de overstap.',
   afbeelding: 'energiecontracten',
 })
 
@@ -62,7 +62,7 @@ const problemen = [
     body: 'Een contract loopt af en de nieuwe aanbieding valt hoger uit, zonder dat duidelijk is welk deel daarvan werkelijk aan de markt ligt.',
   },
   {
-    title: 'De contractvorm past niet bij uw profiel',
+    title: 'De contractvorm past niet bij je profiel',
     body: 'Vast, variabel of dynamisch pakt heel anders uit per bedrijf. Wie kan sturen op verbruik, of gebruik kan maken van een batterij met een goed EMS, komt heel ergens anders uit.',
   },
   {
@@ -78,11 +78,11 @@ const problemen = [
 const stappen = [
   {
     title: 'Verbruiksprofiel ophalen',
-    body: 'Kwartierdata van uw aansluiting, inclusief teruglevering en pieken over een volledig jaar.',
+    body: 'Kwartierdata van je aansluiting, inclusief teruglevering en pieken over een volledig jaar.',
   },
   {
-    title: 'Contractvormen naast uw profiel',
-    body: 'Doorrekening van vast, variabel en dynamisch op uw eigen data, in plaats van op een gemiddeld profiel.',
+    title: 'Contractvormen naast je profiel',
+    body: 'Doorrekening van vast, variabel en dynamisch op je eigen data, in plaats van op een gemiddeld profiel.',
   },
   {
     title: 'Uitvraag bij leveranciers',
@@ -90,14 +90,14 @@ const stappen = [
   },
   {
     title: 'Advies en overstap',
-    body: 'Onderbouwd advies met de aandachtspunten uit de voorwaarden. U tekent zelf; wij begeleiden de overstap.',
+    body: 'Onderbouwd advies met de aandachtspunten uit de voorwaarden. Je tekent zelf; wij begeleiden de overstap.',
   },
 ]
 
 const resultaten = [
-  { term: 'Inzicht', description: 'Wat u werkelijk betaalt per onderdeel: levering, netbeheer, belastingen en opslagen.' },
+  { term: 'Inzicht', description: 'Wat je werkelijk betaalt per onderdeel: levering, netbeheer, belastingen en opslagen.' },
   { term: 'Vergelijkbaar', description: 'Aanbiedingen van leveranciers op gelijke uitgangspunten, naast elkaar te leggen.' },
-  { term: 'Passend', description: 'Een contractvorm die aansluit op uw verbruikspatroon en op uw plannen voor opwek en opslag.' },
-  { term: 'Onderbouwd', description: 'Een keuze die u intern kunt verantwoorden, met de risico’s benoemd.' },
+  { term: 'Passend', description: 'Een contractvorm die aansluit op je verbruikspatroon en op je plannen voor opwek en opslag.' },
+  { term: 'Onderbouwd', description: "Een keuze die je intern kunt verantwoorden, met de risico's benoemd." },
 ]
 </script>

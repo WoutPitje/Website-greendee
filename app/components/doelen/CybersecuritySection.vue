@@ -48,7 +48,7 @@ const stops = [
   {
     jaar: 'Begin 2027',
     titel: 'Cybersecurity als pijler in elk advies',
-    punt: '/v2/doelen/punt-behaald.svg',
+    punt: '/v2/doelen/punt-open.svg',
     body: 'Vanaf 1 januari 2027 bevat elk advies en elke offerte een securityparagraaf: '
       + 'netwerkscheiding van EMS en laadinfra, toegangsbeheer, updatebeleid van leveranciers '
       + 'en eisen aan monitoring. Vastgelegd als checklist in het kwaliteitshandboek.',
@@ -57,7 +57,7 @@ const stops = [
   {
     jaar: 'Eind 2027',
     titel: 'Alle servers en data in Europa',
-    punt: '/v2/doelen/punt-behaald.svg',
+    punt: '/v2/doelen/punt-open.svg',
     body: 'GreenDee Compass, NetcongestieOpgelost.nl, monitoring, CRM en administratie '
       + 'draaien uiterlijk 31 december 2027 op servers in de EU. Datalocatie en '
       + 'verwerkersovereenkomsten leggen we contractueel vast bij elke leverancier.',
@@ -68,7 +68,7 @@ const stops = [
     titel: 'ISO 27001 gecertificeerd',
     punt: '/v2/doelen/punt-open.svg',
     body: 'Informatiebeveiligingsbeheer volgens ISO 27001.',
-    meetbaar: 'certificaat behaald in 2030; pentestrapport zonder openstaande hoge risico’s.',
+    meetbaar: 'certificaat behaald in 2030; pentestrapport zonder openstaande hoge risico\'s.',
     laatste: true,
   },
 ]
