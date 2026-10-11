@@ -63,7 +63,7 @@
 // watermark doesn't contradict the number in front of it.
 const stats = [
   { ghost: '25+', value: '25+', label: 'bedrijven geholpen', highlight: false },
-  { ghost: '99%', value: '99%', label: 'klanttevredenheid', highlight: true },
+  { ghost: '4,5', value: '4,5/5', label: 'sterren van klanten', highlight: true },
   { ghost: '5+', value: '5+', label: 'jaar ervaring', highlight: false },
 ]
 </script>

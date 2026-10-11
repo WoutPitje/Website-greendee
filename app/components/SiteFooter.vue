@@ -4,9 +4,22 @@
       <!-- Logo + copyright -->
       <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
         <img src="/v2/logo-white.png" alt="GreenDee" class="h-[49px] w-auto" width="269" height="49">
-        <p class="text-body font-medium text-white">
-          &copy; {{ new Date().getFullYear() }} GreenDee. Alle rechten voorbehouden.
-        </p>
+        <div class="flex flex-col gap-1.5 sm:items-end">
+          <p class="text-body font-medium text-white">
+            &copy; {{ new Date().getFullYear() }} GreenDee. Alle rechten voorbehouden.
+          </p>
+          <!-- Het lidmaatschap hoort bij de waarmerken en niet bij de navigatie:
+               het zegt iets over wie wij zijn, niet waar je heen kunt. -->
+          <p class="text-[14px] font-medium leading-5 text-white/70">
+            Lid van
+            <a
+              href="https://www.fedec.nl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-bold text-white underline underline-offset-2 transition-opacity hover:opacity-70"
+            >FedEC</a>, de beroepsvereniging van energieadviseurs.
+          </p>
+        </div>
       </div>
 
       <div class="h-px w-full bg-white/20" />

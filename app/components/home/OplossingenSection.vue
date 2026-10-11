@@ -52,6 +52,13 @@
         </div>
       </NuxtLink>
     </div>
+
+    <NuxtLink
+      to="/diensten"
+      class="flex items-center justify-center rounded-full border-2 border-greendee-green px-6 py-3.5 text-[16px] font-bold leading-[22px] text-greendee-green transition-colors hover:bg-greendee-green hover:text-white"
+    >
+      Bekijk alle diensten
+    </NuxtLink>
   </section>
 </template>
 
