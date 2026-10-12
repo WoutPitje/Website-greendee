@@ -1,0 +1,175 @@
+{
+  "gemaakt": "2026-10-12",
+  "waarom": "Back-up van het veld status voordat het hernoemd wordt naar projectStatus. status is een gereserveerde naam in Strapi 5 en kon niet meer worden opgeslagen.",
+  "aantal": 28,
+  "referenties": [
+    {
+      "documentId": "tlp2t22411c6p09b0u3795eb",
+      "title": "Stichting Sensire",
+      "slug": "stichting-sensire-zutphen",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "v9qc7vc3k9hu697tv9idhmm9",
+      "title": "Handel- en transportbedrijf A.N. Boekel",
+      "slug": "handel-en-transportbedrijf-a-n-boekel-oudkarspel",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "bo5j2cyk7yxgksxduhgpbb4w",
+      "title": "Windraak 1",
+      "slug": "windraak-1-windraak",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "eui8bu4lrjhjtmpjzph95e7b",
+      "title": "Hoek Bouma B.V.",
+      "slug": "hoek-bouma-b-v-de-goorn",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "cu4l9qax7ikj9mz0doln7orh",
+      "title": "Zeevisgroothandel C.J. Langbroek B.V.",
+      "slug": "zeevisgroothandel-c-j-langbroek-b-v-ijmuiden",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "ytpm7f8txz4lgdd4h0dosb4r",
+      "title": "VOF Grubben",
+      "slug": "vof-grubben-swifterbant",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "yl1w4eizg2p61eswaeopypmt",
+      "title": "Pluimveehouderij Schipper",
+      "slug": "pluimveehouderij-schipper-putten",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "n62i2g1qcufmi7p6ayko7g42",
+      "title": "Den Akker Pluimvee",
+      "slug": "den-akker-lunteren",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "egppplrhn2ra3lsldxzzfelg",
+      "title": "Den Akker Pluimvee",
+      "slug": "den-akker-nijkerk",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "sanruyk8rl11q9ho6tx19poa",
+      "title": "Fresh2You",
+      "slug": "fresh2you",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "xoiojcij6by972vaitmkmacy",
+      "title": "Herko Vastgoed",
+      "slug": "herko-vastgoed",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "l1qblbrrg8wfue61ar3ihu04",
+      "title": "Heteren Melkgeiten",
+      "slug": "heteren-melkgeiten",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "jfhijvp3ytuhma7ciyniso6j",
+      "title": "De Adelhof Pluimvee",
+      "slug": "de-adelhof",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "hmo7uxayp278zimqpxjmy5ui",
+      "title": "De Linge Pluimvee",
+      "slug": "de-linge",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "ramd6qkqc9dc0jjp9uo7m1qi",
+      "title": "'t Trichtse Veld",
+      "slug": "t-trichtse-veld",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "u5mc7tcqh91u8bxrsltrgdtt",
+      "title": "'t Woud",
+      "slug": "t-woud",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "d0ywyjl2kixfteaqjxc816nk",
+      "title": "Widdonckschool",
+      "slug": "widdonckschool",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "a253uhjpewppvj0vqqo2vgga",
+      "title": "Amsterdam Warehouse Company",
+      "slug": "amsterdam-warehouse-company",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "gd6qggd13z4csagt1styb79d",
+      "title": "Maatschap de Koemkolk",
+      "slug": "maatschap-de-koemkolk",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "jo8djg1mk9vdk4s6w2egmpoy",
+      "title": "Akkerbouw en Loonwerk Glas",
+      "slug": "akkerbouw-loonwerk-glas",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "ukfhx31r5f2wle24ktdea3b2",
+      "title": "G.P. Muileboom B.V.",
+      "slug": "gp-muileboom",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "dkz6hutr6iw90rft6ar2hnil",
+      "title": "Aventurijn",
+      "slug": "aventurijn-nijmegen",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "dyb6r6rfezcqnswuos64jzd9",
+      "title": "Roelofsen Machineverhuur & Grondwerken BV",
+      "slug": "roelofsen-machineverhuur-grondwerken-bv-zuidschermer",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "sii3thhll3xlxovqp0b66whi",
+      "title": "Voltastraat",
+      "slug": "voltastraat-purmerend",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "slmwoeqrt5gsszwa3rjw2prc",
+      "title": "Burgerboerderij Oosterwold",
+      "slug": "burgerboerderij-oosterwold-zeewolde",
+      "status": "In ontwikkeling"
+    },
+    {
+      "documentId": "vs4oc9jogt4o16ukmv7y3jxx",
+      "title": "De Methorst Melkgeiten en Pluimvee",
+      "slug": "de-methorst",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "s2cvo6uahdo6kf1hoybpl9n5",
+      "title": "Bakkums Boetje",
+      "slug": "bakkums-boetje",
+      "status": "Gerealiseerd"
+    },
+    {
+      "documentId": "ozzgwkasx2w89c3isn3cggxd",
+      "title": "Kwekerij Boekel",
+      "slug": "kwekerij-boekel",
+      "status": "Gerealiseerd"
+    }
+  ]
+}

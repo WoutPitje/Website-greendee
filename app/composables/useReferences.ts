@@ -25,6 +25,8 @@ interface StrapiReference {
   capacity?: string
   specs?: string
   category?: string
+  projectStatus?: string
+  /** Oude veldnaam. Zie de opmerking bij `status` hieronder. */
   status?: string
   description?: string
   featured?: boolean
@@ -42,8 +44,12 @@ function toReference(entry: StrapiReference): Reference {
     capacity: entry.capacity ?? '',
     specs: entry.specs ?? '',
     category: entry.category ?? '',
-    // Entries from before the status field existed count as delivered work.
-    status: entry.status ?? 'Gerealiseerd',
+    // Het CMS-veld heette `status`, maar die naam is in Strapi 5 gereserveerd:
+    // de waarde was wel te lezen en niet meer op te slaan. Nu heet het
+    // `projectStatus`. De terugval op de oude naam blijft staan tot het oude
+    // veld uit het schema is; daarna valt hij vanzelf droog.
+    // Records van vóór dit veld tellen als opgeleverd werk.
+    status: entry.projectStatus ?? entry.status ?? 'Gerealiseerd',
     description: entry.description ?? '',
     // Strapi returns /uploads/…; serve it through our own proxy.
     image: url.startsWith('/') ? `/cms${url}` : url,

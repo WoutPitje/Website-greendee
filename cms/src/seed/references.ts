@@ -117,7 +117,7 @@ async function runBatch(strapi: Core.Strapi, batch: SeedBatch) {
           capacity: entry.capacity ?? '',
           specs: entry.specs ?? '',
           category: entry.category,
-          status: entry.status ?? 'Gerealiseerd',
+          projectStatus: entry.status ?? 'Gerealiseerd',
           description: entry.description,
           featured: Boolean(entry.featured),
           imageIsLogo: Boolean(entry.imageIsLogo),
@@ -243,11 +243,53 @@ async function refreshImages(strapi: Core.Strapi) {
   await store.set({ value: true })
 }
 
+// `status` bleek een gereserveerde veldnaam in Strapi 5, naast documentId,
+// locale en publishedAt. Via de document-service was hij nog te schrijven
+// (de waarde zit daar genest in `data`), maar in het adminpaneel en over de
+// REST-API wordt `status` onderschept als concept/gepubliceerd. Gevolg: elke
+// referentie was wel te lezen en niet meer op te slaan — het paneel gaf
+// "Invalid status". Daarom heet het veld nu `projectStatus`.
+//
+// Deze migratie zet de bestaande waarden over. Hij draait via de
+// document-service en kan daardoor wél bij allebei de velden.
+async function migrateStatusNaarProjectStatus(strapi: Core.Strapi) {
+  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'projectstatus-gemigreerd' })
+  if (await store.get()) return
+
+  const docs = strapi.documents('api::reference.reference')
+  let overgezet = 0
+
+  // Concepten horen er ook bij: juist die zijn in het paneel blijven hangen.
+  for (const documentStatus of ['published', 'draft'] as const) {
+    const alle = await docs.findMany({ status: documentStatus, limit: 500 })
+
+    for (const entry of alle) {
+      const huidig = (entry as Record<string, unknown>).projectStatus
+      if (huidig) continue
+
+      const oud = (entry as Record<string, unknown>).status
+      // Een record dat nooit een geldige waarde had telt als opgeleverd werk.
+      const waarde = oud === 'In ontwikkeling' || oud === 'Gerealiseerd' ? oud : 'Gerealiseerd'
+
+      await docs.update({
+        documentId: entry.documentId,
+        data: { projectStatus: waarde },
+        status: documentStatus,
+      })
+      overgezet++
+    }
+  }
+
+  strapi.log.info(`[seed] projectStatus gevuld op ${overgezet} referenties`)
+  await store.set({ value: true })
+}
+
 export async function seedReferences(strapi: Core.Strapi) {
   for (const batch of BATCHES) {
     await runBatch(strapi, batch)
   }
   await backfillStatus(strapi)
+  await migrateStatusNaarProjectStatus(strapi)
   await markLogos(strapi)
   await refreshImages(strapi)
 }

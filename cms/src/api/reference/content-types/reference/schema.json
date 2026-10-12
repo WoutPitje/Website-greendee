@@ -30,14 +30,31 @@
     },
     "category": {
       "type": "enumeration",
-      "enum": ["Energiehandel", "Netcongestie", "Energie-optimalisatie", "Elektrificatie"],
+      "enum": [
+        "Energiehandel",
+        "Netcongestie",
+        "Energie-optimalisatie",
+        "Elektrificatie"
+      ],
       "required": true
     },
     "status": {
       "type": "enumeration",
-      "enum": ["Gerealiseerd", "In ontwikkeling"],
+      "enum": [
+        "Gerealiseerd",
+        "In ontwikkeling"
+      ],
       "default": "Gerealiseerd",
       "required": true
+    },
+    "projectStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Gerealiseerd",
+        "In ontwikkeling"
+      ],
+      "default": "Gerealiseerd",
+      "description": "Vervangt het veld status. In Strapi 5 is \"status\" een gereserveerde naam (naast documentId, locale en publishedAt), waardoor dat veld wel te lezen maar niet meer op te slaan was."
     },
     "specs": {
       "type": "string",
@@ -51,7 +68,9 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "imageIsLogo": {
       "type": "boolean",
