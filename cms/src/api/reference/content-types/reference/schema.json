@@ -38,15 +38,6 @@
       ],
       "required": true
     },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "Gerealiseerd",
-        "In ontwikkeling"
-      ],
-      "default": "Gerealiseerd",
-      "required": true
-    },
     "projectStatus": {
       "type": "enumeration",
       "enum": [
@@ -54,7 +45,8 @@
         "In ontwikkeling"
       ],
       "default": "Gerealiseerd",
-      "description": "Vervangt het veld status. In Strapi 5 is \"status\" een gereserveerde naam (naast documentId, locale en publishedAt), waardoor dat veld wel te lezen maar niet meer op te slaan was."
+      "required": true,
+      "description": "Heette eerder \"status\". Die naam is in Strapi 5 gereserveerd, waardoor het veld wel te lezen maar niet op te slaan was."
     },
     "specs": {
       "type": "string",

@@ -522,13 +522,11 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
     projectStatus: Schema.Attribute.Enumeration<
       ['Gerealiseerd', 'In ontwikkeling']
     > &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Gerealiseerd'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     specs: Schema.Attribute.String;
-    status: Schema.Attribute.Enumeration<['Gerealiseerd', 'In ontwikkeling']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Gerealiseerd'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

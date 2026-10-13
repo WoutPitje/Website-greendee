@@ -117,9 +117,6 @@ async function runBatch(strapi: Core.Strapi, batch: SeedBatch) {
           capacity: entry.capacity ?? '',
           specs: entry.specs ?? '',
           category: entry.category,
-          // Allebei zolang het oude veld nog verplicht in het schema staat.
-          // `status` gaat eruit zodra de migratie bevestigd is.
-          status: entry.status ?? 'Gerealiseerd',
           projectStatus: entry.status ?? 'Gerealiseerd',
           description: entry.description,
           featured: Boolean(entry.featured),
@@ -143,30 +140,6 @@ async function runBatch(strapi: Core.Strapi, batch: SeedBatch) {
   if (imported + skipped === entries.length) {
     await store.set({ value: true })
   }
-}
-
-// `status` was added after the first 17 were already imported, so those rows
-// have no value. Fill them in once, otherwise the field shows up empty in the
-// admin and an editor has to pick a value before they can save anything else.
-async function backfillStatus(strapi: Core.Strapi) {
-  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'status-backfilled' })
-  if (await store.get()) return
-
-  const docs = strapi.documents('api::reference.reference')
-  const missing = await docs.findMany({ filters: { status: { $null: true } }, limit: 500 })
-
-  for (const entry of missing) {
-    await docs.update({
-      documentId: entry.documentId,
-      data: { status: 'Gerealiseerd' },
-      status: 'published',
-    })
-  }
-
-  if (missing.length) {
-    strapi.log.info(`[seed] backfilled status on ${missing.length} references`)
-  }
-  await store.set({ value: true })
 }
 
 // `imageIsLogo` was added after a batch had already been imported, so flag the
@@ -302,7 +275,6 @@ export async function seedReferences(strapi: Core.Strapi) {
   for (const batch of BATCHES) {
     await runBatch(strapi, batch)
   }
-  await backfillStatus(strapi)
   await migrateStatusNaarProjectStatus(strapi)
   await markLogos(strapi)
   await refreshImages(strapi)
