@@ -253,37 +253,48 @@ async function refreshImages(strapi: Core.Strapi) {
 // referentie was wel te lezen en niet meer op te slaan — het paneel gaf
 // "Invalid status". Daarom heet het veld nu `projectStatus`.
 //
-// Deze migratie zet de bestaande waarden over. Hij draait via de
-// document-service en kan daardoor wél bij allebei de velden.
+// Deze migratie zet de bestaande waarden over.
+//
+// De sleutel heeft een -v2: de eerste poging schreef alleen naar de
+// concepten. `update` raakt in Strapi 5 namelijk altijd het concept, ook als
+// je er `status: 'published'` bij meegeeft — dat is een filter, geen opdracht
+// om te publiceren. De site leest de gepubliceerde versie en zag dus niets.
+// Daarom publiceren we hier expliciet na het bijwerken.
 async function migrateStatusNaarProjectStatus(strapi: Core.Strapi) {
-  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'projectstatus-gemigreerd' })
+  const store = strapi.store({ type: 'plugin', name: 'greendee', key: 'projectstatus-gemigreerd-v2' })
   if (await store.get()) return
 
   const docs = strapi.documents('api::reference.reference')
   let overgezet = 0
+  let opnieuwGepubliceerd = 0
 
-  // Concepten horen er ook bij: juist die zijn in het paneel blijven hangen.
-  for (const documentStatus of ['published', 'draft'] as const) {
-    const alle = await docs.findMany({ status: documentStatus, limit: 500 })
+  // Via de concepten, want elk document heeft er een; gepubliceerde versies
+  // zijn een afgeleide daarvan.
+  const alle = await docs.findMany({ status: 'draft', limit: 500 })
 
-    for (const entry of alle) {
-      const huidig = (entry as Record<string, unknown>).projectStatus
-      if (huidig) continue
+  for (const entry of alle) {
+    const { documentId } = entry
 
-      const oud = (entry as Record<string, unknown>).status
-      // Een record dat nooit een geldige waarde had telt als opgeleverd werk.
-      const waarde = oud === 'In ontwikkeling' || oud === 'Gerealiseerd' ? oud : 'Gerealiseerd'
+    // Was dit document gepubliceerd? Dan moet de nieuwe waarde daar ook heen.
+    const gepubliceerd = await docs.findOne({ documentId, status: 'published' })
 
-      await docs.update({
-        documentId: entry.documentId,
-        data: { projectStatus: waarde },
-        status: documentStatus,
-      })
-      overgezet++
+    const bron = (gepubliceerd ?? entry) as Record<string, unknown>
+    const oud = bron.status
+    // Een record dat nooit een geldige waarde had telt als opgeleverd werk.
+    const waarde = oud === 'In ontwikkeling' || oud === 'Gerealiseerd' ? oud : 'Gerealiseerd'
+
+    await docs.update({ documentId, data: { projectStatus: waarde } })
+    overgezet++
+
+    if (gepubliceerd) {
+      await docs.publish({ documentId })
+      opnieuwGepubliceerd++
     }
   }
 
-  strapi.log.info(`[seed] projectStatus gevuld op ${overgezet} referenties`)
+  strapi.log.info(
+    `[seed] projectStatus gevuld op ${overgezet} referenties, waarvan ${opnieuwGepubliceerd} opnieuw gepubliceerd`,
+  )
   await store.set({ value: true })
 }
 
