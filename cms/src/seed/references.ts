@@ -117,6 +117,9 @@ async function runBatch(strapi: Core.Strapi, batch: SeedBatch) {
           capacity: entry.capacity ?? '',
           specs: entry.specs ?? '',
           category: entry.category,
+          // Allebei zolang het oude veld nog verplicht in het schema staat.
+          // `status` gaat eruit zodra de migratie bevestigd is.
+          status: entry.status ?? 'Gerealiseerd',
           projectStatus: entry.status ?? 'Gerealiseerd',
           description: entry.description,
           featured: Boolean(entry.featured),

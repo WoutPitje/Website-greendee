@@ -519,6 +519,10 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
+    projectStatus: Schema.Attribute.Enumeration<
+      ['Gerealiseerd', 'In ontwikkeling']
+    > &
+      Schema.Attribute.DefaultTo<'Gerealiseerd'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     specs: Schema.Attribute.String;
